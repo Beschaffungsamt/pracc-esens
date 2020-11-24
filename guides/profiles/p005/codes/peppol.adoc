@@ -1,7 +1,7 @@
 
 = PEPPOL Identifiers
 
-[NOTE]
+[WARNING]
 TODO: Mondorf
 
 PEPPOL has defined a Policy for Using Identifiers that specifies how to use identifiers in both its transport infrastructure and within the documents exchanged across that infrastructure. It also introduces principles for any identifiers used in the PEPPOL environment.
@@ -21,13 +21,13 @@ All transactions within this profile uses the same profile identifier.
 | `cbc:ProfileID`
 
 | T009
-| Tendering Questions
-| The EO sends questions for the Call for Tender to the CA.
+| Tender Clarification Request
+| The CA sends a tender clarification request to the EO.
 .2+.^| urn:fdc:peppol.eu:2020:pracc:p005:01:1.0
 
 | T010
-| Tender Answers
-| The CA sends answers to all subscribed EOs.
+| Tender Clarification
+| The EO sends a tender clarification to the CA.
 
 |===
 

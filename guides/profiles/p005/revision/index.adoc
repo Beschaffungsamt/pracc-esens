@@ -1,8 +1,5 @@
 = Revision history
 
-[NOTE]
-TODO: Mondorf
-
 [cols="1,2,3,2,4", options="header"]
 |===
 | Version
@@ -13,8 +10,8 @@ TODO: Mondorf
 
 | 0.1
 | 2020-11-23
-| Schömer
+| Jörg Schömer
 | adesso SE
-| copied from P004
+| First draft
 
 |===

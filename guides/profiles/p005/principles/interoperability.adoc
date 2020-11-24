@@ -22,5 +22,5 @@ It applies the Framework as follows:
 
 . Technical interoperability
 * Technical Interaction (Process and semantic implementation):
-** Use of transport specifications are described in the {link-eDelivery}[BIS eDelivery guide for pre-award]
-** Use of cryptographic specifications are described in the {link-eDocument}[BIS eDocuments guide for pre-award]
+** Use of transport specifications are described in the {link-eDelivery}
+** Use of cryptographic specifications are described in the {link-eDocument}
