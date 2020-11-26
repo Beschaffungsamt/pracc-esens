@@ -7,7 +7,7 @@
     <Name>Tender Clarification (T010)</Name>
     <Document>
         <Term>t010:EnquiryResponse</Term>
-        <Name>Tender Clarification, root element for Tender Clarification</Name>
+        <Name>Root element for Tender Clarification</Name>
         <Reference type="RULE">PEPPOL-T010-R001</Reference>
         <Reference type="RULE">PEPPOL-T010-R003</Reference>
         <Reference type="RULE">PEPPOL-T010-R005</Reference>
@@ -40,8 +40,7 @@
         <Element>
             <Term>cbc:ID</Term>
             <Name>Tender Clarification identifier</Name>
-            <Description>Identifies the Tender Clarification as issued by the contracting body. Must be expressed as a UUID
-            </Description>
+            <Description>Identifies the Tender Clarification as issued by the contracting body. Must be expressed as a UUID</Description>
             <DataType>Identifier</DataType>
             <Reference type="RULE">PEPPOL-T010-R008</Reference>
             <Attribute>
@@ -68,14 +67,14 @@
         </Element>
         <Element cardinality="1..n">
             <Term>cbc:Description</Term>
-            <Name>Tendering response</Name>
-            <Description>The Tender Clarification that are send to the economic operator.</Description>
+            <Name>Tender clarification response</Name>
+            <Description>The Tender Clarification that are send to the contracting body.</Description>
             <DataType>Text</DataType>
         </Element>
         <Element>
             <Term>cac:RequestorParty</Term>
             <Name>The Contracting body</Name>
-            <Description>Party information of the contracting body</Description>
+            <Description>Party information of the contracting body.</Description>
             <Reference type="RULE">PEPPOL-T010-R021</Reference>
             <Element>
                 <Term>cbc:EndpointID</Term>
@@ -169,7 +168,7 @@
             <Element>
                 <Term>cbc:ID</Term>
                 <Name>Document identifier</Name>
-                <Description>Identification of the document reference</Description>
+                <Description>An identifier that is specified by the buyer and used as a reference number for all documents in the procurement process. It is also known as procurement project identifier, procurement reference number or contract folder identifier.</Description>
                 <DataType>Identifier</DataType>
             </Element>
         </Element>

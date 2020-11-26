@@ -113,6 +113,18 @@
         <Title>PEPPOL T008 rules</Title>
     </Resource>
     <Resource>
+        <Identifier>T009</Identifier>
+        <Type>native:Schematron</Type>
+        <Path>rules/tender-clarification-1.0/PEPPOL-T009.sch</Path>
+        <Title>PEPPOL T009 rules</Title>
+    </Resource>
+    <Resource>
+        <Identifier>T010</Identifier>
+        <Type>native:Schematron</Type>
+        <Path>rules/tender-clarification-1.0/PEPPOL-T010.sch</Path>
+        <Title>PEPPOL T010 rules</Title>
+    </Resource>
+    <Resource>
         <Identifier>BIIT004</Identifier>
         <Type>native:Schematron</Type>
         <Path>rules/peppol-call-for-tender-1.0/CENBII/BIIRULES-UBL-T83_eSENS.sch</Path>
