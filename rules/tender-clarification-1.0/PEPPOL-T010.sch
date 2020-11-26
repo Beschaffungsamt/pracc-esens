@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schema xmlns="http://purl.oclc.org/dsdl/schematron" queryBinding="xslt2">
-    <title>eSENS business and syntax rules for Tender Clarification</title>
+    <title>eSENS business and syntax rules for tender clarification</title>
 
     <ns prefix="cbc" uri="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" />
     <ns prefix="cac" uri="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" />
@@ -9,19 +9,19 @@
 
     <pattern>
         <rule context="*">
-            <report id="PEPPOL-T010-S001" flag="fatal" test="normalize-space(.) = '' and not(*)">A Tender Clarification document MUST NOT contain empty elements.</report>
+            <report id="PEPPOL-T010-S001" flag="fatal" test="normalize-space(.) = '' and not(*)">A tender clarification document MUST NOT contain empty elements.</report>
         </rule>
     </pattern>
 
     <pattern>
-        <let name="syntaxError" value="string('A Tender Clarification document SHOULD only contain elements and attributes described in the syntax mapping. - ')" />
+        <let name="syntaxError" value="string('A tender clarification document SHOULD only contain elements and attributes described in the syntax mapping. - ')" />
         <rule context="ubl:EnquiryResponse">
-            <assert id="PEPPOL-T010-R001" flag="fatal" test="(cbc:UBLVersionID)">A Tender Clarification MUST have a syntax identifier.</assert>
-            <assert id="PEPPOL-T010-R003" flag="fatal" test="(cbc:CustomizationID)">A Tender Clarification MUST have a specification (customization) identifier.</assert>
-            <assert id="PEPPOL-T010-R005" flag="fatal" test="(cbc:ProfileID)">A Tender Clarification MUST have a business process (profile) identifier.</assert>
-            <assert id="PEPPOL-T010-R007" flag="fatal" test="(cbc:ID)">A Tender Clarification MUST have a Tender Clarification identifier.</assert>
-            <assert id="PEPPOL-T010-R011" flag="fatal" test="(cbc:IssueTime)">A Tender Clarification MUST have an issue time.</assert>
-            <assert id="PEPPOL-T010-R014" flag="fatal" test="count(cbc:Description) > 0">A Tender Clarification MUST have a Tendering response.</assert>
+            <assert id="PEPPOL-T010-R001" flag="fatal" test="(cbc:UBLVersionID)">A tender clarification MUST have a syntax identifier.</assert>
+            <assert id="PEPPOL-T010-R003" flag="fatal" test="(cbc:CustomizationID)">A tender clarification MUST have a specification (customization) identifier.</assert>
+            <assert id="PEPPOL-T010-R005" flag="fatal" test="(cbc:ProfileID)">A tender clarification MUST have a business process (profile) identifier.</assert>
+            <assert id="PEPPOL-T010-R007" flag="fatal" test="(cbc:ID)">A tender clarification MUST have a tender clarification identifier.</assert>
+            <assert id="PEPPOL-T010-R011" flag="fatal" test="(cbc:IssueTime)">A tender clarification MUST have an issue time.</assert>
+            <assert id="PEPPOL-T010-R014" flag="fatal" test="count(cbc:Description) > 0">A tender clarification MUST have a Tendering response.</assert>
 
             <!-- disallowed elements from ubl:Enquiry -->
             <report id="PEPPOL-T010-S301" flag="warning" test="(cbc:LatestReplyDate)"><value-of select="$syntaxError" />LatestReplyDate SHOULD NOT be used.</report>
@@ -37,19 +37,19 @@
         </rule>
 
         <rule context="ubl:EnquiryResponse/cbc:CustomizationID">
-            <assert id="PEPPOL-T010-R004" flag="fatal" test="normalize-space(.) = 'urn:www.cenbii.eu:transaction:biitrdm085:ver3.0:extended:urn:fdc:peppol.eu:2020:pracc:t008:ver1.0'">CustomizationID value MUST be 'urn:www.cenbii.eu:transaction:biitrdm085:ver3.0:extended:urn:fdc:peppol.eu:2020:pracc:t008:ver1.0'</assert>
+            <assert id="PEPPOL-T010-R004" flag="fatal" test="normalize-space(.) = 'urn:www.cenbii.eu:transaction:biitrdm085:ver3.0:extended:urn:fdc:peppol.eu:2020:pracc:t010:ver1.0'">CustomizationID value MUST be 'urn:www.cenbii.eu:transaction:biitrdm085:ver3.0:extended:urn:fdc:peppol.eu:2020:pracc:t010:ver1.0'</assert>
             <report id="PEPPOL-T010-S307" flag="warning" test="./@*"><value-of select="$syntaxError" />CustomizationID SHOULD NOT have any attributes.</report>
         </rule>
 
         <rule context="ubl:EnquiryResponse/cbc:ProfileID">
-            <assert id="PEPPOL-T010-R006" flag="fatal" test="normalize-space(.) = 'urn:fdc:peppol.eu:2020:pracc:p004:01:1.0'">ProfileID value MUST be 'urn:fdc:peppol.eu:2020:pracc:p004:01:1.0'</assert>
+            <assert id="PEPPOL-T010-R006" flag="fatal" test="normalize-space(.) = 'urn:fdc:peppol.eu:2020:pracc:p005:01:1.0'">ProfileID value MUST be 'urn:fdc:peppol.eu:2020:pracc:p005:01:1.0'</assert>
             <report id="PEPPOL-T010-S308" flag="warning" test="./@*"><value-of select="$syntaxError" />ProfileID SHOULD NOT have any attributes.</report>
         </rule>
 
         <rule context="ubl:EnquiryResponse/cbc:ID">
-            <assert id="PEPPOL-T010-R008" flag="fatal" test="matches(normalize-space(.),'^[a-fA-F0-9]{8}(\-[a-fA-F0-9]{4}){3}\-[a-fA-F0-9]{12}$')">A Tender Clarification Identifier MUST be expressed in a UUID syntax (RFC 4122)</assert>
-            <assert id="PEPPOL-T010-R009" flag="fatal" test="./@schemeURI">A Tender Clarification Identifier MUST have a schemeURI attribute.</assert>
-            <assert id="PEPPOL-T010-R010" flag="warning" test="normalize-space(./@schemeURI)='urn:uuid'">schemeURI for Tender Clarification Identifier MUST be 'urn:uuid'.</assert>
+            <assert id="PEPPOL-T010-R008" flag="fatal" test="matches(normalize-space(.),'^[a-fA-F0-9]{8}(\-[a-fA-F0-9]{4}){3}\-[a-fA-F0-9]{12}$')">A tender clarification Identifier MUST be expressed in a UUID syntax (RFC 4122)</assert>
+            <assert id="PEPPOL-T010-R009" flag="fatal" test="./@schemeURI">A tender clarification Identifier MUST have a schemeURI attribute.</assert>
+            <assert id="PEPPOL-T010-R010" flag="warning" test="normalize-space(./@schemeURI)='urn:uuid'">schemeURI for tender clarification Identifier MUST be 'urn:uuid'.</assert>
             <report id="PEPPOL-T010-S309" flag="warning" test="./@*[not(name()='schemeURI')]"><value-of select="$syntaxError" />ID SHOULD NOT have any further attributes but schemeURI</report>
         </rule>
 
@@ -59,8 +59,8 @@
         </rule>
 
         <rule context="ubl:EnquiryResponse/cac:RequestorParty">
-            <assert id="PEPPOL-T010-R015" flag="fatal" test="(./cac:PartyIdentification) and (./cbc:EndpointID)">A Tender Clarification MUST identify the Economic Operator by its party identifier and its endpoint identifier.</assert>
-            <assert id="PEPPOL-T010-R020" flag="warning" test="(./cac:PartyName)">A Tender Clarification SHOULD include the name of the Economic Operator.</assert>
+            <assert id="PEPPOL-T010-R015" flag="fatal" test="(./cac:PartyIdentification) and (./cbc:EndpointID)">A tender clarification MUST identify the Economic Operator by its party identifier and its endpoint identifier.</assert>
+            <assert id="PEPPOL-T010-R020" flag="warning" test="(./cac:PartyName)">A tender clarification SHOULD include the name of the Economic Operator.</assert>
 
             <assert id="PEPPOL-T010-S310" flag="warning" test="count(./*)-count(./cac:PartyIdentification)-count(./cbc:EndpointID)-count(./cac:PartyName)= 0"><value-of select="$syntaxError" />Party SHOULD NOT contain any elements but EndpointID, PartyIdentification, PartyName</assert>
             <report id="PEPPOL-T010-S311" flag="warning" test="count(./cac:PartyName) &gt; 1"><value-of select="$syntaxError" />PartyName SHOULD NOT be used more than once</report>
@@ -82,7 +82,7 @@
         </rule>
 
         <rule context="ubl:EnquiryResponse/cac:ResponderParty">
-            <assert id="PEPPOL-T010-R021" flag="fatal" test="(./cac:PartyIdentification) and (./cbc:EndpointID)">A Tender Clarification MUST identify the contracting body by its party identifier and its endpoint identifier.</assert>
+            <assert id="PEPPOL-T010-R021" flag="fatal" test="(./cac:PartyIdentification) and (./cbc:EndpointID)">A tender clarification MUST identify the contracting body by its party identifier and its endpoint identifier.</assert>
             <assert id="PEPPOL-T010-S315" flag="warning" test="count(./*)-count(./cac:PartyIdentification)-count(./cbc:EndpointID)-count(./cac:PartyName)= 0"><value-of select="$syntaxError" />Party SHOULD NOT contain any elements but EndpointID, PartyIdentification, PartyName</assert>
 
             <report id="PEPPOL-T010-S316" flag="warning" test="count(./cac:PartyName) &gt; 1"><value-of select="$syntaxError" />PartyName SHOULD NOT be used more than once</report>
