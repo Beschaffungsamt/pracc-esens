@@ -58,7 +58,7 @@
         </rule>
 
         <rule context="ubl:Enquiry/cac:RequestorParty">
-            <assert id="PEPPOL-T009-R014" flag="fatal" test="(./cac:PartyIdentification) and (./cbc:EndpointID)">A tender clarification request MUST identify the Economic Operator by its party identifier and its endpoint identifier.</assert>
+            <assert id="PEPPOL-T009-R014" flag="fatal" test="(./cac:PartyIdentification) and (./cbc:EndpointID)">A tender clarification request MUST identify the contracting body by its party identifier and its endpoint identifier.</assert>
             <assert id="PEPPOL-T009-R019" flag="warning" test="(./cac:PartyName)">A tender clarification request SHOULD include the name of the contracting body.</assert>
 
             <assert id="PEPPOL-T009-S310" flag="warning" test="count(./*)-count(./cac:PartyIdentification)-count(./cbc:EndpointID)-count(./cac:PartyName)= 0"><value-of select="$syntaxError" />Party SHOULD NOT contain any elements but EndpointID, PartyIdentification, PartyName</assert>
@@ -81,7 +81,7 @@
         </rule>
 
         <rule context="ubl:Enquiry/cac:ResponderParty">
-            <assert id="PEPPOL-T009-R020" flag="fatal" test="(./cac:PartyIdentification) and (./cbc:EndpointID)">A tender clarification request MUST identify the contracting body by its party identifier and its endpoint identifier.</assert>
+            <assert id="PEPPOL-T009-R020" flag="fatal" test="(./cac:PartyIdentification) and (./cbc:EndpointID)">A tender clarification request MUST identify the economic operator by its party identifier and its endpoint identifier.</assert>
             <assert id="PEPPOL-T009-S315" flag="warning" test="count(./*)-count(./cac:PartyIdentification)-count(./cbc:EndpointID)-count(./cac:PartyName)= 0"><value-of select="$syntaxError" />Party SHOULD NOT contain any elements but EndpointID, PartyIdentification, PartyName</assert>
 
             <report id="PEPPOL-T009-S316" flag="warning" test="count(./cac:PartyName) &gt; 1"><value-of select="$syntaxError" />PartyName SHOULD NOT be used more than once</report>

@@ -59,8 +59,8 @@
         </rule>
 
         <rule context="ubl:EnquiryResponse/cac:RequestorParty">
-            <assert id="PEPPOL-T010-R015" flag="fatal" test="(./cac:PartyIdentification) and (./cbc:EndpointID)">A tender clarification MUST identify the Economic Operator by its party identifier and its endpoint identifier.</assert>
-            <assert id="PEPPOL-T010-R020" flag="warning" test="(./cac:PartyName)">A tender clarification SHOULD include the name of the Economic Operator.</assert>
+            <assert id="PEPPOL-T010-R015" flag="fatal" test="(./cac:PartyIdentification) and (./cbc:EndpointID)">A tender clarification MUST identify the contracting bofdy by its party identifier and its endpoint identifier.</assert>
+            <assert id="PEPPOL-T010-R020" flag="warning" test="(./cac:PartyName)">A tender clarification SHOULD include the name of the contracting body.</assert>
 
             <assert id="PEPPOL-T010-S310" flag="warning" test="count(./*)-count(./cac:PartyIdentification)-count(./cbc:EndpointID)-count(./cac:PartyName)= 0"><value-of select="$syntaxError" />Party SHOULD NOT contain any elements but EndpointID, PartyIdentification, PartyName</assert>
             <report id="PEPPOL-T010-S311" flag="warning" test="count(./cac:PartyName) &gt; 1"><value-of select="$syntaxError" />PartyName SHOULD NOT be used more than once</report>
@@ -82,7 +82,7 @@
         </rule>
 
         <rule context="ubl:EnquiryResponse/cac:ResponderParty">
-            <assert id="PEPPOL-T010-R021" flag="fatal" test="(./cac:PartyIdentification) and (./cbc:EndpointID)">A tender clarification MUST identify the contracting body by its party identifier and its endpoint identifier.</assert>
+            <assert id="PEPPOL-T010-R021" flag="fatal" test="(./cac:PartyIdentification) and (./cbc:EndpointID)">A tender clarification MUST identify the economic operator by its party identifier and its endpoint identifier.</assert>
             <assert id="PEPPOL-T010-S315" flag="warning" test="count(./*)-count(./cac:PartyIdentification)-count(./cbc:EndpointID)-count(./cac:PartyName)= 0"><value-of select="$syntaxError" />Party SHOULD NOT contain any elements but EndpointID, PartyIdentification, PartyName</assert>
 
             <report id="PEPPOL-T010-S316" flag="warning" test="count(./cac:PartyName) &gt; 1"><value-of select="$syntaxError" />PartyName SHOULD NOT be used more than once</report>
