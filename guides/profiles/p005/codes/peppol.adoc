@@ -1,9 +1,6 @@
 
 = PEPPOL Identifiers
 
-[WARNING]
-TODO: Mondorf
-
 PEPPOL has defined a Policy for Using Identifiers that specifies how to use identifiers in both its transport infrastructure and within the documents exchanged across that infrastructure. It also introduces principles for any identifiers used in the PEPPOL environment.
 
 == Profile ID

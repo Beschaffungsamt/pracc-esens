@@ -14,4 +14,10 @@
 | adesso SE
 | First draft
 
+| 0.2
+| 2020-12-02
+| Ansgar Mondorf
+| University of Koblenz-Landau
+| Profile description, revisions and formatting
+
 |===
