@@ -5,8 +5,6 @@ include::settings.adoc[]
 {name-op-en}
 v{version}
 
-[WARNING]
-TODO: Mondorf
 
 {description}
 include::../../shared/copyright.adoc[]

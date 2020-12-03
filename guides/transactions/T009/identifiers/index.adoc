@@ -1,6 +1,4 @@
 
-[WARNING]
-TODO: Mondorf
 
 include::../../shared/peppol.adoc[]
 
