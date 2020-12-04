@@ -15,7 +15,7 @@
 :link-un-ece-1001: http://www.unece.org/trade/untdid/d08a/tred/tred1001.htm[UN/ECE 1001]
 
 // UBL
-:link-ubl: http://docs.oasis-open.org/ubl/UBL-2.1.html
+:link-ubl: http://docs.oasis-open.org/ubl/UBL-2.3.html[UBL 2.3]
 
 :link-espd: https://en.wikipedia.org/wiki/European_Single_Procurement_Document
 :link-art43-50: http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32014L0025&from=EN

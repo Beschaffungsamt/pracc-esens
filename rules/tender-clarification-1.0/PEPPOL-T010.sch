@@ -19,7 +19,7 @@
             <assert id="PEPPOL-T010-R001" flag="fatal" test="(cbc:UBLVersionID)">A tender clarification MUST have a syntax identifier.</assert>
             <assert id="PEPPOL-T010-R003" flag="fatal" test="(cbc:CustomizationID)">A tender clarification MUST have a specification (customization) identifier.</assert>
             <assert id="PEPPOL-T010-R005" flag="fatal" test="(cbc:ProfileID)">A tender clarification MUST have a business process (profile) identifier.</assert>
-            <assert id="PEPPOL-T010-R007" flag="fatal" test="(cbc:ID)">A tender clarification MUST have a tender clarification identifier.</assert>
+            <assert id="PEPPOL-T010-R007" flag="fatal" test="(cbc:ID)">A tender clarification MUST have an identifier.</assert>
             <assert id="PEPPOL-T010-R011" flag="fatal" test="(cbc:IssueTime)">A tender clarification MUST have an issue time.</assert>
             <assert id="PEPPOL-T010-R014" flag="fatal" test="count(cbc:Description) > 0">A tender clarification MUST have a Tendering response.</assert>
 
@@ -50,6 +50,7 @@
             <assert id="PEPPOL-T010-R008" flag="fatal" test="matches(normalize-space(.),'^[a-fA-F0-9]{8}(\-[a-fA-F0-9]{4}){3}\-[a-fA-F0-9]{12}$')">A tender clarification Identifier MUST be expressed in a UUID syntax (RFC 4122)</assert>
             <assert id="PEPPOL-T010-R009" flag="fatal" test="./@schemeURI">A tender clarification Identifier MUST have a schemeURI attribute.</assert>
             <assert id="PEPPOL-T010-R010" flag="warning" test="normalize-space(./@schemeURI)='urn:uuid'">schemeURI for tender clarification Identifier MUST be 'urn:uuid'.</assert>
+
             <report id="PEPPOL-T010-S309" flag="warning" test="./@*[not(name()='schemeURI')]"><value-of select="$syntaxError" />ID SHOULD NOT have any further attributes but schemeURI</report>
         </rule>
 

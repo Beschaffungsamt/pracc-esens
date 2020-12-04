@@ -3,7 +3,7 @@
 
 
 [cols="2,10a", options="header"]
-.Transaction business requirements of T010
+.Transaction business requirements of {name-transaction}
 |===
 | ID| Requirement
 |tbr85-001|	The contracting body shall be identified.
