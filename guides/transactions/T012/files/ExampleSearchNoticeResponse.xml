@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<query:QueryResponse
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:rim="urn:oasis:names:tc:ebxml-regrep:xsd:rim:4.0"
+        xmlns:query="urn:oasis:names:tc:ebxml-regrep:xsd:query:4.0"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        totalResultCount="-1"
+        requestId="1"
+        startIndex="0"
+        status=""
+        xsi:schemaLocation="urn:oasis:names:tc:ebxml-regrep:xsd:rim:4.0 http://docs.oasis-open.org/regrep/regrep-core/v4.0/csd01/xsd/rim.xsd
+        urn:oasis:names:tc:ebxml-regrep:xsd:query:4.0 http://docs.oasis-open.org/regrep/regrep-core/v4.0/csd01/xsd/query.xsd">
+
+    <rim:Slot name="Specificaton identification">
+        <rim:SlotValue xsi:type="rim:StringValueType">
+            <rim:Value>
+                urn:www.cenbii.eu:transaction:biitrdm100:ver3.0:extended:urn:fdc:peppol.eu:2021:pracc:t012:ver1.0
+            </rim:Value>
+        </rim:SlotValue>
+    </rim:Slot>
+
+    <rim:Slot name="Business process type identifier">
+        <rim:SlotValue xsi:type="rim:InternationalStringValueType">
+            <rim:Value>
+                <rim:LocalizedString value="urn:fdc:peppol.eu:2020:pracc:p006:01:1.0" xml:lang="EN"/>
+            </rim:Value>
+        </rim:SlotValue>
+    </rim:Slot>
+
+    <rim:Slot name="Issue date time">
+        <rim:SlotValue xsi:type="rim:DateTimeValueType">
+            <rim:Value>2020-02-14T19:20:30+01:00</rim:Value>
+        </rim:SlotValue>
+    </rim:Slot>
+
+    <rim:Slot name="Sender electronic address">
+        <rim:SlotValue xsi:type="rim:AnyValueType">
+            <rim:Value>9930:DE89769595</rim:Value>
+        </rim:SlotValue>
+    </rim:Slot>
+
+    <rim:Slot name="Receiver electronic address">
+        <rim:SlotValue xsi:type="rim:StringValueType">
+            <rim:Value>9930:DE153901674</rim:Value>
+        </rim:SlotValue>
+    </rim:Slot>
+
+    <rim:RegistryObjectList>
+        <rim:RegistryObject
+                lid="1c3d56dc-0842-47e2-824d-4ca8d4d0075e"
+                owner="DE89769595"
+                id="2021/S 018-040819"
+                xsi:type="rim:ExtrinsicObjectType">
+            <rim:Classification id="CN"/>
+            <rim:RepositoryItemRef
+                    xlink:href="cid:attachment123@example.toop.eu"
+                    xlink:title="Company Registration Document"/> <!--Example from toop xml-->
+        </rim:RegistryObject>
+    </rim:RegistryObjectList>
+
+</query:QueryResponse>
