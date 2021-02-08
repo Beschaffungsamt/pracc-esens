@@ -50,14 +50,14 @@
 
         <rim:Slot name="Keywords"> <!--- optional -->
             <rim:SlotValue xsi:type="rim:StringValueType">
-                <rim:Value>ExampleTendering</rim:Value> <!--?-->
+                <rim:Value>paintings</rim:Value>
             </rim:SlotValue>
         </rim:Slot>
 
         <rim:Slot name="Form Type"> <!--- optional -->
             <rim:SlotValue xsi:type="rim:CollectionValueType">
                 <rim:Element xsi:type="rim:StringValueType">
-                    <rim:Value>FT002</rim:Value> <!--competition-->
+                    <rim:Value>competition</rim:Value> <!--competition-->
                 </rim:Element>
             </rim:SlotValue>
         </rim:Slot>
@@ -65,7 +65,7 @@
         <rim:Slot name="Notice Type"> <!--- optional -->
             <rim:SlotValue xsi:type="rim:CollectionValueType">
                 <rim:Element xsi:type="rim:StringValueType">
-                    <rim:Value>NTY008</rim:Value> <!--cn-social-->
+                    <rim:Value>cn-social</rim:Value> <!--cn-social-->
                 </rim:Element>
             </rim:SlotValue>
         </rim:Slot>
@@ -91,10 +91,10 @@
         <rim:Slot name="Contract Nature"> <!-- optional -->
             <rim:SlotValue xsi:type="rim:CollectionValueType">
                 <rim:Element xsi:type="rim:StringValueType">
-                    <rim:Value>CN002</rim:Value> <!--supplies-->
+                    <rim:Value>supplies</rim:Value> <!--supplies-->
                 </rim:Element>
                 <rim:Element xsi:type="rim:StringValueType">
-                    <rim:Value>CN002</rim:Value> <!--supplies-->
+                    <rim:Value>supplies</rim:Value> <!--supplies-->
                 </rim:Element>
             </rim:SlotValue>
         </rim:Slot>
@@ -122,7 +122,7 @@
         <rim:Slot name="Currency"> <!-- optional -->
             <rim:SlotValue xsi:type="rim:CollectionValueType">
                 <rim:Element xsi:type="rim:StringValueType">
-                    <rim:Value>CUR00050</rim:Value><!--EUR-->
+                    <rim:Value>EUR</rim:Value><!--EUR-->
                 </rim:Element>
             </rim:SlotValue>
         </rim:Slot>
@@ -130,7 +130,7 @@
         <rim:Slot name="Procedure Type"> <!-- optional -->
             <rim:SlotValue xsi:type="rim:CollectionValueType">
                 <rim:Element xsi:type="rim:StringValueType">
-                    <rim:Value>PP004</rim:Value> <!--neg-wo-call-->
+                    <rim:Value>neg-wo-call</rim:Value> <!--neg-wo-call-->
                 </rim:Element>
             </rim:SlotValue>
         </rim:Slot>
@@ -198,7 +198,7 @@
         <rim:Slot name="Notice Identifier"> <!-- optional -->
             <rim:SlotValue xsi:type="rim:CollectionValueType">
                 <rim:Element xsi:type="rim:StringValueType">
-                    <rim:Value>1234567890</rim:Value> <!--Example from EForms Schema Usage-->
+                    <rim:Value>53EB9F20-EE12-474F-9424-78FC604E8FAE</rim:Value>
                 </rim:Element>
             </rim:SlotValue>
         </rim:Slot>
@@ -206,7 +206,7 @@
         <rim:Slot name="Procedure Identifier"> <!-- optional -->
             <rim:SlotValue xsi:type="rim:CollectionValueType">
                 <rim:Element xsi:type="rim:StringValueType">
-                    <rim:Value>9876543210</rim:Value> <!--Example from EForms Schema Usage-->
+                    <rim:Value>2C621D47-112D-42D4-B6F8-57392464C3E7</rim:Value>
                 </rim:Element>
             </rim:SlotValue>
         </rim:Slot>
@@ -222,10 +222,10 @@
         <rim:Slot name="Reserved Participation"> <!-- optional -->
             <rim:SlotValue xsi:type="rim:CollectionValueType">
                 <rim:Element xsi:type="rim:StringValueType">
-                    <rim:Value>RP001</rim:Value> <!--res-ws-->
+                    <rim:Value>res-ws</rim:Value> <!--res-ws-->
                 </rim:Element>
                 <rim:Element xsi:type="rim:StringValueType">
-                    <rim:Value>RP002</rim:Value> <!--res-pub-ser-->
+                    <rim:Value>res-pub-ser</rim:Value> <!--res-pub-ser-->
                 </rim:Element>
             </rim:SlotValue>
         </rim:Slot>
@@ -246,10 +246,10 @@
         <rim:Slot name="Award Criterion Type"> <!-- optional -->
             <rim:SlotValue xsi:type="rim:CollectionValueType">
                 <rim:Element xsi:type="rim:StringValueType">
-                    <rim:Value>ACT001</rim:Value> <!--quality-->
+                    <rim:Value>quality</rim:Value> <!--quality-->
                 </rim:Element>
                 <rim:Element xsi:type="rim:StringValueType">
-                    <rim:Value>ACT003</rim:Value> <!--price-->
+                    <rim:Value>price</rim:Value> <!--price-->
                 </rim:Element>
             </rim:SlotValue>
         </rim:Slot>
@@ -293,10 +293,10 @@
             <rim:Slot name="Buyer Country Code">
                 <rim:SlotValue xsi:type="rim:CollectionValueType">
                     <rim:Element xsi:type="rim:StringValueType">
-                        <rim:Value>COU0016</rim:Value> <!--DNK-->
+                        <rim:Value>DNK</rim:Value> <!--DNK-->
                     </rim:Element>
                     <rim:Element xsi:type="rim:StringValueType">
-                        <rim:Value>COU0028</rim:Value> <!--IRL-->
+                        <rim:Value>IRL</rim:Value> <!--IRL-->
                     </rim:Element>
                 </rim:SlotValue>
             </rim:Slot>
@@ -304,10 +304,10 @@
             <rim:Slot name="Buyer Legal Type">
                 <rim:SlotValue xsi:type="rim:CollectionValueType">
                     <rim:Element xsi:type="rim:StringValueType">
-                        <rim:Value>BL013</rim:Value> <!--org-sub-->
+                        <rim:Value>org-sub</rim:Value> <!--org-sub-->
                     </rim:Element>
                     <rim:Element xsi:type="rim:StringValueType">
-                        <rim:Value>BL009</rim:Value> <!--pub-undert-cga-->
+                        <rim:Value>pub-undert-cga</rim:Value> <!--pub-undert-cga-->
                     </rim:Element>
                 </rim:SlotValue>
             </rim:Slot>
