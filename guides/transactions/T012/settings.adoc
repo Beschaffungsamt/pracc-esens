@@ -1,11 +1,11 @@
 include::../shared/settings.adoc[]
 
-:name-profile: Profile P005 - "Tender Clarification"
+:name-profile: Profile P006 - "Search Notice"
 
 :name-transaction-org: "Trdm085 Tendering Answers transaction"
-:name-transaction: T010 - Tender Clarification
-:name-trans-short: Tender Clarification
-:name-syntax: TenderClarification
+:name-transaction: T012 - Search Notice Response
+:name-trans-short: Search Notice Response
+:name-syntax: SearchNoticeResponse
 
 include::../shared/links.adoc[]
 

@@ -3,3 +3,12 @@
 
 Limited support for this, see {name-profile-org}.
 
+== Specification Identification
+
+
+
+[source,xml,indent=0]
+....
+include::../files/ExampleSearchNoticeResponse.xml[tags=specification-identification]
+....
+<.> Always use the same specification idenfication for the request.
