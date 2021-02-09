@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <query:QueryResponse
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xmlns:rim="urn:oasis:names:tc:ebxml-regrep:xsd:rim:4.0"
@@ -9,8 +8,12 @@
         requestId="1"
         startIndex="0"
         status=""
-        xsi:schemaLocation="urn:oasis:names:tc:ebxml-regrep:xsd:rim:4.0 http://docs.oasis-open.org/regrep/regrep-core/v4.0/csd01/xsd/rim.xsd
-        urn:oasis:names:tc:ebxml-regrep:xsd:query:4.0 http://docs.oasis-open.org/regrep/regrep-core/v4.0/csd01/xsd/query.xsd">
+        xsi:schemaLocation="
+        urn:oasis:names:tc:ebxml-regrep:xsd:rim:4.0
+        http://docs.oasis-open.org/regrep/regrep-core/v4.0/csd01/xsd/rim.xsd
+        urn:oasis:names:tc:ebxml-regrep:xsd:query:4.0
+        http://docs.oasis-open.org/regrep/regrep-core/v4.0/csd01/xsd/query.xsd"
+>
     <!-- tag::specification-identification[] -->
     <rim:Slot name="Specificaton identification">
         <rim:SlotValue xsi:type="rim:StringValueType">
@@ -22,14 +25,11 @@
     <!-- end::specification-identification[] -->
     <!-- tag::business-process-type-identification[] -->
     <rim:Slot name="Business process type identifier">
-        <rim:SlotValue xsi:type="rim:InternationalStringValueType">
-            <rim:Value>
-                <rim:LocalizedString value="urn:fdc:peppol.eu:2020:pracc:p006:01:1.0" xml:lang="EN"/><!--.-->
-            </rim:Value>
+        <rim:SlotValue xsi:type="rim:StringValueType">
+            <rim:Value>urn:fdc:peppol.eu:2020:pracc:p006:01:1.0</rim:Value> <!--.-->
         </rim:SlotValue>
     </rim:Slot>
     <!-- end::business-process-type-identification[] -->
-
     <rim:Slot name="Issue date time">
         <rim:SlotValue xsi:type="rim:DateTimeValueType">
             <rim:Value>2020-02-14T19:20:30+01:00</rim:Value>
@@ -37,16 +37,30 @@
     </rim:Slot>
     <!-- tag::sender-electronic-address[] -->
     <rim:Slot name="Sender electronic address">
-        <rim:SlotValue xsi:type="rim:AnyValueType">
-            <rim:Value>9930:DE89769595</rim:Value> <!--.-->
-        </rim:SlotValue>
+        <rim:Slot name="schemeId">
+            <rim:SlotValue xsi:type="rim:StringValueType">
+                <rim:Value>9930</rim:Value> <!--.-->
+            </rim:SlotValue>
+        </rim:Slot>
+        <rim:Slot name="EndpointId">
+            <rim:SlotValue xsi:type="rim:StringValueType">
+                <rim:Value>DE89769595</rim:Value> <!--.-->
+            </rim:SlotValue>
+        </rim:Slot>
     </rim:Slot>
     <!-- end::sender-electronic-address[] -->
     <!-- tag::receiver-electronic-address[] -->
     <rim:Slot name="Receiver electronic address">
-        <rim:SlotValue xsi:type="rim:StringValueType">
-            <rim:Value>9930:DE153901674</rim:Value>
-        </rim:SlotValue>
+        <rim:Slot name="schemeId">
+            <rim:SlotValue xsi:type="rim:StringValueType">
+                <rim:Value>9930</rim:Value>
+            </rim:SlotValue>
+        </rim:Slot>
+        <rim:Slot name="EndpointId">
+            <rim:SlotValue xsi:type="rim:StringValueType">
+                <rim:Value>DE153901674</rim:Value>
+            </rim:SlotValue>
+        </rim:Slot>
     </rim:Slot>
     <!-- end::receiver-electronic-address[] -->
     <!-- tag::registry-object-list[] -->
@@ -56,11 +70,9 @@
                 owner="9930:DE89769595"
                 id="53EB9F20-EE12-474F-9424-78FC604E8FAE"
                 xsi:type="rim:ExtrinsicObjectType"> <!--.-->
-            <rim:Classification id="CN"/> <!--.-->
-            <rim:RepositoryItemRef
-                    xlink:href="./53EB9F20-EE12-474F-9424-78FC604E8FAE.eform"/> <!--.-->
+            <rim:Classification id="CN" /> <!--.-->
+            <rim:RepositoryItemRef xlink:href="./53EB9F20-EE12-474F-9424-78FC604E8FAE.eform" /> <!--.-->
         </rim:RegistryObject>
     </rim:RegistryObjectList>
     <!-- end::registry-object-list[] -->
-
 </query:QueryResponse>

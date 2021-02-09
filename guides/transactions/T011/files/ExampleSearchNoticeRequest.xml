@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <query:QueryRequest
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xmlns:rim="urn:oasis:names:tc:ebxml-regrep:xsd:rim:4.0"
@@ -7,23 +6,25 @@
         startIndex="0"
         maxResults="-1"
         id="1"
-        xsi:schemaLocation="urn:oasis:names:tc:ebxml-regrep:xsd:rim:4.0 http://docs.oasis-open.org/regrep/regrep-core/v4.0/csd01/xsd/rim.xsd
-        urn:oasis:names:tc:ebxml-regrep:xsd:query:4.0 http://docs.oasis-open.org/regrep/regrep-core/v4.0/csd01/xsd/query.xsd">
+        xsi:schemaLocation="
+        urn:oasis:names:tc:ebxml-regrep:xsd:rim:4.0
+        http://docs.oasis-open.org/regrep/regrep-core/v4.0/csd01/xsd/rim.xsd
+        urn:oasis:names:tc:ebxml-regrep:xsd:query:4.0
+        http://docs.oasis-open.org/regrep/regrep-core/v4.0/csd01/xsd/query.xsd"
+>
     <!-- tag::specification-identification[] -->
-    <rim:Slot name="Specificaton identification">
+    <rim:Slot name="Specification identification">
         <rim:SlotValue xsi:type="rim:StringValueType">
             <rim:Value>
                 urn:www.cenbii.eu:transaction:biitrdm099:ver3.0:extended:urn:fdc:peppol.eu:2021:pracc:t011:ver1.0
-            </rim:Value><!--.-->
+            </rim:Value> <!--.-->
         </rim:SlotValue>
     </rim:Slot>
     <!-- end::specification-identification[] -->
     <!-- tag::business-process-type-identifier[] -->
     <rim:Slot name="Business process type identifier">
-        <rim:SlotValue xsi:type="rim:InternationalStringValueType">
-            <rim:Value>
-                <rim:LocalizedString value="urn:fdc:peppol.eu:2020:pracc:p006:01:1.0" xml:lang="EN"/> <!--.-->
-            </rim:Value>
+        <rim:SlotValue xsi:type="rim:StringValueType">
+            <rim:Value>urn:fdc:peppol.eu:2020:pracc:p006:01:1.0</rim:Value> <!--.-->
         </rim:SlotValue>
     </rim:Slot>
     <!-- end::business-process-type-identifier[] -->
@@ -34,27 +35,40 @@
     </rim:Slot>
     <!-- tag::sender-electronic-address[] -->
     <rim:Slot name="Sender electronic address">
-        <rim:SlotValue xsi:type="rim:StringValueType">
-            <rim:Value>9930:DE153901674</rim:Value>
-        </rim:SlotValue>
+        <rim:Slot name="schemeId">
+            <rim:SlotValue xsi:type="rim:StringValueType">
+                <rim:Value>9930</rim:Value> <!--.-->
+            </rim:SlotValue>
+        </rim:Slot>
+        <rim:Slot name="EndpointId">
+            <rim:SlotValue xsi:type="rim:StringValueType">
+                <rim:Value>DE153901674</rim:Value> <!--.-->
+            </rim:SlotValue>
+        </rim:Slot>
     </rim:Slot>
     <!-- end::sender-electronic-address[] -->
     <!-- tag::receiver-electronic-address[] -->
     <rim:Slot name="Receiver electronic address">
-        <rim:SlotValue xsi:type="rim:StringValueType">
-            <rim:Value>9930:DE89769595</rim:Value><!--.-->
-        </rim:SlotValue>
+        <rim:Slot name="schemeId">
+            <rim:SlotValue xsi:type="rim:StringValueType">
+                <rim:Value>9930</rim:Value> <!--.-->
+            </rim:SlotValue>
+        </rim:Slot>
+        <rim:Slot name="EndpointId">
+            <rim:SlotValue xsi:type="rim:StringValueType">
+                <rim:Value>DE89769595</rim:Value> <!--.-->
+            </rim:SlotValue>
+        </rim:Slot>
     </rim:Slot>
     <!-- end::receiver-electronic-address[] -->
 
-    <query:ResponseOption returnType="LeafClassWithRepositoryItem"/>
+    <query:ResponseOption returnType="LeafClassWithRepositoryItem" />
 
     <!-- tag::start-of-query[] -->
     <query:Query queryDefinition="SearchNotice">
-
         <rim:Slot name="Keywords"> <!--- optional -->
             <rim:SlotValue xsi:type="rim:StringValueType">
-                <rim:Value>paintings</rim:Value><!--.-->
+                <rim:Value>paintings</rim:Value> <!--.-->
             </rim:SlotValue>
         </rim:Slot>
         <!-- end::start-of-query[] -->
@@ -62,7 +76,7 @@
         <rim:Slot name="Form Type"> <!--- optional -->
             <rim:SlotValue xsi:type="rim:CollectionValueType">
                 <rim:Element xsi:type="rim:StringValueType">
-                    <rim:Value>competition</rim:Value><!--.-->
+                    <rim:Value>competition</rim:Value> <!--.-->
                 </rim:Element>
             </rim:SlotValue>
         </rim:Slot>
@@ -71,7 +85,7 @@
         <rim:Slot name="Notice Type"> <!--- optional -->
             <rim:SlotValue xsi:type="rim:CollectionValueType">
                 <rim:Element xsi:type="rim:StringValueType">
-                    <rim:Value>cn-social</rim:Value><!--.-->
+                    <rim:Value>cn-social</rim:Value> <!--.-->
                 </rim:Element>
             </rim:SlotValue>
         </rim:Slot>
@@ -81,7 +95,7 @@
             <!-- tag::classification-type[] -->
             <rim:Slot name="Classification Type">
                 <rim:SlotValue xsi:type="rim:StringValueType">
-                    <rim:Value>cpv</rim:Value><!--.-->
+                    <rim:Value>cpv</rim:Value> <!--.-->
                 </rim:SlotValue>
             </rim:Slot>
             <!-- end::classification-type[] -->
@@ -89,9 +103,11 @@
             <rim:Slot name="Classification Code">
                 <rim:SlotValue xsi:type="rim:CollectionValueType">
                     <rim:Element xsi:type="rim:StringValueType">
-                        <rim:Value>03111400-6</rim:Value><!--.-->
+                        <!-- Cotton seeds -->
+                        <rim:Value>03111400-6</rim:Value> <!--.-->
                     </rim:Element>
                     <rim:Element xsi:type="rim:StringValueType">
+                        <!-- Cotton -->
                         <rim:Value>03115110-4</rim:Value>
                     </rim:Element>
                 </rim:SlotValue>
@@ -101,12 +117,12 @@
         <!-- end::classification[] -->
         <!-- tag::contract-nature[] -->
         <rim:Slot name="Contract Nature"> <!-- optional -->
-            <rim:SlotValue xsi:type="rim:CollectionValueType"><!--.-->
-                <rim:Element xsi:type="rim:StringValueType"><!--.-->
-                    <rim:Value>supplies</rim:Value><!--.-->
+            <rim:SlotValue xsi:type="rim:CollectionValueType"> <!--.-->
+                <rim:Element xsi:type="rim:StringValueType"> <!--.-->
+                    <rim:Value>supplies</rim:Value> <!--.-->
                 </rim:Element>
                 <rim:Element xsi:type="rim:StringValueType">
-                    <rim:Value>supplies</rim:Value>
+                    <rim:Value>services</rim:Value>
                 </rim:Element>
             </rim:SlotValue>
         </rim:Slot>
@@ -121,24 +137,24 @@
         </rim:Slot>
         <!-- end::place-of-performance[] -->
 
-        <rim:Slot name="Minimum Tender Value"> <!-- optional -->
-            <rim:SlotValue xsi:type="rim:StringValueType">
-                <rim:Value>25.000</rim:Value>
-            </rim:SlotValue>
-        </rim:Slot>
-
-        <rim:Slot name="Maximum Tender Value"> <!-- optional -->
-            <rim:SlotValue xsi:type="rim:StringValueType">
-                <rim:Value>100.000</rim:Value>
-            </rim:SlotValue>
-        </rim:Slot>
-
-        <rim:Slot name="Currency"> <!-- optional -->
-            <rim:SlotValue xsi:type="rim:CollectionValueType">
-                <rim:Element xsi:type="rim:StringValueType">
-                    <rim:Value>EUR</rim:Value>
-                </rim:Element>
-            </rim:SlotValue>
+        <rim:Slot name="Tender Value"> <!-- optional -->
+            <rim:Slot name="Minimum"> <!-- optional -->
+                <rim:SlotValue xsi:type="rim:StringValueType">
+                    <rim:Value>25.000</rim:Value>
+                </rim:SlotValue>
+            </rim:Slot>
+            <rim:Slot name="Maximum"> <!-- optional -->
+                <rim:SlotValue xsi:type="rim:StringValueType">
+                    <rim:Value>100.000</rim:Value>
+                </rim:SlotValue>
+            </rim:Slot>
+            <rim:Slot name="Currency"> <!-- optional -->
+                <rim:SlotValue xsi:type="rim:CollectionValueType">
+                    <rim:Element xsi:type="rim:StringValueType">
+                        <rim:Value>EUR</rim:Value>
+                    </rim:Element>
+                </rim:SlotValue>
+            </rim:Slot>
         </rim:Slot>
 
         <!-- tag::procedure-type[] -->
@@ -150,7 +166,7 @@
             </rim:SlotValue>
         </rim:Slot>
         <!-- end::procedure-type[] -->
-        <!-- tag::submission-languange[] -->
+        <!-- tag::submission-language[] -->
         <rim:Slot name="Submission Language"> <!-- optional -->
             <rim:SlotValue xsi:type="rim:CollectionValueType">
                 <rim:Element xsi:type="rim:StringValueType">
@@ -163,12 +179,12 @@
         <rim:Slot name="Publication Date"> <!--- optional -->
             <rim:Slot name="Start Date">
                 <rim:SlotValue xsi:type="rim:DateTimeValueType">
-                    <rim:Value>2020-02-14T19:20:30+01:00</rim:Value>
+                    <rim:Value>2021-02-14T00:00:00Z</rim:Value>
                 </rim:SlotValue>
             </rim:Slot>
             <rim:Slot name="End Date">
                 <rim:SlotValue xsi:type="rim:DateTimeValueType">
-                    <rim:Value>2020-02-14T19:20:30+01:00</rim:Value>
+                    <rim:Value>2021-02-14T23:59:59Z</rim:Value>
                 </rim:SlotValue>
             </rim:Slot>
         </rim:Slot>
@@ -176,12 +192,12 @@
         <rim:Slot name="Deadline Receipt Tenders"> <!--- optional -->
             <rim:Slot name="Start Date">
                 <rim:SlotValue xsi:type="rim:DateTimeValueType">
-                    <rim:Value>2020-02-14T19:20:30+01:00</rim:Value>
+                    <rim:Value>2021-02-14T00:00:00Z</rim:Value>
                 </rim:SlotValue>
             </rim:Slot>
             <rim:Slot name="End Date">
                 <rim:SlotValue xsi:type="rim:DateTimeValueType">
-                    <rim:Value>2020-02-14T19:20:30+01:00</rim:Value>
+                    <rim:Value>2021-02-14T23:59:59Z</rim:Value>
                 </rim:SlotValue>
             </rim:Slot>
         </rim:Slot>
@@ -189,12 +205,12 @@
         <rim:Slot name="Additional Information Deadline"> <!--- optional -->
             <rim:Slot name="Start Date">
                 <rim:SlotValue xsi:type="rim:DateTimeValueType">
-                    <rim:Value>2020-02-14T19:20:30+01:00</rim:Value>
+                    <rim:Value>2021-02-14T00:00:00Z</rim:Value>
                 </rim:SlotValue>
             </rim:Slot>
             <rim:Slot name="End Date">
                 <rim:SlotValue xsi:type="rim:DateTimeValueType">
-                    <rim:Value>2020-02-14T19:20:30+01:00</rim:Value>
+                    <rim:Value>2021-02-14T23:59:59Z</rim:Value>
                 </rim:SlotValue>
             </rim:Slot>
         </rim:Slot>
@@ -202,12 +218,12 @@
         <rim:Slot name="Deadline Receipt Requests"> <!--- optional -->
             <rim:Slot name="Start Date">
                 <rim:SlotValue xsi:type="rim:DateTimeValueType">
-                    <rim:Value>2020-02-14T19:20:30+01:00</rim:Value>
+                    <rim:Value>2021-02-14T00:00:00Z</rim:Value>
                 </rim:SlotValue>
             </rim:Slot>
             <rim:Slot name="End Date">
                 <rim:SlotValue xsi:type="rim:DateTimeValueType">
-                    <rim:Value>2020-02-14T19:20:30+01:00</rim:Value>
+                    <rim:Value>2021-02-14T23:59:59Z</rim:Value>
                 </rim:SlotValue>
             </rim:Slot>
         </rim:Slot>
@@ -215,7 +231,7 @@
         <rim:Slot name="Notice Identifier"> <!-- optional -->
             <rim:SlotValue xsi:type="rim:CollectionValueType">
                 <rim:Element xsi:type="rim:StringValueType">
-                    <rim:Value>53EB9F20-EE12-474F-9424-78FC604E8FAE</rim:Value><!--.-->
+                    <rim:Value>53EB9F20-EE12-474F-9424-78FC604E8FAE</rim:Value> <!--.-->
                 </rim:Element>
             </rim:SlotValue>
         </rim:Slot>
@@ -224,7 +240,7 @@
         <rim:Slot name="Procedure Identifier"> <!-- optional -->
             <rim:SlotValue xsi:type="rim:CollectionValueType">
                 <rim:Element xsi:type="rim:StringValueType">
-                    <rim:Value>2C621D47-112D-42D4-B6F8-57392464C3E7</rim:Value><!--.-->
+                    <rim:Value>2C621D47-112D-42D4-B6F8-57392464C3E7</rim:Value> <!--.-->
                 </rim:Element>
             </rim:SlotValue>
         </rim:Slot>
@@ -233,7 +249,8 @@
         <rim:Slot name="Procedure Legal Basis"> <!-- optional -->
             <rim:SlotValue xsi:type="rim:CollectionValueType">
                 <rim:Element xsi:type="rim:StringValueType">
-                    <rim:Value>32014L0024</rim:Value> <!--2014/24--> <!--Example from EForms Schema Usage--><!--.-->
+                    <!-- 2014/24 - Example from EForms Schema Usage-->
+                    <rim:Value>32014L0024</rim:Value> <!--.-->
                 </rim:Element>
             </rim:SlotValue>
         </rim:Slot>
@@ -242,10 +259,12 @@
         <rim:Slot name="Reserved Participation"> <!-- optional -->
             <rim:SlotValue xsi:type="rim:CollectionValueType">
                 <rim:Element xsi:type="rim:StringValueType">
-                    <rim:Value>res-ws</rim:Value> <!--res-ws--> <!--.-->
+                    <!--res-ws-->
+                    <rim:Value>res-ws</rim:Value> <!--.-->
                 </rim:Element>
                 <rim:Element xsi:type="rim:StringValueType">
-                    <rim:Value>res-pub-ser</rim:Value> <!--res-pub-ser-->
+                    <!--res-pub-ser-->
+                    <rim:Value>res-pub-ser</rim:Value>
                 </rim:Element>
             </rim:SlotValue>
         </rim:Slot>
@@ -253,14 +272,14 @@
         <!-- tag::suitable-for-smes[] -->
         <rim:Slot name="Suitable for SMEs"> <!--- optional -->
             <rim:SlotValue xsi:type="rim:BooleanValueType">
-                <rim:Value>true</rim:Value><!--.-->
+                <rim:Value>true</rim:Value> <!--.-->
             </rim:SlotValue>
         </rim:Slot>
         <!-- end::suitable-for-smes[] -->
         <!-- tag::winner-economic-operator-name[] -->
         <rim:Slot name="Winner Economic Operator Name"> <!--- optional -->
             <rim:SlotValue xsi:type="rim:StringValueType">
-                <rim:Value>Company Y SE</rim:Value><!--.-->
+                <rim:Value>Company Y SE</rim:Value> <!--.-->
             </rim:SlotValue>
         </rim:Slot>
         <!-- end::winner-economic-operator-name[] -->
@@ -268,7 +287,7 @@
         <rim:Slot name="Award Criterion Type"> <!-- optional -->
             <rim:SlotValue xsi:type="rim:CollectionValueType">
                 <rim:Element xsi:type="rim:StringValueType">
-                    <rim:Value>quality</rim:Value> <!--quality--><!--.-->
+                    <rim:Value>quality</rim:Value> <!--quality--> <!--.-->
                 </rim:Element>
                 <rim:Element xsi:type="rim:StringValueType">
                     <rim:Value>price</rim:Value> <!--price-->
@@ -284,36 +303,39 @@
                 </rim:SlotValue>
             </rim:Slot>
 
-            <rim:Slot name="Buyer Organisation Number"><!--.-->
+            <rim:Slot name="Buyer Organisation Number"> <!--.-->
                 <rim:SlotValue xsi:type="rim:StringValueType">
                     <rim:Value>IRE703</rim:Value>
                 </rim:SlotValue>
             </rim:Slot>
 
-            <rim:Slot name="Buyer City"><!--.-->
+            <rim:Slot name="Buyer City"> <!--.-->
                 <rim:SlotValue xsi:type="rim:StringValueType">
                     <rim:Value>Berlin</rim:Value>
                 </rim:SlotValue>
             </rim:Slot>
 
-            <rim:Slot name="Post Code"><!--.-->
+            <rim:Slot name="Post Code"> <!--.-->
                 <rim:SlotValue xsi:type="rim:StringValueType">
                     <rim:Value>12345</rim:Value>
                 </rim:SlotValue>
             </rim:Slot>
 
-            <rim:Slot name="Organization Country Subdivision"><!--.-->
+            <rim:Slot name="Organization Country Subdivision"> <!--.-->
                 <rim:SlotValue xsi:type="rim:CollectionValueType">
                     <rim:Element xsi:type="rim:StringValueType">
-                        <rim:Value>IE063</rim:Value> <!--Midlands-->
+                        <rim:Value>IE063</rim:Value> <!-- Midlands -->
                     </rim:Element>
                     <rim:Element xsi:type="rim:StringValueType">
-                        <rim:Value>DE300</rim:Value> <!--Berlin-->
+                        <rim:Value>DE300</rim:Value> <!-- Berlin -->
+                    </rim:Element>
+                    <rim:Element xsi:type="rim:StringValueType">
+                        <rim:Value>DEA22</rim:Value> <!-- Bonn -->
                     </rim:Element>
                 </rim:SlotValue>
             </rim:Slot>
 
-            <rim:Slot name="Buyer Country Code"><!--.-->
+            <rim:Slot name="Buyer Country Code"> <!--.-->
                 <rim:SlotValue xsi:type="rim:CollectionValueType">
                     <rim:Element xsi:type="rim:StringValueType">
                         <rim:Value>DNK</rim:Value> <!--DNK-->
@@ -324,7 +346,7 @@
                 </rim:SlotValue>
             </rim:Slot>
 
-            <rim:Slot name="Buyer Legal Type"><!--.-->
+            <rim:Slot name="Buyer Legal Type"> <!--.-->
                 <rim:SlotValue xsi:type="rim:CollectionValueType">
                     <rim:Element xsi:type="rim:StringValueType">
                         <rim:Value>org-sub</rim:Value> <!--org-sub-->
@@ -335,7 +357,7 @@
                 </rim:SlotValue>
             </rim:Slot>
 
-            <rim:Slot name="Buyer Main Activity"><!--.-->
+            <rim:Slot name="Buyer Main Activity"> <!--.-->
                 <rim:SlotValue xsi:type="rim:CollectionValueType">
                     <rim:Element xsi:type="rim:StringValueType">
                         <rim:Value>Buying cotton seeds</rim:Value>
