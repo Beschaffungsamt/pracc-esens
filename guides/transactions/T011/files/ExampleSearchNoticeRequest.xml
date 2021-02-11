@@ -81,7 +81,7 @@
         </rim:Slot>
         <!-- end::notice-type[] -->
         <!-- tag::classification[] -->
-        <rim:Slot name="Classification" type="http://data.europa.eu/cpv/cpv">
+        <rim:Slot name="Classification" type="http://publications.europa.eu/resource/authority/cpv/cpv">
             <rim:SlotValue xsi:type="rim:CollectionValueType">
                 <rim:Element xsi:type="rim:StringValueType">
                     <!-- Cotton seeds -->
