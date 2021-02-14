@@ -3,12 +3,42 @@
 
 Limited support for this, see {name-profile-org}.
 
-== Specification Identification
+== Query Response
 
-
+=== Specification Identification
 
 [source,xml,indent=0]
 ....
 include::../files/ExampleSearchNoticeResponse.xml[tags=specification-identification]
 ....
-<.> Always use the same specification idenfication for the request.
+<.> Always use the same specification identification for the request.
+
+=== Business Process Type Identifier
+[source,xml,indent=0]
+....
+include::../files/ExampleSearchNoticeResponse.xml[tags=business-process-type-identifier]
+....
+<.> See the other chapters of peppol to select the right business process type and its identifier.
+
+=== Sender electronic address
+[source,xml,indent=0]
+....
+include::../files/ExampleSearchNoticeResponse.xml[tags=sender-electronic-address]
+....
+<.> You have to fill your own sender id into this slot. The endpoint id is clarified in the type attribute of the slot.
+
+=== Receiver electronic address
+[source,xml,indent=0]
+....
+include::../files/ExampleSearchNoticeResponse.xml[tags=sender-electronic-address]
+....
+<.> Here goes the address of the receiver of your query. The endpoint id is clarified in the type attribute of the slot.
+
+== Registry Object List
+[source,xml,indent=0]
+....
+include::../files/ExampleSearchNoticeResponse.xml[tags=registry-object-list]
+....
+<.> Here you can find the uuids from your request as you defined them in the notice (id) and procedure (lid) identifier.
+<.> This is the code of the type of document you searched for. Possible values can be taken from the list, which has to be deposited in the type-attribute of the slot.
+<.> Here goes the link to the document of the searched for procedure as an eform.
