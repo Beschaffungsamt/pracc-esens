@@ -1,12 +1,21 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContractNotice xmlns="urn:oasis:names:specification:ubl:schema:xsd:ContractNotice-2"
                 xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"
-                xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2">
+                xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"
+                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                xsi:schemaLocation="
+                urn:oasis:names:specification:ubl:schema:xsd:ContractNotice-2
+                https://docs.oasis-open.org/ubl/cs01-UBL-2.3/xsd/maindoc/UBL-ContractNotice-2.3.xsd
+                urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2
+                https://docs.oasis-open.org/ubl/cs01-UBL-2.3/xsd/common/UBL-CommonBasicComponents-2.3.xsd
+                urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2
+                https://docs.oasis-open.org/ubl/cs01-UBL-2.3/xsd/common/UBL-CommonAggregateComponents-2.3.xsd"
+>
     <cbc:UBLVersionID>2.2</cbc:UBLVersionID>
     <cbc:CustomizationID>blabla</cbc:CustomizationID>
     <cbc:ProfileID>blup</cbc:ProfileID>
-    <cbc:ID>UUID</cbc:ID>
-    <cbc:ContractFolderID>UUID</cbc:ContractFolderID>
+    <cbc:ID>53EB9F20-EE12-474F-9424-78FC604E8FAE</cbc:ID>
+    <cbc:ContractFolderID>2C621D47-112D-42D4-B6F8-57392464C3E7</cbc:ContractFolderID>
     <cac:ContractingParty>
         <cac:Party>
             <cbc:EndpointID schemeID="9930">DE4711</cbc:EndpointID>
@@ -71,6 +80,16 @@
                 <cbc:StartDate>2021-08-01</cbc:StartDate>
                 <cbc:StartTime>00:00:00Z</cbc:StartTime>
             </cac:PlannedPeriod>
+        </cac:ProcurementProject>
+    </cac:ProcurementProjectLot>
+    <cac:ProcurementProjectLot>
+        <cbc:ID>LOT-0002</cbc:ID>
+        <cac:TenderingTerms>
+        </cac:TenderingTerms>
+        <cac:ProcurementProject>
+            <cbc:Description>
+                asdfkajsdhf kajsdhf lkajsdhf lkasjdhf
+            </cbc:Description>
         </cac:ProcurementProject>
     </cac:ProcurementProjectLot>
 </ContractNotice>

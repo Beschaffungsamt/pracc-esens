@@ -69,7 +69,7 @@
                     <rim:Value>CN</rim:Value> <!--.-->
                 </rim:SlotValue>
             </rim:Slot>
-            <rim:RepositoryItemRef xlink:href="./53EB9F20-EE12-474F-9424-78FC604E8FAE.eform" /> <!--.-->
+            <rim:RepositoryItemRef xlink:href="./53EB9F20-EE12-474F-9424-78FC604E8FAE.eform.xml" /> <!--.-->
         </rim:RegistryObject>
     </rim:RegistryObjectList>
     <!-- end::registry-object-list[] -->
