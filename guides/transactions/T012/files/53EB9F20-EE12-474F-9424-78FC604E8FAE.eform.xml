@@ -49,8 +49,7 @@
                 <cbc:ID>UUID</cbc:ID>
                 <cac:Attachment>
                     <cac:ExternalReference>
-                        <cbc:MimeCode>application/vnd.oasis.opendocument.text</cbc:MimeCode>
-                        <cbc:FileName>asic-e://foo/baa.odt</cbc:FileName>
+                        <cbc:URI>https://www.evergabe-online.de/tenderdetails.html?id=376782</cbc:URI>
                     </cac:ExternalReference>
                 </cac:Attachment>
             </cac:CallForTendersDocumentReference>
