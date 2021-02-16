@@ -30,7 +30,7 @@
     <!-- end::business-process-type-identifier[] -->
     <rim:Slot name="Issue">
         <rim:SlotValue xsi:type="rim:DateTimeValueType">
-            <rim:Value>2021-02-05T09:28:00+01:00</rim:Value>
+            <rim:Value>2021-02-05T09:28:00Z</rim:Value>
         </rim:SlotValue>
     </rim:Slot>
     <!-- tag::sender-electronic-address[] -->
@@ -127,7 +127,7 @@
                     <rim:Value>100.000</rim:Value>
                 </rim:SlotValue>
             </rim:Slot>
-            <rim:Slot name="Currency" type="http://publications.europa.eu/resource/authority/currency"> <!-- optional -->
+                <rim:Slot name="Currency" type="http://publications.europa.eu/resource/authority/currency"> <!-- optional -->
                 <rim:SlotValue xsi:type="rim:CollectionValueType">
                     <rim:Element xsi:type="rim:StringValueType">
                         <rim:Value>EUR</rim:Value>
