@@ -138,6 +138,12 @@
         <Path>rules/tender-clarification-1.0/PEPPOL-T010.sch</Path>
         <Title>PEPPOL T010</Title>
     </Resource>
+    <Resource>
+        <Identifier>T011</Identifier>
+        <Type>native:Schematron</Type>
+        <Path>rules/peppol-search-notice/PEPPOL-T011.sch</Path>
+        <Title>PEPPOL T011</Title>
+    </Resource>
     <!--
     <Resource>
         <Identifier>BIIT004</Identifier>

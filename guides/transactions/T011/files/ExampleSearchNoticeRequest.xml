@@ -56,12 +56,13 @@
 
     <!-- tag::start-of-query[] -->
     <query:Query queryDefinition="SearchNotice">
+        <!-- tag::keywords[] -->
         <rim:Slot name="Keywords"> <!--- optional -->
             <rim:SlotValue xsi:type="rim:StringValueType">
                 <rim:Value>paintings</rim:Value> <!--.-->
             </rim:SlotValue>
         </rim:Slot>
-        <!-- end::start-of-query[] -->
+        <!-- end::keywords[] -->
         <!-- tag::form-type[] -->
         <rim:Slot name="FormType" type="http://publications.europa.eu/resource/authority/form-type"> <!--- optional -->
             <rim:SlotValue xsi:type="rim:CollectionValueType">
@@ -72,7 +73,7 @@
         </rim:Slot>
         <!-- end::form-type[] -->
         <!-- tag::notice-type[] -->
-        <rim:Slot name="NoticeType" type="http://publications.europa.eu/resource/authority/notice-type"> <!--- optional -->
+        <rim:Slot name="NoticeType" type="http://publications.europa.eu/resource/authority/notice-type"> <!--.-->
             <rim:SlotValue xsi:type="rim:CollectionValueType">
                 <rim:Element xsi:type="rim:StringValueType">
                     <rim:Value>cn-social</rim:Value> <!--.-->
@@ -95,7 +96,8 @@
         </rim:Slot>
         <!-- end::classification[] -->
         <!-- tag::contract-nature[] -->
-        <rim:Slot name="ContractNature" type="http://publications.europa.eu/resource/authority/contract-nature"> <!-- optional -->
+        <rim:Slot name="ContractNature"
+                  type="http://publications.europa.eu/resource/authority/contract-nature"> <!--.-->
             <rim:SlotValue xsi:type="rim:CollectionValueType"> <!--.-->
                 <rim:Element xsi:type="rim:StringValueType"> <!--.-->
                     <rim:Value>supplies</rim:Value> <!--.-->
@@ -107,7 +109,7 @@
         </rim:Slot>
         <!-- end::contract-nature[] -->
         <!-- tag::place-of-performance[] -->
-        <rim:Slot name="PlaceOfPerformance" type="http://publications.europa.eu/resource/authority/nuts"> <!-- optional -->
+        <rim:Slot name="PlaceOfPerformance" type="http://publications.europa.eu/resource/authority/nuts"> <!--.-->
             <rim:SlotValue xsi:type="rim:CollectionValueType">
                 <rim:Element xsi:type="rim:StringValueType">
                     <rim:Value>IE063</rim:Value> <!--Midland--> <!--.-->
@@ -116,18 +118,18 @@
         </rim:Slot>
         <!-- end::place-of-performance[] -->
 
-        <rim:Slot name="TenderValue"> <!-- optional -->
-            <rim:Slot name="Minimum"> <!-- optional -->
+        <rim:Slot name="TenderValue"> <!--.-->
+            <rim:Slot name="Minimum"> <!--.-->
                 <rim:SlotValue xsi:type="rim:FloatValueType">
-                    <rim:Value>25.0</rim:Value>
+                    <rim:Value>25</rim:Value>
                 </rim:SlotValue>
             </rim:Slot>
-            <rim:Slot name="Maximum"> <!-- optional -->
+            <rim:Slot name="Maximum"> <!--.-->
                 <rim:SlotValue xsi:type="rim:FloatValueType">
-                    <rim:Value>100.000</rim:Value>
+                    <rim:Value>100</rim:Value>
                 </rim:SlotValue>
             </rim:Slot>
-                <rim:Slot name="Currency" type="http://publications.europa.eu/resource/authority/currency"> <!-- optional -->
+            <rim:Slot name="Currency" type="http://publications.europa.eu/resource/authority/currency"> <!--.-->
                 <rim:SlotValue xsi:type="rim:CollectionValueType">
                     <rim:Element xsi:type="rim:StringValueType">
                         <rim:Value>EUR</rim:Value>
@@ -137,7 +139,8 @@
         </rim:Slot>
 
         <!-- tag::procedure-type[] -->
-        <rim:Slot name="ProcedureType" type="http://publications.europa.eu/resource/authority/procurement-procedure-type"> <!-- optional -->
+        <rim:Slot name="ProcedureType"
+                  type="http://publications.europa.eu/resource/authority/procurement-procedure-type"> <!-- optional -->
             <rim:SlotValue xsi:type="rim:CollectionValueType">
                 <rim:Element xsi:type="rim:StringValueType">
                     <rim:Value>neg-wo-call</rim:Value> <!--.-->
@@ -146,7 +149,8 @@
         </rim:Slot>
         <!-- end::procedure-type[] -->
         <!-- tag::submission-language[] -->
-        <rim:Slot name="SubmissionLanguage" type="http://publications.europa.eu/resource/authority/language"> <!-- optional -->
+        <rim:Slot name="SubmissionLanguage"
+                  type="http://publications.europa.eu/resource/authority/language"> <!-- optional -->
             <rim:SlotValue xsi:type="rim:CollectionValueType">
                 <rim:Element xsi:type="rim:StringValueType">
                     <rim:Value>ENG</rim:Value> <!--.-->
@@ -235,7 +239,8 @@
         </rim:Slot>
         <!-- end::procedure-legal-basis[] -->
         <!-- tag::reserved-participation[] -->
-        <rim:Slot name="ReservedParticipation" type="http://publications.europa.eu/resource/authority/reserved-procurement"> <!-- optional -->
+        <rim:Slot name="ReservedParticipation"
+                  type="http://publications.europa.eu/resource/authority/reserved-procurement"> <!-- optional -->
             <rim:SlotValue xsi:type="rim:CollectionValueType">
                 <rim:Element xsi:type="rim:StringValueType">
                     <rim:Value>res-ws</rim:Value> <!--.-->
@@ -261,7 +266,8 @@
         </rim:Slot>
         <!-- end::winner-economic-operator-name[] -->
         <!-- tag::award-criterion-type[] -->
-        <rim:Slot name="AwardCriterionType" type="http://publications.europa.eu/resource/authority/award-criterion-type"> <!-- optional -->
+        <rim:Slot name="AwardCriterionType"
+                  type="http://publications.europa.eu/resource/authority/award-criterion-type"> <!-- optional -->
             <rim:SlotValue xsi:type="rim:CollectionValueType">
                 <rim:Element xsi:type="rim:StringValueType">
                     <rim:Value>quality</rim:Value> <!--quality--> <!--.-->
@@ -298,7 +304,8 @@
                 </rim:SlotValue>
             </rim:Slot>
 
-            <rim:Slot name="OrganizationCountrySubdivision" type="http://publications.europa.eu/resource/authority/nuts"> <!--.-->
+            <rim:Slot name="OrganizationCountrySubdivision"
+                      type="http://publications.europa.eu/resource/authority/nuts"> <!--.-->
                 <rim:SlotValue xsi:type="rim:CollectionValueType">
                     <rim:Element xsi:type="rim:StringValueType">
                         <rim:Value>IE063</rim:Value> <!-- Midlands -->
@@ -323,7 +330,8 @@
                 </rim:SlotValue>
             </rim:Slot>
 
-            <rim:Slot name="LegalType" type="http://publications.europa.eu/resource/authority/buyer-legal-type"> <!--.-->
+            <rim:Slot name="LegalType"
+                      type="http://publications.europa.eu/resource/authority/buyer-legal-type"> <!--.-->
                 <rim:SlotValue xsi:type="rim:CollectionValueType">
                     <rim:Element xsi:type="rim:StringValueType">
                         <rim:Value>org-sub</rim:Value>
@@ -334,7 +342,8 @@
                 </rim:SlotValue>
             </rim:Slot>
 
-            <rim:Slot name="MainActivity" type="http://publications.europa.eu/resource/authority/main-activity"> <!--.-->
+            <rim:Slot name="MainActivity"
+                      type="http://publications.europa.eu/resource/authority/main-activity"> <!--.-->
                 <rim:SlotValue xsi:type="rim:CollectionValueType">
                     <rim:Element xsi:type="rim:StringValueType">
                         <rim:Value>defence</rim:Value>
@@ -347,4 +356,5 @@
         </rim:Slot>
         <!-- end::information-about-buyer[] -->
     </query:Query>
+    <!-- end::start-of-query[] -->
 </query:QueryRequest>

@@ -54,6 +54,7 @@ class SchematronSpecification extends Specification {
         'rules/peppol-call-for-tender-question-and-answers-1.0/PEPPOL-T008.sch'  | 'guides/transactions/T008/files/TenderingAnswers-doc.xml'
         'rules/tender-clarification-1.0/PEPPOL-T009.sch'                         | 'guides/transactions/T009/files/TenderClarificationRequest-doc.xml'
         'rules/tender-clarification-1.0/PEPPOL-T010.sch'                         | 'guides/transactions/T010/files/TenderClarification-doc.xml'
+        'rules/peppol-search-notice/PEPPOL-T011.sch'                             | 'guides/transactions/T011/files/ExampleSearchNoticeRequest.xml'
     }
 
     def 'XSD schema validation'() {
@@ -71,7 +72,7 @@ class SchematronSpecification extends Specification {
         noExceptionThrown()
 
         where:
-        xml | xsd
+        xml                                                                        | xsd
         'guides/transactions/T001/files/ExpressionOfInterestRequest-instance.xml'  | 'xsdrt/maindoc/UBL-ExpressionOfInterestRequest-2.2.xsd'
         'guides/transactions/T002/files/ExpressionOfInterestResponse-instance.xml' | 'xsdrt/maindoc/UBL-ExpressionOfInterestResponse-2.2.xsd'
         'guides/transactions/T003/files/TenderStatusRequest-instance.xml'          | 'xsdrt/maindoc/UBL-TenderStatusRequest-2.2.xsd'

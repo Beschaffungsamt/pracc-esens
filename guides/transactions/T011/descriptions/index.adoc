@@ -37,7 +37,7 @@ include::../files/ExampleSearchNoticeRequest.xml[tags=sender-electronic-address]
 === Keywords
 [source,xml,indent=0]
 ....
-include::../files/ExampleSearchNoticeRequest.xml[tags=start-of-query]
+include::../files/ExampleSearchNoticeRequest.xml[tags=keywords]
 ....
 <.> All keywords are collected as one single string. Just enter the desired keywords for your search as you would expect it from a searchbar. Select keywords for any parameter of your search as if searching for a specific procedure.
 
