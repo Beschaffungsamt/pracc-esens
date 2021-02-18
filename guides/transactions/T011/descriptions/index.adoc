@@ -29,7 +29,7 @@ include::../files/ExampleSearchNoticeRequest.xml[tags=sender-electronic-address]
 === Receiver electronic address
 [source,xml,indent=0]
 ....
-include::../files/ExampleSearchNoticeRequest.xml[tags=sender-electronic-address]
+include::../files/ExampleSearchNoticeRequest.xml[tags=receiver-electronic-address]
 ....
 <.> Here goes the address of the receiver of your query. The endpoint id is clarified in the type attribute of the slot.
 
