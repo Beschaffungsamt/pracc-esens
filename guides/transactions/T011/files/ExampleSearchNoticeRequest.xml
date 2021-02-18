@@ -52,9 +52,10 @@
     </rim:Slot>
     <!-- end::receiver-electronic-address[] -->
 
-    <query:ResponseOption returnType="LeafClassWithRepositoryItem" />
+    <!-- tag::response-option[] -->
+    <query:ResponseOption returnType="LeafClassWithRepositoryItem"/>
+    <!-- end::response-option[] -->
 
-    <!-- tag::start-of-query[] -->
     <query:Query queryDefinition="SearchNotice">
         <!-- tag::keywords[] -->
         <rim:Slot name="Keywords"> <!--- optional -->
@@ -117,7 +118,7 @@
             </rim:SlotValue>
         </rim:Slot>
         <!-- end::place-of-performance[] -->
-
+        <!-- tag::tenderValue[] -->
         <rim:Slot name="TenderValue"> <!--.-->
             <rim:Slot name="Minimum"> <!--.-->
                 <rim:SlotValue xsi:type="rim:FloatValueType">
@@ -137,10 +138,10 @@
                 </rim:SlotValue>
             </rim:Slot>
         </rim:Slot>
-
+        <!-- end::tenderValue[] -->
         <!-- tag::procedure-type[] -->
         <rim:Slot name="ProcedureType"
-                  type="http://publications.europa.eu/resource/authority/procurement-procedure-type"> <!-- optional -->
+                  type="http://publications.europa.eu/resource/authority/procurement-procedure-type">
             <rim:SlotValue xsi:type="rim:CollectionValueType">
                 <rim:Element xsi:type="rim:StringValueType">
                     <rim:Value>neg-wo-call</rim:Value> <!--.-->
@@ -150,7 +151,7 @@
         <!-- end::procedure-type[] -->
         <!-- tag::submission-language[] -->
         <rim:Slot name="SubmissionLanguage"
-                  type="http://publications.europa.eu/resource/authority/language"> <!-- optional -->
+                  type="http://publications.europa.eu/resource/authority/language">
             <rim:SlotValue xsi:type="rim:CollectionValueType">
                 <rim:Element xsi:type="rim:StringValueType">
                     <rim:Value>ENG</rim:Value> <!--.-->
@@ -158,58 +159,62 @@
             </rim:SlotValue>
         </rim:Slot>
         <!-- end::submission-language[] -->
-
-        <rim:Slot name="PublicationDate"> <!--- optional -->
-            <rim:Slot name="StartDate">
+        <!-- tag::publication-date[] -->
+        <rim:Slot name="PublicationDate"> <!--.-->
+            <rim:Slot name="StartDate"> <!--.-->
                 <rim:SlotValue xsi:type="rim:DateTimeValueType">
                     <rim:Value>2021-02-14T00:00:00Z</rim:Value>
                 </rim:SlotValue>
             </rim:Slot>
-            <rim:Slot name="EndDate">
+            <rim:Slot name="EndDate"> <!--.-->
                 <rim:SlotValue xsi:type="rim:DateTimeValueType">
                     <rim:Value>2021-02-14T23:59:59Z</rim:Value>
                 </rim:SlotValue>
             </rim:Slot>
         </rim:Slot>
-
-        <rim:Slot name="DeadlineReceiptTenders"> <!--- optional -->
-            <rim:Slot name="StartDate">
+        <!-- end::publication-date[] -->
+        <!-- tag::deadline-receipt-tenders[] -->
+        <rim:Slot name="DeadlineReceiptTenders"> <!--.-->
+            <rim:Slot name="StartDate"> <!--.-->
                 <rim:SlotValue xsi:type="rim:DateTimeValueType">
                     <rim:Value>2021-02-14T00:00:00Z</rim:Value>
                 </rim:SlotValue>
             </rim:Slot>
-            <rim:Slot name="EndDate">
+            <rim:Slot name="EndDate"> <!--.-->
                 <rim:SlotValue xsi:type="rim:DateTimeValueType">
                     <rim:Value>2021-02-14T23:59:59Z</rim:Value>
                 </rim:SlotValue>
             </rim:Slot>
         </rim:Slot>
-
-        <rim:Slot name="AdditionalInformationDeadline"> <!--- optional -->
-            <rim:Slot name="StartDate">
+        <!-- end::deadline-receipt-tenders[] -->
+        <!-- tag::additional-information-deadline[] -->
+        <rim:Slot name="AdditionalInformationDeadline"> <!--.-->
+            <rim:Slot name="StartDate"> <!--.-->
                 <rim:SlotValue xsi:type="rim:DateTimeValueType">
                     <rim:Value>2021-02-14T00:00:00Z</rim:Value>
                 </rim:SlotValue>
             </rim:Slot>
-            <rim:Slot name="EndDate">
+            <rim:Slot name="EndDate"> <!--.-->
                 <rim:SlotValue xsi:type="rim:DateTimeValueType">
                     <rim:Value>2021-02-14T23:59:59Z</rim:Value>
                 </rim:SlotValue>
             </rim:Slot>
         </rim:Slot>
-
-        <rim:Slot name="DeadlineReceiptRequests"> <!--- optional -->
-            <rim:Slot name="StartDate">
+        <!-- end::additional-information-deadline[] -->
+        <!-- tag::deadline-receipt-requests[] -->
+        <rim:Slot name="DeadlineReceiptRequests"> <!--.-->
+            <rim:Slot name="StartDate"> <!--.-->
                 <rim:SlotValue xsi:type="rim:DateTimeValueType">
                     <rim:Value>2021-02-14T00:00:00Z</rim:Value>
                 </rim:SlotValue>
             </rim:Slot>
-            <rim:Slot name="EndDate">
+            <rim:Slot name="EndDate"> <!--.-->
                 <rim:SlotValue xsi:type="rim:DateTimeValueType">
                     <rim:Value>2021-02-14T23:59:59Z</rim:Value>
                 </rim:SlotValue>
             </rim:Slot>
         </rim:Slot>
+        <!-- end::deadline-receipt-requests[] -->
         <!-- tag::notice-identifier[] -->
         <rim:Slot name="NoticeIdentifier"> <!-- optional -->
             <rim:SlotValue xsi:type="rim:CollectionValueType">
@@ -356,5 +361,4 @@
         </rim:Slot>
         <!-- end::information-about-buyer[] -->
     </query:Query>
-    <!-- end::start-of-query[] -->
 </query:QueryRequest>

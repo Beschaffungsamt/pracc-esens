@@ -33,6 +33,13 @@ include::../files/ExampleSearchNoticeRequest.xml[tags=receiver-electronic-addres
 ....
 <.> Here goes the address of the receiver of your query. The endpoint id is clarified in the type attribute of the slot.
 
+== Response Option
+[source,xml,indent=0]
+....
+include::../files/ExampleSearchNoticeRequest.xml[tags=response-option]
+....
+<.> The response option is a standard part of the Query, as the returnType LeafClassWithRepositoryItem is the standard for the response option.
+
 == Query
 === Keywords
 [source,xml,indent=0]
@@ -92,6 +99,16 @@ include::../files/ExampleSearchNoticeRequest.xml[tags=place-of-performance]
 
 The whole slot is optional.
 
+=== Tender Value
+[source,xml,indent=0]
+....
+include::../files/ExampleSearchNoticeRequest.xml[tags=tenderValue]
+....
+<.> The slot for the tender value consists of four different slots, which can all be added to specify the tender value. The slot as a whole is optional, as are each of the three slots in it.
+<.> The first one is minimum, the minimal tender value you are looking for. It has to be declared as a float.
+<.> Corresponding to minimum, the second value you can search for in the tender value is the maximum. Just like the minimum the maximum tender value you are searching for is a float.
+<.> The third possible criteria is the currency. This one is a CollectionValueType you can enter more than one element. The values are selected from the list which ID is deposited in the type-attribute of the slot.
+
 === Procedure Type
 [source,xml,indent=0]
 ....
@@ -109,6 +126,42 @@ include::../files/ExampleSearchNoticeRequest.xml[tags=submission-language]
 <.> The type of the slotValue is a CollectionValueType, so you can enter more than one element. The selected listID has to be filled into the type-attribute of the slot. The value of the slot is chosen from the list.
 
 The whole slot is optional.
+
+=== Publication Date
+[source,xml,indent=0]
+....
+include::../files/ExampleSearchNoticeRequest.xml[tags=publication-date]
+....
+<.> The first of four date slots. Here you can search for the date of publication. The slot can consist of up to two slots, each of a DateTimeValueType.
+<.> The first slot can be filled with a potential start date and time of the publication. With the DateTimeValueType in mind you can declare the desired date in the standard DateTime format.
+<.> The second slot can be filled with a possible end date and time of the publication. With the DateTimeValueType in mind you can declare the desired date in the standard DateTime format.
+
+=== Deadline Receipt Tenders
+[source,xml,indent=0]
+....
+include::../files/ExampleSearchNoticeRequest.xml[tags=deadline-receipt-tenders]
+....
+<.> The second of four date slots. Here you can search for the deadline of receipt tenders. The slot can consist of up to two slots, each of a DateTimeValueType.
+<.> The first slot can be filled with a potential start date and time for the deadline for receipt tenders. With the DateTimeValueType in mind you can declare the desired date in the standard DateTime format.
+<.> The second slot can be filled with a possible end date and time for the deadline for receipt tenders. With the DateTimeValueType in mind you can declare the desired date in the standard DateTime format.
+
+=== Additional Information Deadline
+[source,xml,indent=0]
+....
+include::../files/ExampleSearchNoticeRequest.xml[tags=additional-information-deadline]
+....
+<.> The third of four date slots. Here you can search for the deadline of additional information. The slot can consist of up to two slots, each of a DateTimeValueType.
+<.> The first slot can be filled with a potential start date and time for the deadline of additional information. With the DateTimeValueType in mind you can declare the desired date in the standard DateTime format.
+<.> The second slot can be filled with a possible end date and time for the deadline of additional information. With the DateTimeValueType in mind you can declare the desired date in the standard DateTime format.
+
+=== Deadline Receipt Requests
+[source,xml,indent=0]
+....
+include::../files/ExampleSearchNoticeRequest.xml[tags=deadline-receipt-requests]
+....
+<.> The last of the four date slots. Here you can search for the deadline of receipt requests. The slot can consist of up to two slots, each of a DateTimeValueType.
+<.> The first slot can be filled with a potential start date and time for the deadline of receipt requests. With the DateTimeValueType in mind you can declare the desired date in the standard DateTime format.
+<.> The second slot can be filled with a possible end date and time for the deadline  of receipt requests. With the DateTimeValueType in mind you can declare the desired date in the standard DateTime format.
 
 === Notice Identifier
 [source,xml,indent=0]
