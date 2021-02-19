@@ -15,16 +15,14 @@
     <!-- tag::specification-identification[] -->
     <rim:Slot name="SpecificationIdentification">
         <rim:SlotValue xsi:type="rim:StringValueType">
-            <rim:Value>
-                urn:www.cenbii.eu:transaction:biitrdm099:ver3.0:extended:urn:fdc:peppol.eu:2021:pracc:t011:ver1.0
-            </rim:Value> <!--.-->
+            <rim:Value>urn:fdc:peppol.eu:2021:pracc:t011:1.0</rim:Value> <!--.-->
         </rim:SlotValue>
     </rim:Slot>
     <!-- end::specification-identification[] -->
     <!-- tag::business-process-type-identifier[] -->
     <rim:Slot name="BusinessProcessTypeIdentifier">
         <rim:SlotValue xsi:type="rim:StringValueType">
-            <rim:Value>urn:fdc:peppol.eu:2020:pracc:p006:01:1.0</rim:Value> <!--.-->
+            <rim:Value>urn:fdc:peppol.eu:2021:pracc:p006:1.0</rim:Value> <!--.-->
         </rim:SlotValue>
     </rim:Slot>
     <!-- end::business-process-type-identifier[] -->
@@ -35,18 +33,18 @@
     </rim:Slot>
     <!-- tag::sender-electronic-address[] -->
     <rim:Slot name="SenderElectronicAddress">
-        <rim:Slot name="EndpointId" type="9930">
+        <rim:Slot name="EndpointId" type="NL:KVK">
             <rim:SlotValue xsi:type="rim:StringValueType">
-                <rim:Value>DE153901674</rim:Value> <!--.-->
+                <rim:Value>30058019</rim:Value> <!--.-->
             </rim:SlotValue>
         </rim:Slot>
     </rim:Slot>
     <!-- end::sender-electronic-address[] -->
     <!-- tag::receiver-electronic-address[] -->
     <rim:Slot name="ReceiverElectronicAddress">
-        <rim:Slot name="EndpointId" type="9930">
+        <rim:Slot name="EndpointId" type="DE:VAT"> <!--.-->
             <rim:SlotValue xsi:type="rim:StringValueType">
-                <rim:Value>DE89769595</rim:Value> <!--.-->
+                <rim:Value>9930:DE122268496</rim:Value> <!--.-->
             </rim:SlotValue>
         </rim:Slot>
     </rim:Slot>
@@ -58,7 +56,7 @@
 
     <query:Query queryDefinition="SearchNotice">
         <!-- tag::keywords[] -->
-        <rim:Slot name="Keywords"> <!--- optional -->
+        <rim:Slot name="Keywords">
             <rim:SlotValue xsi:type="rim:StringValueType">
                 <rim:Value>paintings</rim:Value> <!--.-->
             </rim:SlotValue>

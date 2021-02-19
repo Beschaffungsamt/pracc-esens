@@ -24,7 +24,7 @@ include::../files/ExampleSearchNoticeRequest.xml[tags=business-process-type-iden
 ....
 include::../files/ExampleSearchNoticeRequest.xml[tags=sender-electronic-address]
 ....
-<.> You have to fill your own sender id into this slot. The endpoint id is clarified in the type attribute of the slot.
+<.> You have to fill your own sender id into this slot. The endpoint id is clarified in the attribute named type of the slot and is equivalent to the schemeId in UBL.
 
 === Receiver electronic address
 [source,xml,indent=0]
@@ -32,6 +32,7 @@ include::../files/ExampleSearchNoticeRequest.xml[tags=sender-electronic-address]
 include::../files/ExampleSearchNoticeRequest.xml[tags=receiver-electronic-address]
 ....
 <.> Here goes the address of the receiver of your query. The endpoint id is clarified in the type attribute of the slot.
+<.> Place your Endpoint Id here.
 
 == Response Option
 [source,xml,indent=0]
