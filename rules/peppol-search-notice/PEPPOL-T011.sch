@@ -43,11 +43,11 @@
         <rule context="query:QueryRequest/query:Query/rim:Slot[@name='Keywords']">
             <assert id="PEPPOL-T011-R013" test="rim:SlotValue[@xsi:type='rim:StringValueType']/rim:Value/text()[normalize-space() != '']">A value for Keywords MUST be given.</assert>
         </rule>
-
+<!--
         <rule context="query:QueryRequest/query:Query/rim:Slot[@name='FormType']">
             <assert id="PEPPOL-T011-R017" test="rim:SlotValue[@xsi:type='rim:CollectionValueType']/rim:Element[@xsi:type='rim:StringValueType']/text()[normalize-space() != '']">A value for Keywords MUST be given.</assert>
         </rule>
-
+-->
 
 
     </pattern>
