@@ -59,7 +59,7 @@
                 lid="2C621D47-112D-42D4-B6F8-57392464C3E7"
                 id="53EB9F20-EE12-474F-9424-78FC604E8FAE"
                 xsi:type="rim:ExtrinsicObjectType"> <!--.-->
-            <rim:Slot name="EndpointId" type="9930">
+            <rim:Slot name="EndpointId" type="DE:VAT">
                 <rim:SlotValue xsi:type="rim:StringValueType">
                     <rim:Value>DE89769595</rim:Value>
                 </rim:SlotValue>
