@@ -55,6 +55,7 @@ class SchematronSpecification extends Specification {
         'rules/tender-clarification-1.0/PEPPOL-T009.sch'                         | 'guides/transactions/T009/files/TenderClarificationRequest-doc.xml'
         'rules/tender-clarification-1.0/PEPPOL-T010.sch'                         | 'guides/transactions/T010/files/TenderClarification-doc.xml'
         'rules/peppol-search-notice/PEPPOL-T011.sch'                             | 'guides/transactions/T011/files/ExampleSearchNoticeRequest.xml'
+        'rules/peppol-search-notice/PEPPOL-T012.sch'                             | 'guides/transactions/T012/files/ExampleSearchNoticeResponse.xml'
     }
 
     def 'XSD schema validation'() {

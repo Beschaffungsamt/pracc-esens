@@ -15,7 +15,7 @@
         http://docs.oasis-open.org/regrep/regrep-core/v4.0/csd01/xsd/query.xsd"
 >
     <!-- tag::specification-identification[] -->
-    <rim:Slot name="SpecificatonIdentification">
+    <rim:Slot name="SpecificationIdentification">
         <rim:SlotValue xsi:type="rim:StringValueType">
             <rim:Value>
                 urn:www.cenbii.eu:transaction:biitrdm100:ver3.0:extended:urn:fdc:peppol.eu:2021:pracc:t012:ver1.0
@@ -30,14 +30,14 @@
         </rim:SlotValue>
     </rim:Slot>
     <!-- end::business-process-type-identification[] -->
-    <rim:Slot name="IssueDateTime">
+    <rim:Slot name="Issue">
         <rim:SlotValue xsi:type="rim:DateTimeValueType">
             <rim:Value>2020-02-14T19:20:30+01:00</rim:Value>
         </rim:SlotValue>
     </rim:Slot>
     <!-- tag::sender-electronic-address[] -->
     <rim:Slot name="SenderElectronicAddress">
-        <rim:Slot name="EndpointId" type="9930">
+        <rim:Slot name="EndpointId" type="DE:VAT">
             <rim:SlotValue xsi:type="rim:StringValueType">
                 <rim:Value>DE89769595</rim:Value> <!--.-->
             </rim:SlotValue>
@@ -46,7 +46,7 @@
     <!-- end::sender-electronic-address[] -->
     <!-- tag::receiver-electronic-address[] -->
     <rim:Slot name="ReceiverElectronicAddress">
-        <rim:Slot name="EndpointId" type="9930">
+        <rim:Slot name="EndpointId" type="DE:VAT">
             <rim:SlotValue xsi:type="rim:StringValueType">
                 <rim:Value>DE153901674</rim:Value>
             </rim:SlotValue>
