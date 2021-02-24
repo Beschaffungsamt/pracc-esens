@@ -8,8 +8,39 @@
     <Namespace prefix="xsi">http://www.w3.org/2001/XMLSchema-instance</Namespace>
 
     <Document>
-        <Term>query:Query</Term>
+        <Term>query:QueryRequest</Term>
         <Name>Search Notice Request root</Name>
+        <Description>The Search Notice Request is a query transaction that requests notices using either a set of
+            criteria for notices usually based on the eTendering Service Providers or Economic Operators ambitions and
+            capabilities.
+        </Description>
+        <Attribute>
+            <Term>startIndex</Term>
+            <Description>The Search Notice Request and Response support the ability to iterate over a large result set
+                matching a query by allowing multiple QueryRequest requests to be submitted in succession such that each
+                query requests a different subset of results within the result set. This feature enables the server to
+                handle queries that match a very large result set, in a scalable manner. This attribute is used to
+                indicate which result must be returned as the first result when iterating over a large result set. The
+                default value is 0, which returns the result set starting with index 0 (first result).
+            </Description>
+            <DataType>integer</DataType>
+        </Attribute>
+        <Attribute>
+            <Term>maxResults</Term>
+            <Description>This attribute specifies a limit on the maximum number of results the sender wishes the query
+                to return. A receiver of the request MUST return a result set whose size is less than or equal to the
+                maxResults parameter depending upon whether enough results are available starting at startIndex. If the
+                default value -1 is used, the receiver SHOULD return all the results.
+            </Description>
+            <DataType>integer</DataType>
+        </Attribute>
+        <Attribute>
+            <Term>id</Term>
+            <Description>Specifies the unique identifier for an Identifiable Search Notice Request. In case of different
+                start index for same QueryRequest is used it is possible to use the same Search Notice Request
+                Identfier.
+            </Description>
+        </Attribute>
         <Element>
             <Term>rim:Slot@name=SpecificationIdentification</Term>
             <Name>SpecificationIdentification</Name>
@@ -105,7 +136,7 @@
             </Element>
         </Element>
         <Element>
-            <Term>rim:Slot</Term>
+            <Term>rim:Slot@name=ReceiverElectronicAddress</Term>
             <Name>ReceiverElectronicAddress</Name>
             <Description>The electronic address of the receiver.</Description>
             <Attribute>
@@ -133,16 +164,27 @@
             </Element>
         </Element>
         <Element>
+            <Term>query:ResponseOption</Term>
+            <Description>An element to control the type and structure of results within the corresponding QueryResponse.
+                For the Search Notice Request it is required that the notices are included as repository Items to the
+                QueryResponse. This is indicated through the returnType "LeafClassWithRepositoryItem".
+            </Description>
+            <Attribute>
+                <Term>returnType</Term>
+                <Value type="FIXED">LeafClassWithRepositoryItem</Value>
+            </Attribute>
+        </Element>
+        <Element>
             <Term>query:Query</Term>
-            <Name>The definition of the query and its parameters. This is indicated through the
+            <Description>The definition of the query and its parameters. This is indicated through the
                 queryDefinition="SearchNotice".
-            </Name>
+            </Description>
             <Attribute>
                 <Term>queryDefinition</Term>
                 <Value type="FIXED">SearchNotice</Value>
             </Attribute>
             <Element cardinality="0..1">
-                <Term>rim:Slot</Term>
+                <Term>rim:Slot@name=Keywords</Term>
                 <Name>Keywords</Name>
                 <Description>Used to specify searchable keywords and/or synonyms over the entire notice.</Description>
                 <Attribute>
@@ -162,7 +204,7 @@
                 </Element>
             </Element>
             <Element cardinality="0..1">
-                <Term>rim:Slot</Term>
+                <Term>rim:Slot@name=FormType</Term>
                 <Name>FormType</Name>
                 <Description>Used to search for specific form types like planning, competition, direct award
                     pre-notification etc.
@@ -195,7 +237,7 @@
                 </Element>
             </Element>
             <Element cardinality="0..1">
-                <Term>rim:Slot</Term>
+                <Term>rim:Slot@name=NoticeType</Term>
                 <Name>NoticeType</Name>
                 <Description>Used to search for specific notice types (BT-02) [e.g. PIN only] for notice categories
                     [e.g. Prior Information Notice]. A given form type (BT-03) [e.g. Planning] regroups multiple notice
@@ -229,7 +271,7 @@
                 </Element>
             </Element>
             <Element cardinality="0..n">
-                <Term>rim:Slot</Term>
+                <Term>rim:Slot@name=Classification</Term>
                 <Name>Classification</Name>
                 <Description>Used to search upon the values of designated classification systems (BT-26) being either
                     main (BT-262) or additional commodities classifications (BT-263). Currently, only the “CPV”,
@@ -264,7 +306,7 @@
                 </Element>
             </Element>
             <Element cardinality="0..1">
-                <Term>rim:Slot</Term>
+                <Term>rim:Slot@name=ContractNature</Term>
                 <Name>ContractNature</Name>
                 <Description>Used to search upon the values of main natures (BT-23) and additional natures (BT-531) of a
                     notice.
@@ -297,7 +339,7 @@
                 </Element>
             </Element>
             <Element cardinality="0..1">
-                <Term>rim:Slot</Term>
+                <Term>rim:Slot@name=PlaceOfPerformance</Term>
                 <Name>PlaceOfPerformance</Name>
                 <Description>Used to search upon the values of a country subentity code (BT-5071) according to the
                     Nomenclature of territorial units for statistics (NUTS).
@@ -330,7 +372,7 @@
                 </Element>
             </Element>
             <Element cardinality="0..1">
-                <Term>rim:Slot</Term>
+                <Term>rim:Slot@name=EstimatedValue</Term>
                 <Name>EstimatedValue</Name>
                 <Description>An abstract class that defines a container for search attributes related to estimated
                     overall contract amount. Can be used to specify a minimum, maximum, range value or a currency for
@@ -532,7 +574,7 @@
                 </Element>
             </Element>
             <Element cardinality="0..1">
-                <Term>rim:Slot</Term>
+                <Term>rim:Slot@name=DeadlineReceiptTenders</Term>
                 <Name>DeadlineReceiptTenders</Name>
                 <Description>
                     An abstract class that defines a container for search attributes related to the deadline for tender
@@ -576,7 +618,7 @@
                 </Element>
             </Element>
             <Element cardinality="0..1">
-                <Term>rim:Slot</Term>
+                <Term>rim:Slot@name=AdditionalInformationDeadline</Term>
                 <Name>AdditionalInformationDeadline</Name>
                 <Description>
                     An abstract class that defines a container for search attributes related to the the deadline to
@@ -621,7 +663,7 @@
                 </Element>
             </Element>
             <Element cardinality="0..1">
-                <Term>rim:Slot</Term>
+                <Term>rim:Slot@name=DeadlineReceiptRequests</Term>
                 <Name>DeadlineReceiptRequests</Name>
                 <Description>
                     An abstract class that defines a container for search attributes related to the deadline for
@@ -666,7 +708,7 @@
                 </Element>
             </Element>
             <Element cardinality="0..1">
-                <Term>rim:Slot</Term>
+                <Term>rim:Slot@name=NoticeIdentifier</Term>
                 <Name>NoticeIdentifier</Name>
                 <Attribute>
                     <Term>name</Term>
@@ -692,7 +734,7 @@
                 </Element>
             </Element>
             <Element cardinality="0..1">
-                <Term>rim:Slot</Term>
+                <Term>rim:Slot@name=ProcedureIdentifier</Term>
                 <Name>ProcedureIdentifier</Name>
                 <Attribute>
                     <Term>name</Term>
@@ -715,6 +757,95 @@
                             <DataType>rim:StringValueType</DataType>
                         </Element>
                     </Element>
+                </Element>
+            </Element>
+            <Element cardinality="0..1">
+                <Term>rim:Slot@name=ProcedureLegalBasis</Term>
+                <name>ProcedureLegalBasis</name>
+                <Description>Used to search for legal references. The code indicates the EU Directive under which a
+                    notice is published.
+                </Description>
+                <Attribute>
+                    <Term>name</Term>
+                    <Value type="FIXED">ProcedureLegalBasis</Value>
+                </Attribute>
+                <Attribute>
+                    <Term>type</Term>
+                    <Value type="FIXED">http://publications.europa.eu/resource/authority/legal-basis</Value>
+                </Attribute>
+                <Element>
+                    <Term>rim:SlotValue</Term>
+                    <Attribute>
+                        <Term>xsi:type</Term>
+                        <Value type="FIXED">rim:CollectionValueType</Value>
+                    </Attribute>
+                    <Element cardinality="1..n">
+                        <Term>rim:Element</Term>
+                        <Attribute>
+                            <Term>xsi:type</Term>
+                            <Value type="FIXED">rim:StringValueType</Value>
+                        </Attribute>
+                        <Element>
+                            <Term>rim:Value</Term>
+                            <Name>Procedure Legal Basis Code</Name>
+                        </Element>
+                    </Element>
+                </Element>
+            </Element>
+            <Element cardinality="0..1">
+                <Term>rim:slot@name=ReservedParticipation</Term>
+                <Name>ReservedParticipation</Name>
+                <Description>Used to search for notices that express a participation restriction (BT-71); e.g. only
+                    tenderers with specific social missions may tender.
+                </Description>
+                <Attribute>
+                    <Term>name</Term>
+                    <Value type="FIXED">ReservedParticipation</Value>
+                </Attribute>
+                <Attribute>
+                    <Term>type</Term>
+                    <Value type="FIXED">http://publications.europa.eu/resource/authority/reserved-procurement</Value>
+                </Attribute>
+                <Element>
+                    <Term>rim:SlotValue</Term>
+                    <Attribute>
+                        <Term>xsi:type</Term>
+                        <Value type="FIXED">rim:CollectionValueType</Value>
+                    </Attribute>
+                    <Element cardinality="1..n">
+                        <Term>rim:Element</Term>
+                        <Attribute>
+                            <Term>xsi:type</Term>
+                            <Value type="FIXED">rim:StringValueType</Value>
+                        </Attribute>
+                    </Element>
+                </Element>
+            </Element>
+            <Element cardinality="0..1">
+                <Term>rim:Slot@name=SuitableForSMEs</Term>
+                <Name>SuitableForSMEs</Name>
+                <Description>Used to search for notices that indicate that a tender participation is suitability for SMEs (BT-726)</Description>
+                <Element>
+                    <Term>rim:SlotValue</Term>
+                    <Attribute>
+                        <Term>xsi:type</Term>
+                        <Value type="FIXED">rim:BooleanValueType</Value>
+                    </Attribute>
+                    <Element>
+                        <Term>rim:Value</Term>
+                    </Element>
+                </Element>
+            </Element>
+            <Element>
+                <Term>rim:Slot@name=WinnerEconomicOperatorName</Term>
+                <Name>WinnerEconomicOperatorName</Name>
+                <Description>Used to search for the winning organisation name (BT-500) to whom a contract has been awarded.</Description>
+                <Element>
+                    <Term>rim:SlotValue</Term>
+                    <Attribute>
+                        <Term>xsi:type</Term>
+                        <Value type="FIXED">rim:StringValueType</Value>
+                    </Attribute>
                 </Element>
             </Element>
         </Element>
