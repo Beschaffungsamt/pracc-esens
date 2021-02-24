@@ -14,7 +14,7 @@
             criteria for notices usually based on the eTendering Service Providers or Economic Operators ambitions and
             capabilities.
         </Description>
-        <Attribute>
+        <Attribute usage="Optional">
             <Term>startIndex</Term>
             <Description>The Search Notice Request and Response support the ability to iterate over a large result set
                 matching a query by allowing multiple QueryRequest requests to be submitted in succession such that each
@@ -24,8 +24,9 @@
                 default value is 0, which returns the result set starting with index 0 (first result).
             </Description>
             <DataType>integer</DataType>
+            <Value type="DEFAULT">0</Value>
         </Attribute>
-        <Attribute>
+        <Attribute usage="Optional">
             <Term>maxResults</Term>
             <Description>This attribute specifies a limit on the maximum number of results the sender wishes the query
                 to return. A receiver of the request MUST return a result set whose size is less than or equal to the
@@ -33,6 +34,7 @@
                 default value -1 is used, the receiver SHOULD return all the results.
             </Description>
             <DataType>integer</DataType>
+            <Value type="DEFAULT">-1</Value>
         </Attribute>
         <Attribute>
             <Term>id</Term>
@@ -818,13 +820,19 @@
                             <Term>xsi:type</Term>
                             <Value type="FIXED">rim:StringValueType</Value>
                         </Attribute>
+                        <Element>
+                            <Term>rim:Value</Term>
+                            <Name>Reserved Participation Code</Name>
+                        </Element>
                     </Element>
                 </Element>
             </Element>
             <Element cardinality="0..1">
                 <Term>rim:Slot@name=SuitableForSMEs</Term>
                 <Name>SuitableForSMEs</Name>
-                <Description>Used to search for notices that indicate that a tender participation is suitability for SMEs (BT-726)</Description>
+                <Description>Used to search for notices that indicate that a tender participation is suitability for
+                    SMEs (BT-726)
+                </Description>
                 <Element>
                     <Term>rim:SlotValue</Term>
                     <Attribute>
@@ -836,17 +844,65 @@
                     </Element>
                 </Element>
             </Element>
-            <Element>
+            <Element cardinality="0..1">
                 <Term>rim:Slot@name=WinnerEconomicOperatorName</Term>
                 <Name>WinnerEconomicOperatorName</Name>
-                <Description>Used to search for the winning organisation name (BT-500) to whom a contract has been awarded.</Description>
+                <Description>Used to search for the winning organisation name (BT-500) to whom a contract has been
+                    awarded.
+                </Description>
                 <Element>
                     <Term>rim:SlotValue</Term>
                     <Attribute>
                         <Term>xsi:type</Term>
                         <Value type="FIXED">rim:StringValueType</Value>
                     </Attribute>
+                    <Element>
+                        <Term>rim:Value</Term>
+                    </Element>
                 </Element>
+            </Element>
+            <Element cardinality="0..1">
+                <Term>rim:Slot@name=AwardCriterionType</Term>
+                <Name>AwardCriterionType</Name>
+                <Description>Used to search for the awarding criterion type code (BT-539) that is used to assess the
+                    tenders.
+                </Description>
+                <Attribute>
+                    <Term>name</Term>
+                    <Value type="FIXED">AwardCriterionType</Value>
+                </Attribute>
+                <Attribute>
+                    <Term>type</Term>
+                    <Value type="FIXED">http://publications.europa.eu/resource/authority/award-criterion-type</Value>
+                </Attribute>
+                <Element>
+                    <Term>rim:SlotValue</Term>
+                    <Attribute>
+                        <Term>xsi:type</Term>
+                        <Value type="FIXED">rim:CollectionValueType</Value>
+                    </Attribute>
+                    <Element>
+                        <Term>rim:Element</Term>
+                        <Attribute>
+                            <Term>type</Term>
+                            <Value type="FIXED">xsi:StringValueType</Value>
+                        </Attribute>
+                        <Element>
+                            <Term>rim:Value</Term>
+                            <Name>Award Criterion Type Code</Name>
+                        </Element>
+                    </Element>
+                </Element>
+            </Element>
+            <Element cardinality="0..n">
+                <Term>rim:Slot@name=BuyerInformation</Term>
+                <Name>BuyerInformation</Name>
+                <Attribute>
+                    <Term>name</Term>
+                    <Value type="FIXED">BuyerInformation</Value>
+                </Attribute>
+                <Description>Used to search for the awarding criterion type code (BT-539) that is used to assess the tenders. </Description>
+                <!-- todo @schoemer -->
             </Element>
         </Element>
     </Document>
