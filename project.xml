@@ -3,25 +3,27 @@
 
     <Name>PEPPOL Pre-Award</Name>
 
-    <!--
     <Documentation path="profiles/p001/index.html">P001 - Procurement procedure subscription</Documentation>
+    <Documentation path="transactions/T001/index.html">T001 - Expression Of Interest Request</Documentation>
+    <Documentation path="transactions/T002/index.html">T002 - Expression Of Interest Response</Documentation>
     <Documentation path="profiles/p002/index.html">P002 - Procurement document access</Documentation>
+    <Documentation path="transactions/T003/index.html">T003 - Tender Status Request</Documentation>
+    <Documentation path="transactions/T004/index.html">T004 - Call for Tenders</Documentation>
     <Documentation path="profiles/p003/index.html">P003 - Tender Submission</Documentation>
-    <Documentation path="changelog/index.html">Changelog</Documentation>
-    -->
+    <Documentation path="transactions/T005/index.html">T005 - Tender</Documentation>
+    <Documentation path="transactions/T006/index.html">T006 - Tender Receipt</Documentation>
     <Documentation path="profiles/p004/index.html">P004 - Call for Tender Question and Answers</Documentation>
-    <Documentation path="profiles/p005/index.html">P005 - Tender Clarification</Documentation>
-    <Documentation path="profiles/p006/index.html">P006 - Search Notices</Documentation>
-
     <Documentation path="transactions/T007/index.html">T007 - Tendering Questions</Documentation>
     <Documentation path="transactions/T008/index.html">T008 - Tendering Answers</Documentation>
+    <Documentation path="profiles/p005/index.html">P005 - Tender Clarification</Documentation>
     <Documentation path="transactions/T009/index.html">T009 - Tender Clarification Request</Documentation>
     <Documentation path="transactions/T010/index.html">T010 - Tender Clarification</Documentation>
+    <Documentation path="profiles/p006/index.html">P006 - Search Notices</Documentation>
     <Documentation path="transactions/T011/index.html">T011 - Search Notice Request</Documentation>
     <Documentation path="transactions/T012/index.html">T012 - Search Notice Response</Documentation>
+    <Documentation path="changelog/index.html">Changelog</Documentation>
 
     <!-- Syntax -->
-    <!--
     <Resource>
         <Type>Structure-1</Type>
         <Path>structure/syntax/ExpressionOfInterestRequest.xml</Path>
@@ -52,7 +54,6 @@
         <Path>structure/syntax/TenderReceipt.xml</Path>
         <Title>Tender Receipt (T006)</Title>
     </Resource>
-    -->
     <Resource>
         <Type>Structure-1</Type>
         <Path>structure/syntax/TenderingQuestions.xml</Path>
@@ -73,10 +74,19 @@
         <Path>structure/syntax/TenderClarification.xml</Path>
         <Title>Syntax Mapping T010 - Tender Clarification</Title>
     </Resource>
+    <Resource>
+        <Type>Structure-1</Type>
+        <Path>structure/syntax/SearchNoticeRequest.xml</Path>
+        <Title>Syntax Mapping T011 - Search Notice Request</Title>
+    </Resource>
+    <Resource>
+        <Type>Structure-1</Type>
+        <Path>structure/syntax/SearchNoticeResponse.xml</Path>
+        <Title>Syntax Mapping T012 - Search Notice Response</Title>
+    </Resource>
 
 
     <!-- Rules -->
-    <!--
     <Resource>
         <Identifier>T001</Identifier>
         <Type>native:Schematron</Type>
@@ -113,7 +123,6 @@
         <Path>rules/peppol-tender-1.0/peppol/ESENS-UBL-T006.sch</Path>
         <Title>PEPPOL T006 rules</Title>
     </Resource>
-    -->
     <Resource>
         <Identifier>T007</Identifier>
         <Type>native:Schematron</Type>
@@ -144,7 +153,6 @@
         <Path>rules/peppol-search-notice/PEPPOL-T011.sch</Path>
         <Title>PEPPOL T011</Title>
     </Resource>
-    <!--
     <Resource>
         <Identifier>BIIT004</Identifier>
         <Type>native:Schematron</Type>
@@ -163,10 +171,8 @@
         <Path>rules/peppol-tender-1.0/CENBII/T006/BIIRULES-UBL-T45.sch</Path>
         <Title>CENBII T006 rules</Title>
     </Resource>
-    -->
 
     <!-- Code lists -->
-    <!--
     <Resource>
         <Type>CodeList-1</Type>
         <Path>structure/codelist/addCond.xml</Path>
@@ -195,7 +201,6 @@
         <Type>CodeList-1</Type>
         <Path>structure/codelist/submissionMethod.xml</Path>
     </Resource>
-    -->
 
     <Resource>
         <Type>native:File</Type>

@@ -36,21 +36,17 @@
         </rim:SlotValue>
     </rim:Slot>
     <!-- tag::sender-electronic-address[] -->
-    <rim:Slot name="SenderElectronicAddress">
-        <rim:Slot name="EndpointId" type="DE:VAT">
-            <rim:SlotValue xsi:type="rim:StringValueType">
-                <rim:Value>DE89769595</rim:Value> <!--.-->
-            </rim:SlotValue>
-        </rim:Slot>
+    <rim:Slot name="SenderElectronicAddress" type="DE:VAT">
+        <rim:SlotValue xsi:type="rim:StringValueType">
+            <rim:Value>9930:DE122268496</rim:Value> <!--.-->
+        </rim:SlotValue>
     </rim:Slot>
     <!-- end::sender-electronic-address[] -->
     <!-- tag::receiver-electronic-address[] -->
-    <rim:Slot name="ReceiverElectronicAddress">
-        <rim:Slot name="EndpointId" type="DE:VAT">
-            <rim:SlotValue xsi:type="rim:StringValueType">
-                <rim:Value>DE153901674</rim:Value>
-            </rim:SlotValue>
-        </rim:Slot>
+    <rim:Slot name="ReceiverElectronicAddress" type="PT:VAT">
+        <rim:SlotValue xsi:type="rim:StringValueType">
+            <rim:Value>9946:500820007</rim:Value>
+        </rim:SlotValue>
     </rim:Slot>
     <!-- end::receiver-electronic-address[] -->
     <!-- tag::registry-object-list[] -->
@@ -59,9 +55,9 @@
                 lid="2C621D47-112D-42D4-B6F8-57392464C3E7"
                 id="53EB9F20-EE12-474F-9424-78FC604E8FAE"
                 xsi:type="rim:ExtrinsicObjectType"> <!--.-->
-            <rim:Slot name="EndpointId" type="DE:VAT">
+            <rim:Slot name="BuyerElectronicAddress" type="DE:VAT">
                 <rim:SlotValue xsi:type="rim:StringValueType">
-                    <rim:Value>DE89769595</rim:Value>
+                    <rim:Value>9930:DE89769595</rim:Value>
                 </rim:SlotValue>
             </rim:Slot>
             <rim:Slot name="DocumentTypeCode" type="http://docs.peppol.eu/document-type-code">

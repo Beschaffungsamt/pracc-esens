@@ -1,0 +1,722 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Structure xmlns="urn:fdc:difi.no:2017:vefa:structure-1">
+    <Term>Search Notice Request</Term>
+    <Name>Search Notice Request (T011)</Name>
+
+    <Namespace prefix="query">urn:oasis:names:tc:ebxml-regrep:xsd:query:4.0</Namespace>
+    <Namespace prefix="rim">urn:oasis:names:tc:ebxml-regrep:xsd:rim:4.0</Namespace>
+    <Namespace prefix="xsi">http://www.w3.org/2001/XMLSchema-instance</Namespace>
+
+    <Document>
+        <Term>query:Query</Term>
+        <Name>Search Notice Request root</Name>
+        <Element>
+            <Term>rim:Slot@name=SpecificationIdentification</Term>
+            <Name>SpecificationIdentification</Name>
+            <Description>An identification of the specification containing the total set of rules regarding semantic
+                content, cardinalities and business rules to which the data contained in the instance document conforms.
+            </Description>
+            <Attribute>
+                <Term>name</Term>
+                <Value type="FIXED">SpecificationIdentification</Value>
+            </Attribute>
+            <Element>
+                <Term>rim:SlotValue</Term>
+                <Attribute>
+                    <Term>xsi:type</Term>
+                    <Value type="FIXED">rim:StringValueType</Value>
+                </Attribute>
+                <Element>
+                    <Term>rim:Value</Term>
+                    <Value type="FIXED">urn:fdc:peppol.eu:2021:pracc:t011:1.0</Value>
+                </Element>
+            </Element>
+        </Element>
+        <Element>
+            <Term>rim:Slot@name=BusinessProcessTypeIdentifier</Term>
+            <Name>BusinessProcessTypeIdentifier</Name>
+            <Description>Identifies the business process context in which the transaction appears. It enables the
+                receiver to process the document in an appropriate way.
+            </Description>
+            <Attribute>
+                <Term>name</Term>
+                <Value type="FIXED">BusinessProcessTypeIdentifier</Value>
+            </Attribute>
+            <Element>
+                <Term>rim:SlotValue</Term>
+                <Attribute>
+                    <Term>xsi:type</Term>
+                    <Value type="FIXED">rim:StringValueType</Value>
+                </Attribute>
+                <Element>
+                    <Term>rim:Value</Term>
+                    <Value type="FIXED">urn:fdc:peppol.eu:2021:pracc:p006:1.0</Value>
+                </Element>
+            </Element>
+        </Element>
+        <Element>
+            <Term>rim:Slot@name=IssueDateTime</Term>
+            <Name>IssueDateTime</Name>
+            <Description>The issue date and time when the Serch Notice request is issued. The issue date time must have
+                granularity of seconds, and include time zone information.
+            </Description>
+            <Attribute>
+                <Term>name</Term>
+                <Value type="FIXED">IssueDateTime</Value>
+            </Attribute>
+            <Element>
+                <Term>rim:SlotValue</Term>
+                <Attribute>
+                    <Term>xsi:type</Term>
+                    <Value type="FIXED">rim:DateTimeValueType</Value>
+                </Attribute>
+                <Element>
+                    <Term>rim:Value</Term>
+                    <DataType>rim:DateTimeValueType</DataType>
+                </Element>
+            </Element>
+        </Element>
+        <Element>
+            <Term>rim:Slot@name=SenderElectronicAddress</Term>
+            <Name>SenderElectronicAddress</Name>
+            <Description>The electronic address of the sender.</Description>
+            <Attribute>
+                <Term>name</Term>
+                <Value type="FIXED">SenderElectronicAddress</Value>
+            </Attribute>
+            <Attribute>
+                <Term>type</Term>
+                <Name>SchemeIdentifier</Name>
+                <Description>The type is used to assign the scheme identifier attribute from the list of "PEPPOL Party
+                    Identifiers described in the "PEPPOL Policy for using Identifiers"
+                </Description>
+            </Attribute>
+            <Element>
+                <Term>rim:SlotValue</Term>
+                <Attribute>
+                    <Term>xsi:type</Term>
+                    <Value type="FIXED">rim:StringValueType</Value>
+                </Attribute>
+                <Element>
+                    <Term>rim:Value</Term>
+                    <Name>EndpointId</Name>
+                    <Description>The endpoint ID of the sender platform</Description>
+                </Element>
+            </Element>
+        </Element>
+        <Element>
+            <Term>rim:Slot</Term>
+            <Name>ReceiverElectronicAddress</Name>
+            <Description>The electronic address of the receiver.</Description>
+            <Attribute>
+                <Term>name</Term>
+                <Value type="FIXED">ReceiverElectronicAddress</Value>
+            </Attribute>
+            <Attribute>
+                <Term>type</Term>
+                <Name>Scheme Identifier</Name>
+                <Description>The type is used to assign the scheme identifier attribute from the list of "PEPPOL Party
+                    Identifiers described in the "PEPPOL Policy for using Identifiers"
+                </Description>
+            </Attribute>
+            <Element>
+                <Term>rim:SlotValue</Term>
+                <Attribute>
+                    <Term>xsi:type</Term>
+                    <Value type="FIXED">rim:StringValueType</Value>
+                </Attribute>
+                <Element>
+                    <Term>rim:Value</Term>
+                    <Name>EndpointId</Name>
+                    <Description>The endpoint ID of the receiver platform</Description>
+                </Element>
+            </Element>
+        </Element>
+        <Element>
+            <Term>query:Query</Term>
+            <Name>The definition of the query and its parameters. This is indicated through the
+                queryDefinition="SearchNotice".
+            </Name>
+            <Attribute>
+                <Term>queryDefinition</Term>
+                <Value type="FIXED">SearchNotice</Value>
+            </Attribute>
+            <Element cardinality="0..1">
+                <Term>rim:Slot</Term>
+                <Name>Keywords</Name>
+                <Description>Used to specify searchable keywords and/or synonyms over the entire notice.</Description>
+                <Attribute>
+                    <Term>name</Term>
+                    <Value type="FIXED">Keywords</Value>
+                </Attribute>
+                <Element>
+                    <Term>rim:SlotValue</Term>
+                    <Attribute>
+                        <Term>xsi:type</Term>
+                        <Value type="FIXED">rim:StringValueType</Value>
+                    </Attribute>
+                    <Element>
+                        <Term>rim:Value</Term>
+                        <DataType>rim:StringValueType</DataType>
+                    </Element>
+                </Element>
+            </Element>
+            <Element cardinality="0..1">
+                <Term>rim:Slot</Term>
+                <Name>FormType</Name>
+                <Description>Used to search for specific form types like planning, competition, direct award
+                    pre-notification etc.
+                </Description>
+                <Attribute>
+                    <Term>name</Term>
+                    <Value type="FIXED">FormType</Value>
+                </Attribute>
+                <Attribute>
+                    <Term>type</Term>
+                    <Value type="FIXED">http://publications.europa.eu/resource/authority/form-type</Value>
+                </Attribute>
+                <Element>
+                    <Term>rim:SlotValue</Term>
+                    <Attribute>
+                        <Term>xsi:type</Term>
+                        <Value type="FIXED">rim:CollectionValueType</Value>
+                    </Attribute>
+                    <Element cardinality="1..n">
+                        <Term>rim:Element</Term>
+                        <Attribute>
+                            <Term>xsi:type</Term>
+                            <Value type="FIXED">rim:StringValueType</Value>
+                        </Attribute>
+                        <Element>
+                            <Term>rim:Value</Term>
+                            <DataType>rim:StringValueType</DataType>
+                        </Element>
+                    </Element>
+                </Element>
+            </Element>
+            <Element cardinality="0..1">
+                <Term>rim:Slot</Term>
+                <Name>NoticeType</Name>
+                <Description>Used to search for specific notice types (BT-02) [e.g. PIN only] for notice categories
+                    [e.g. Prior Information Notice]. A given form type (BT-03) [e.g. Planning] regroups multiple notice
+                    types [e.g. PIN only and PIN time limit].
+                </Description>
+                <Attribute>
+                    <Term>name</Term>
+                    <Value type="FIXED">NoticeType</Value>
+                </Attribute>
+                <Attribute>
+                    <Term>type</Term>
+                    <Value type="FIXED">http://publications.europa.eu/resource/authority/notice-type</Value>
+                </Attribute>
+                <Element>
+                    <Term>rim:SlotValue</Term>
+                    <Attribute>
+                        <Term>xsi:type</Term>
+                        <Value type="FIXED">rim:CollectionValueType</Value>
+                    </Attribute>
+                    <Element cardinality="1..n">
+                        <Term>rim:Element</Term>
+                        <Attribute>
+                            <Term>xsi:type</Term>
+                            <Value type="FIXED">rim:StringValueType</Value>
+                        </Attribute>
+                        <Element>
+                            <Term>rim:Value</Term>
+                            <DataType>rim:StringValueType</DataType>
+                        </Element>
+                    </Element>
+                </Element>
+            </Element>
+            <Element cardinality="0..n">
+                <Term>rim:Slot</Term>
+                <Name>Classification</Name>
+                <Description>Used to search upon the values of designated classification systems (BT-26) being either
+                    main (BT-262) or additional commodities classifications (BT-263). Currently, only the “CPV”,
+                    “SupplementaryCPV” and "other" values are considered. "Other" is used to search for key words within
+                    other classification system.
+                </Description>
+                <Attribute>
+                    <Term>name</Term>
+                    <Value type="FIXED">Classification</Value>
+                </Attribute>
+                <Attribute>
+                    <Term>type</Term>
+                    <Value type="FIXED">http://publications.europa.eu/resource/authority/cpv/cpv</Value>
+                </Attribute>
+                <Element>
+                    <Term>rim:SlotValue</Term>
+                    <Attribute>
+                        <Term>xsi:type</Term>
+                        <Value type="FIXED">rim:CollectionValueType</Value>
+                    </Attribute>
+                    <Element cardinality="1..n">
+                        <Term>rim:Element</Term>
+                        <Attribute>
+                            <Term>xsi:type</Term>
+                            <Value type="FIXED">rim:StringValueType</Value>
+                        </Attribute>
+                        <Element>
+                            <Term>rim:Value</Term>
+                            <DataType>rim:StringValueType</DataType>
+                        </Element>
+                    </Element>
+                </Element>
+            </Element>
+            <Element cardinality="0..1">
+                <Term>rim:Slot</Term>
+                <Name>ContractNature</Name>
+                <Description>Used to search upon the values of main natures (BT-23) and additional natures (BT-531) of a
+                    notice.
+                </Description>
+                <Attribute>
+                    <Term>name</Term>
+                    <Value type="FIXED">ContractNature</Value>
+                </Attribute>
+                <Attribute>
+                    <Term>type</Term>
+                    <Value type="FIXED">http://publications.europa.eu/resource/authority/contract-nature</Value>
+                </Attribute>
+                <Element>
+                    <Term>rim:SlotValue</Term>
+                    <Attribute>
+                        <Term>xsi:type</Term>
+                        <Value type="FIXED">rim:CollectionValueType</Value>
+                    </Attribute>
+                    <Element cardinality="1..n">
+                        <Term>rim:Element</Term>
+                        <Attribute>
+                            <Term>xsi:type</Term>
+                            <Value type="FIXED">rim:StringValueType</Value>
+                        </Attribute>
+                        <Element>
+                            <Term>rim:Value</Term>
+                            <DataType>rim:StringValueType</DataType>
+                        </Element>
+                    </Element>
+                </Element>
+            </Element>
+            <Element cardinality="0..1">
+                <Term>rim:Slot</Term>
+                <Name>PlaceOfPerformance</Name>
+                <Description>Used to search upon the values of a country subentity code (BT-5071) according to the
+                    Nomenclature of territorial units for statistics (NUTS).
+                </Description>
+                <Attribute>
+                    <Term>name</Term>
+                    <Value type="FIXED">PlaceOfPerformance</Value>
+                </Attribute>
+                <Attribute>
+                    <Term>type</Term>
+                    <Value type="FIXED">http://publications.europa.eu/resource/authority/nuts</Value>
+                </Attribute>
+                <Element>
+                    <Term>rim:SlotValue</Term>
+                    <Attribute>
+                        <Term>xsi:type</Term>
+                        <Value type="FIXED">rim:CollectionValueType</Value>
+                    </Attribute>
+                    <Element cardinality="1..n">
+                        <Term>rim:Element</Term>
+                        <Attribute>
+                            <Term>xsi:type</Term>
+                            <Value type="FIXED">rim:StringValueType</Value>
+                        </Attribute>
+                        <Element>
+                            <Term>rim:Value</Term>
+                            <DataType>rim:StringValueType</DataType>
+                        </Element>
+                    </Element>
+                </Element>
+            </Element>
+            <Element cardinality="0..1">
+                <Term>rim:Slot</Term>
+                <Name>EstimatedValue</Name>
+                <Description>An abstract class that defines a container for search attributes related to estimated
+                    overall contract amount. Can be used to specify a minimum, maximum, range value or a currency for
+                    the procurement. The results correspond to the amounts indicated in the fields Estimated Value
+                    (BT-27).
+                </Description>
+                <Attribute>
+                    <Term>name</Term>
+                    <Value type="FIXED">TenderValue</Value>
+                </Attribute>
+                <Element cardinality="0..1">
+                    <Term>rim:Slot@name=Minimum</Term>
+                    <Name>Minimum</Name>
+                    <Description>Used to search upon minimum contract amount indicated by the Estimated Value (BT-27).
+                    </Description>
+                    <Attribute>
+                        <Term>name</Term>
+                        <Value type="FIXED">Minimum</Value>
+                    </Attribute>
+                    <Element>
+                        <Term>rim:SlotValue</Term>
+                        <Attribute>
+                            <Term>xsi:type</Term>
+                            <Value type="FIXED">rim:FloatValueType</Value>
+                        </Attribute>
+                        <Element>
+                            <Term>rim:Value</Term>
+                            <DataType>rim:FloatValueType</DataType>
+                        </Element>
+                    </Element>
+                </Element>
+                <Element cardinality="0..1">
+                    <Term>rim:Slot@name=Maximum</Term>
+                    <Name>Maximum</Name>
+                    <Description>Used to search upon maximum contract amount indicated by the Estimated Value (BT-27).
+                    </Description>
+                    <Attribute>
+                        <Term>name</Term>
+                        <Value type="FIXED">Maximum</Value>
+                    </Attribute>
+                    <Element>
+                        <Term>rim:SlotValue</Term>
+                        <Attribute>
+                            <Term>xsi:type</Term>
+                            <Value type="FIXED">rim:FloatValueType</Value>
+                        </Attribute>
+                        <Element>
+                            <Term>rim:Value</Term>
+                            <DataType>rim:FloatValueType</DataType>
+                        </Element>
+                    </Element>
+                </Element>
+                <Element cardinality="0..1">
+                    <Term>rim:Slot@name=Currency</Term>
+                    <Name>Currency</Name>
+                    <Description>Used to search upon currencies used to describe the Estimated Value (BT-27)
+                    </Description>
+                    <Attribute>
+                        <Term>name</Term>
+                        <Value type="FIXED">Currency</Value>
+                    </Attribute>
+                    <Attribute>
+                        <Term>type</Term>
+                        <Name>List Identifier</Name>
+                        <Description>The type is used to assign the list identifier attribute.</Description>
+                        <Value type="FIXED">http://publications.europa.eu/resource/authority/currency</Value>
+                    </Attribute>
+                    <Element>
+                        <Term>rim:SlotValue</Term>
+                        <Attribute>
+                            <Term>xsi:type</Term>
+                            <Value type="FIXED">rim:CollectionValueType</Value>
+                        </Attribute>
+                        <Element cardinality="1..n">
+                            <Term>rim:Element</Term>
+                            <Attribute>
+                                <Term>xsi:type</Term>
+                                <Value type="FIXED">rim:StringValueType</Value>
+                            </Attribute>
+                            <Element>
+                                <Term>rim:Value</Term>
+                                <DataType>rim:StringValueType</DataType>
+                            </Element>
+                        </Element>
+                    </Element>
+                </Element>
+            </Element>
+            <Element cardinality="0..1">
+                <Term>rim:Slot@name=ProcedureType</Term>
+                <Name>ProcedureType</Name>
+                <Description>Used to search upon type of procurement procedure (BT-105) according to the types given in
+                    the procurement Directives.
+                </Description>
+                <Attribute>
+                    <Term>name</Term>
+                    <Value type="FIXED">ProcedureType</Value>
+                </Attribute>
+                <Attribute>
+                    <Term>type</Term>
+                    <Name>List Identifier</Name>
+                    <Description>The type is used to assign the list identifier attribute.</Description>
+                    <Value type="FIXED">http://publications.europa.eu/resource/authority/procurement-procedure-type
+                    </Value>
+                </Attribute>
+                <Element>
+                    <Term>rim:SlotValue</Term>
+                    <Attribute>
+                        <Term>xsi:type</Term>
+                        <Value type="FIXED">rim:CollectionValueType</Value>
+                    </Attribute>
+                    <Element cardinality="1..n">
+                        <Term>rim:Element</Term>
+                        <Attribute>
+                            <Term>xsi:type</Term>
+                            <Value type="FIXED">rim:StringValueType</Value>
+                        </Attribute>
+                        <Element>
+                            <Term>rim:Value</Term>
+                            <DataType>rim:StringValueType</DataType>
+                        </Element>
+                    </Element>
+                </Element>
+            </Element>
+            <Element cardinality="0..1">
+                <Term>rim:Slot@name=SubmissionLanguage</Term>
+                <Name>SubmissionLanguage</Name>
+                <Attribute>
+                    <Term>name</Term>
+                    <Value type="FIXED">SubmissionLanguage</Value>
+                </Attribute>
+                <Attribute>
+                    <Term>type</Term>
+                    <Value type="FIXED">http://publications.europa.eu/resource/authority/language</Value>
+                </Attribute>
+                <Element>
+                    <Term>rim:SlotValue</Term>
+                    <Attribute>
+                        <Term>xsi:type</Term>
+                        <Value type="FIXED">rim:CollectionValueType</Value>
+                    </Attribute>
+                    <Element cardinality="1..n">
+                        <Term>rim:Element</Term>
+                        <Attribute>
+                            <Term>xsi:type</Term>
+                            <Value type="FIXED">rim:StringValueType</Value>
+                        </Attribute>
+                        <Element>
+                            <Term>rim:Value</Term>
+                            <DataType>rim:StringValueType</DataType>
+                        </Element>
+                    </Element>
+                </Element>
+            </Element>
+            <!-- dates -->
+            <Element cardinality="0..1">
+                <Term>rim:Slot@name=PublicationDate</Term>
+                <Name>PublicationDate</Name>
+                <Description>
+                    An abstract class that defines a container for search attributes related to the
+                    Publication Date Preferred (BT-738) for notices and for planning notices to specify when the
+                    competition notice will be published (BT-127). Can be used to specify a start date, end date or a
+                    time range.
+                </Description>
+                <Attribute>
+                    <Term>name</Term>
+                    <Value type="FIXED">PublicationDate</Value>
+                </Attribute>
+                <Element>
+                    <Term>rim:Slot@name=StartDate</Term>
+                    <Name>StartDate</Name>
+                    <Description>Used to search upon the start date.</Description>
+                    <Attribute>
+                        <Term>name</Term>
+                        <Value type="FIXED">StartDate</Value>
+                    </Attribute>
+                    <Element>
+                        <Term>rim:SlotValue</Term>
+                        <Attribute>
+                            <Term>xsi:type</Term>
+                            <Value type="FIXED">rim:DateTimeValueType</Value>
+                        </Attribute>
+                    </Element>
+                </Element>
+                <Element>
+                    <Term>rim:Slot@name=EndDate</Term>
+                    <Name>EndDate</Name>
+                    <Description>Used to search upon the end date.</Description>
+                    <Attribute>
+                        <Term>name</Term>
+                        <Value type="FIXED">EndDate</Value>
+                    </Attribute>
+                    <Element>
+                        <Term>rim:SlotValue</Term>
+                        <Attribute>
+                            <Term>xsi:type</Term>
+                            <Value type="FIXED">rim:DateTimeValueType</Value>
+                        </Attribute>
+                    </Element>
+                </Element>
+            </Element>
+            <Element cardinality="0..1">
+                <Term>rim:Slot</Term>
+                <Name>DeadlineReceiptTenders</Name>
+                <Description>
+                    An abstract class that defines a container for search attributes related to the deadline for tender
+                    reception (BT-131). Can be used to specify a start date, end date or a time range .
+                </Description>
+                <Attribute>
+                    <Term>name</Term>
+                    <Value type="FIXED">DeadlineReceiptTenders</Value>
+                </Attribute>
+                <Element>
+                    <Term>rim:Slot</Term>
+                    <Name>StartDate</Name>
+                    <Description>Used to search upon the start date.</Description>
+                    <Attribute>
+                        <Term>name</Term>
+                        <Value type="FIXED">StartDate</Value>
+                    </Attribute>
+                    <Element>
+                        <Term>rim:SlotValue</Term>
+                        <Attribute>
+                            <Term>xsi:type</Term>
+                            <Value type="FIXED">rim:DateTimeValueType</Value>
+                        </Attribute>
+                    </Element>
+                </Element>
+                <Element>
+                    <Term>rim:Slot</Term>
+                    <Name>EndDate</Name>
+                    <Description>Used to search upon the end date.</Description>
+                    <Attribute>
+                        <Term>name</Term>
+                        <Value type="FIXED">EndDate</Value>
+                    </Attribute>
+                    <Element>
+                        <Term>rim:SlotValue</Term>
+                        <Attribute>
+                            <Term>xsi:type</Term>
+                            <Value type="FIXED">rim:DateTimeValueType</Value>
+                        </Attribute>
+                    </Element>
+                </Element>
+            </Element>
+            <Element cardinality="0..1">
+                <Term>rim:Slot</Term>
+                <Name>AdditionalInformationDeadline</Name>
+                <Description>
+                    An abstract class that defines a container for search attributes related to the the deadline to
+                    request for additional information (BT-13). Can be used to specify a start date, end date or a time
+                    range.
+                </Description>
+                <Attribute>
+                    <Term>name</Term>
+                    <Value type="FIXED">AdditionalInformationDeadline</Value>
+                </Attribute>
+                <Element>
+                    <Term>rim:Slot</Term>
+                    <Name>StartDate</Name>
+                    <Description>Used to search upon the start date.</Description>
+                    <Attribute>
+                        <Term>name</Term>
+                        <Value type="FIXED">StartDate</Value>
+                    </Attribute>
+                    <Element>
+                        <Term>rim:SlotValue</Term>
+                        <Attribute>
+                            <Term>xsi:type</Term>
+                            <Value type="FIXED">rim:DateTimeValueType</Value>
+                        </Attribute>
+                    </Element>
+                </Element>
+                <Element>
+                    <Term>rim:Slot</Term>
+                    <Name>EndDate</Name>
+                    <Description>Used to search upon the end date.</Description>
+                    <Attribute>
+                        <Term>name</Term>
+                        <Value type="FIXED">EndDate</Value>
+                    </Attribute>
+                    <Element>
+                        <Term>rim:SlotValue</Term>
+                        <Attribute>
+                            <Term>xsi:type</Term>
+                            <Value type="FIXED">rim:DateTimeValueType</Value>
+                        </Attribute>
+                    </Element>
+                </Element>
+            </Element>
+            <Element cardinality="0..1">
+                <Term>rim:Slot</Term>
+                <Name>DeadlineReceiptRequests</Name>
+                <Description>
+                    An abstract class that defines a container for search attributes related to the deadline for
+                    reception of requests to participate (BT-1311). Can be used to specify a start date, end date or a
+                    time range.
+                </Description>
+                <Attribute>
+                    <Term>name</Term>
+                    <Value type="FIXED">DeadlineReceiptRequests</Value>
+                </Attribute>
+                <Element>
+                    <Term>rim:Slot</Term>
+                    <Name>StartDate</Name>
+                    <Description>Used to search upon the start date.</Description>
+                    <Attribute>
+                        <Term>name</Term>
+                        <Value type="FIXED">StartDate</Value>
+                    </Attribute>
+                    <Element>
+                        <Term>rim:SlotValue</Term>
+                        <Attribute>
+                            <Term>xsi:type</Term>
+                            <Value type="FIXED">rim:DateTimeValueType</Value>
+                        </Attribute>
+                    </Element>
+                </Element>
+                <Element>
+                    <Term>rim:Slot</Term>
+                    <Name>EndDate</Name>
+                    <Description>Used to search upon the end date.</Description>
+                    <Attribute>
+                        <Term>name</Term>
+                        <Value type="FIXED">EndDate</Value>
+                    </Attribute>
+                    <Element>
+                        <Term>rim:SlotValue</Term>
+                        <Attribute>
+                            <Term>xsi:type</Term>
+                            <Value type="FIXED">rim:DateTimeValueType</Value>
+                        </Attribute>
+                    </Element>
+                </Element>
+            </Element>
+            <Element cardinality="0..1">
+                <Term>rim:Slot</Term>
+                <Name>NoticeIdentifier</Name>
+                <Attribute>
+                    <Term>name</Term>
+                    <Value type="FIXED">NoticeIdentifier</Value>
+                </Attribute>
+                <Element>
+                    <Term>rim:SlotValue</Term>
+                    <Attribute>
+                        <Term>xsi:type</Term>
+                        <Value type="FIXED">rim:CollectionValueType</Value>
+                    </Attribute>
+                    <Element cardinality="1..n">
+                        <Term>rim:Element</Term>
+                        <Attribute>
+                            <Term>xsi:type</Term>
+                            <Value type="FIXED">rim:StringValueType</Value>
+                        </Attribute>
+                        <Element>
+                            <Term>rim:Value</Term>
+                            <DataType>rim:StringValueType</DataType>
+                        </Element>
+                    </Element>
+                </Element>
+            </Element>
+            <Element cardinality="0..1">
+                <Term>rim:Slot</Term>
+                <Name>ProcedureIdentifier</Name>
+                <Attribute>
+                    <Term>name</Term>
+                    <Value type="FIXED">ProcedureIdentifier</Value>
+                </Attribute>
+                <Element>
+                    <Term>rim:SlotValue</Term>
+                    <Attribute>
+                        <Term>xsi:type</Term>
+                        <Value type="FIXED">rim:CollectionValueType</Value>
+                    </Attribute>
+                    <Element cardinality="1..n">
+                        <Term>rim:Element</Term>
+                        <Attribute>
+                            <Term>xsi:type</Term>
+                            <Value type="FIXED">rim:StringValueType</Value>
+                        </Attribute>
+                        <Element>
+                            <Term>rim:Value</Term>
+                            <DataType>rim:StringValueType</DataType>
+                        </Element>
+                    </Element>
+                </Element>
+            </Element>
+        </Element>
+    </Document>
+</Structure>

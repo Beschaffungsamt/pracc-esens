@@ -32,21 +32,17 @@
         </rim:SlotValue>
     </rim:Slot>
     <!-- tag::sender-electronic-address[] -->
-    <rim:Slot name="SenderElectronicAddress">
-        <rim:Slot name="EndpointId" type="NL:KVK">
-            <rim:SlotValue xsi:type="rim:StringValueType">
-                <rim:Value>30058019</rim:Value> <!--.-->
-            </rim:SlotValue>
-        </rim:Slot>
+    <rim:Slot name="SenderElectronicAddress" type="PT:VAT">
+        <rim:SlotValue xsi:type="rim:StringValueType">
+            <rim:Value>9946:500820007</rim:Value> <!--.-->
+        </rim:SlotValue>
     </rim:Slot>
     <!-- end::sender-electronic-address[] -->
     <!-- tag::receiver-electronic-address[] -->
-    <rim:Slot name="ReceiverElectronicAddress">
-        <rim:Slot name="EndpointId" type="DE:VAT"> <!--.-->
-            <rim:SlotValue xsi:type="rim:StringValueType">
-                <rim:Value>9930:DE122268496</rim:Value> <!--.-->
-            </rim:SlotValue>
-        </rim:Slot>
+    <rim:Slot name="ReceiverElectronicAddress" type="DE:VAT">
+        <rim:SlotValue xsi:type="rim:StringValueType">
+            <rim:Value>9930:DE122268496</rim:Value> <!--.-->
+        </rim:SlotValue>
     </rim:Slot>
     <!-- end::receiver-electronic-address[] -->
 
@@ -117,7 +113,7 @@
         </rim:Slot>
         <!-- end::place-of-performance[] -->
         <!-- tag::tenderValue[] -->
-        <rim:Slot name="TenderValue"> <!--.-->
+        <rim:Slot name="EstimatedValue"> <!--.-->
             <rim:Slot name="Minimum"> <!--.-->
                 <rim:SlotValue xsi:type="rim:FloatValueType">
                     <rim:Value>25</rim:Value>
@@ -282,7 +278,7 @@
         </rim:Slot>
         <!-- end::award-criterion-type[] -->
         <!-- tag::information-about-buyer[] -->
-        <rim:Slot name="BuyerInformation"> <!--- optional --> <!--.-->
+        <rim:Slot name="BuyerInformation"> <!--.-->
             <rim:Slot name="Name">
                 <rim:SlotValue xsi:type="rim:StringValueType">
                     <rim:Value>Company Y SE</rim:Value>

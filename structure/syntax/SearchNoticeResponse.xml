@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Structure xmlns="urn:fdc:difi.no:2017:vefa:structure-1">
+    <Term>Search Notice Response</Term>
+    <Name>Search Notice Response (T012)</Name>
+
+    <Namespace prefix="query">urn:oasis:names:tc:ebxml-regrep:xsd:query:4.0</Namespace>
+    <Namespace prefix="rim">urn:oasis:names:tc:ebxml-regrep:xsd:rim:4.0</Namespace>
+
+    <Document>
+        <Term>query:Query</Term>
+        <Name>Search Notice Request root</Name>
+        <Element>
+            <Term>rim:Slot</Term>
+            <Name>SpecificationIdentification</Name>
+            <Attribute>
+                <Term>name</Term>
+                <Value type="FIXED">SpecificationIdentification</Value>
+            </Attribute>
+            <Element>
+                <Term>rim:SlotValue</Term>
+                <Element>
+                    <Term>rim:Value</Term>
+                    <Value type="FIXED">urn:fdc:peppol.eu:2021:pracc:t012:1.0</Value>
+                </Element>
+            </Element>
+        </Element>
+        <Element>
+            <Term>rim:Slot</Term>
+            <Name>BusinessProcessTypeIdentifier</Name>
+            <Attribute>
+                <Term>name</Term>
+                <Value type="FIXED">BusinessProcessTypeIdentifier</Value>
+            </Attribute>
+            <Element>
+                <Term>rim:SlotValue</Term>
+                <Element>
+                    <Term>rim:Value</Term>
+                    <Value type="FIXED">urn:fdc:peppol.eu:2021:pracc:p006:1.0</Value>
+                </Element>
+            </Element>
+        </Element>
+        <Element>
+            <Term>rim:Slot</Term>
+            <Name>Issue</Name>
+            <Attribute>
+                <Term>name</Term>
+                <Value type="FIXED">Issue</Value>
+            </Attribute>
+            <Element>
+                <Term>rim:SlotValue</Term>
+                <Element>
+                    <Term>rim:Value</Term>
+                    <Description>The issue date and time of the response</Description>
+                    <DataType>rim:DateTimeValueType</DataType>
+                </Element>
+            </Element>
+        </Element>
+    </Document>
+</Structure>

@@ -3,17 +3,17 @@
  */
 package eu.peppol.pracc
 
-import com.helger.commons.io.resource.URLResource
+
 import com.helger.schematron.sch.SchematronResourceSCH
 import com.helger.schematron.svrl.jaxb.FailedAssert
 import com.helger.schematron.svrl.jaxb.SchematronOutputType
 import com.helger.schematron.svrl.jaxb.SuccessfulReport
-import com.helger.xml.transform.ResourceStreamSource
 import groovy.util.logging.Slf4j
 import spock.lang.Specification
 
 import javax.xml.XMLConstants
 import javax.xml.transform.stream.StreamSource
+import javax.xml.validation.Schema
 import javax.xml.validation.SchemaFactory
 
 @Slf4j
@@ -58,12 +58,14 @@ class SchematronSpecification extends Specification {
         'rules/peppol-search-notice/PEPPOL-T012.sch'                             | 'guides/transactions/T012/files/ExampleSearchNoticeResponse.xml'
     }
 
+    static Map<String, Schema> schemaCache = new HashMap<>()
+
     def 'XSD schema validation'() {
 
         given:
         def factory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI)
         def xsdSource = this.class.classLoader.getResource(xsd)
-        def schema = factory.newSchema(new ResourceStreamSource(new URLResource(xsdSource)))
+        Schema schema = loadSchema(factory, xsdSource)
         def validator = schema.newValidator()
 
         when:
@@ -86,5 +88,16 @@ class SchematronSpecification extends Specification {
         'guides/transactions/T010/files/TenderClarification-doc.xml'               | 'xsdrt/maindoc/UBL-EnquiryResponse-2.2.xsd'
         'guides/transactions/T011/files/ExampleSearchNoticeRequest.xml'            | 'ebXML/query.xsd'
         'guides/transactions/T012/files/ExampleSearchNoticeResponse.xml'           | 'ebXML/query.xsd'
+    }
+
+    static Schema loadSchema(SchemaFactory factory, URL xsdSource) {
+        Schema schema
+        if (schemaCache.containsKey(xsdSource.toString())) {
+            schema = schemaCache.get(xsdSource.toString())
+        } else {
+            schema = factory.newSchema(xsdSource)
+            schemaCache.put(xsdSource.toString(), schema)
+        }
+        schema
     }
 }

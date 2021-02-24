@@ -33,15 +33,13 @@
         </rule>
 
         <rule context="query:QueryRequest/rim:Slot[@name='SenderElectronicAddress']">
-            <assert id="PEPPOL-T011-R011" flag="fatal" test="rim:Slot[@name='EndpointId']">A Receiver Electronic Address MUST have an EndpointId.</assert>
-            <assert id="PEPPOL-T011-R012" flag="fatal" test="matches(normalize-space(rim:Slot[@name='EndpointId']/@type), '^(FR:SIRENE|SE:ORGNR|FR:SIRET|FI:OVT|DUNS|GLN|DK:P|IT:FTI|NL:KVK|IT:SIA|IT:SECETI|DK:CPR|DK:CVR|DK:SE|DK:VANS|IT:VAT|IT:CF|NO:ORGNR|NO:VAT|HU:VAT|EU:REID|AT:VAT|AT:GOV|IS:KT|IBAN|AT:KUR|ES:VAT|IT:IPA|AD:VAT|AL:VAT|BA:VAT|BE:VAT|BG:VAT|CH:VAT|CY:VAT|CZ:VAT|DE:VAT|EE:VAT|GB:VAT|GR:VAT|HR:VAT|IE:VAT|LI:VAT|LT:VAT|LU:VAT|LV:VAT|MC:VAT|ME:VAT|MK:VAT|MT:VAT|NL:VAT|PL:VAT|PT:VAT|RO:VAT|RS:VAT|SI:VAT|SK:VAT|SM:VAT|TR:VAT|VA:VAT|NL:ION|SE:VAT|ZZZ)$')">A EndpointId MUST have an attribute type.</assert>
-            <assert id="PEPPOL-T011-R013" flag="fatal" test="rim:Slot[@name='EndpointId']/rim:SlotValue[@xsi:type='rim:StringValueType']">A EndpointId MUST have an element SlotValue with xsi:type of rim:StringValueType.</assert>
+            <assert id="PEPPOL-T011-R012" flag="fatal" test="matches(normalize-space(./@type), '^(FR:SIRENE|SE:ORGNR|FR:SIRET|FI:OVT|DUNS|GLN|DK:P|IT:FTI|NL:KVK|IT:SIA|IT:SECETI|DK:CPR|DK:CVR|DK:SE|DK:VANS|IT:VAT|IT:CF|NO:ORGNR|NO:VAT|HU:VAT|EU:REID|AT:VAT|AT:GOV|IS:KT|IBAN|AT:KUR|ES:VAT|IT:IPA|AD:VAT|AL:VAT|BA:VAT|BE:VAT|BG:VAT|CH:VAT|CY:VAT|CZ:VAT|DE:VAT|EE:VAT|GB:VAT|GR:VAT|HR:VAT|IE:VAT|LI:VAT|LT:VAT|LU:VAT|LV:VAT|MC:VAT|ME:VAT|MK:VAT|MT:VAT|NL:VAT|PL:VAT|PT:VAT|RO:VAT|RS:VAT|SI:VAT|SK:VAT|SM:VAT|TR:VAT|VA:VAT|NL:ION|SE:VAT|ZZZ)$')">A EndpointId MUST have an attribute type.</assert>
+            <assert id="PEPPOL-T011-R013" flag="fatal" test="rim:SlotValue[@xsi:type='rim:StringValueType']">A EndpointId MUST have an element SlotValue with xsi:type of rim:StringValueType.</assert>
         </rule>
 
         <rule context="query:QueryRequest/rim:Slot[@name='ReceiverElectronicAddress']">
-            <assert id="PEPPOL-T011-R014" flag="fatal" test="rim:Slot[@name='EndpointId']">A Receiver Electronic Address MUST have an EndpointId.</assert>
-            <assert id="PEPPOL-T011-R015" flag="fatal" test="matches(normalize-space(rim:Slot[@name='EndpointId']/@type), '^(FR:SIRENE|SE:ORGNR|FR:SIRET|FI:OVT|DUNS|GLN|DK:P|IT:FTI|NL:KVK|IT:SIA|IT:SECETI|DK:CPR|DK:CVR|DK:SE|DK:VANS|IT:VAT|IT:CF|NO:ORGNR|NO:VAT|HU:VAT|EU:REID|AT:VAT|AT:GOV|IS:KT|IBAN|AT:KUR|ES:VAT|IT:IPA|AD:VAT|AL:VAT|BA:VAT|BE:VAT|BG:VAT|CH:VAT|CY:VAT|CZ:VAT|DE:VAT|EE:VAT|GB:VAT|GR:VAT|HR:VAT|IE:VAT|LI:VAT|LT:VAT|LU:VAT|LV:VAT|MC:VAT|ME:VAT|MK:VAT|MT:VAT|NL:VAT|PL:VAT|PT:VAT|RO:VAT|RS:VAT|SI:VAT|SK:VAT|SM:VAT|TR:VAT|VA:VAT|NL:ION|SE:VAT|ZZZ)$')">A EndpointId MUST have an attribute type.</assert>
-            <assert id="PEPPOL-T011-R016" flag="fatal" test="rim:Slot[@name='EndpointId']/rim:SlotValue[@xsi:type='rim:StringValueType']">A EndpointId MUST have an element SlotValue with xsi:type of rim:StringValueType.</assert>
+            <assert id="PEPPOL-T011-R015" flag="fatal" test="matches(normalize-space(./@type), '^(FR:SIRENE|SE:ORGNR|FR:SIRET|FI:OVT|DUNS|GLN|DK:P|IT:FTI|NL:KVK|IT:SIA|IT:SECETI|DK:CPR|DK:CVR|DK:SE|DK:VANS|IT:VAT|IT:CF|NO:ORGNR|NO:VAT|HU:VAT|EU:REID|AT:VAT|AT:GOV|IS:KT|IBAN|AT:KUR|ES:VAT|IT:IPA|AD:VAT|AL:VAT|BA:VAT|BE:VAT|BG:VAT|CH:VAT|CY:VAT|CZ:VAT|DE:VAT|EE:VAT|GB:VAT|GR:VAT|HR:VAT|IE:VAT|LI:VAT|LT:VAT|LU:VAT|LV:VAT|MC:VAT|ME:VAT|MK:VAT|MT:VAT|NL:VAT|PL:VAT|PT:VAT|RO:VAT|RS:VAT|SI:VAT|SK:VAT|SM:VAT|TR:VAT|VA:VAT|NL:ION|SE:VAT|ZZZ)$')">A EndpointId MUST have an attribute type.</assert>
+            <assert id="PEPPOL-T011-R016" flag="fatal" test="rim:SlotValue[@xsi:type='rim:StringValueType']">A EndpointId MUST have an element SlotValue with xsi:type of rim:StringValueType.</assert>
         </rule>
 
         <rule context="query:QueryRequest/query:Query/rim:Slot[@name='Keywords']">
