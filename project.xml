@@ -21,6 +21,7 @@
     <Documentation path="profiles/p006/index.html">P006 - Search Notices</Documentation>
     <Documentation path="transactions/T011/index.html">T011 - Search Notice Request</Documentation>
     <Documentation path="transactions/T012/index.html">T012 - Search Notice Response</Documentation>
+
     <Documentation path="changelog/index.html">Changelog</Documentation>
 
     <!-- Syntax -->
@@ -165,7 +166,6 @@
         <Path>rules/peppol-search-notice/PEPPOL-T011.sch</Path>
         <Title>PEPPOL T011</Title>
     </Resource>
-    <!--
     <Resource>
         <Identifier>BIIT004</Identifier>
         <Type>native:Schematron</Type>
