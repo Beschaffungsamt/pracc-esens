@@ -84,5 +84,7 @@ class SchematronSpecification extends Specification {
         'guides/transactions/T008/files/TenderingAnswers-doc.xml'                  | 'xsdrt/maindoc/UBL-EnquiryResponse-2.2.xsd'
         'guides/transactions/T009/files/TenderClarificationRequest-doc.xml'        | 'xsdrt/maindoc/UBL-Enquiry-2.2.xsd'
         'guides/transactions/T010/files/TenderClarification-doc.xml'               | 'xsdrt/maindoc/UBL-EnquiryResponse-2.2.xsd'
+        'guides/transactions/T011/files/ExampleSearchNoticeRequest.xml'            | 'ebXML/query.xsd'
+        'guides/transactions/T012/files/ExampleSearchNoticeResponse.xml'           | 'ebXML/query.xsd'
     }
 }
