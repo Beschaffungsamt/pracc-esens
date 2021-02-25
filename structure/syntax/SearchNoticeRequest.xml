@@ -167,6 +167,7 @@
         </Element>
         <Element>
             <Term>query:ResponseOption</Term>
+            <Name>Response Option</Name>
             <Description>An element to control the type and structure of results within the corresponding QueryResponse.
                 For the Search Notice Request it is required that the notices are included as repository Items to the
                 QueryResponse. This is indicated through the returnType "LeafClassWithRepositoryItem".
@@ -178,6 +179,7 @@
         </Element>
         <Element>
             <Term>query:Query</Term>
+            <Name>Query</Name>
             <Description>The definition of the query and its parameters. This is indicated through the
                 queryDefinition="SearchNotice".
             </Description>
@@ -233,8 +235,8 @@
                         </Attribute>
                         <Element>
                             <Term>rim:Value</Term>
-                            <DataType>rim:StringValueType</DataType>
                             <Name>Form Type Code</Name>
+                            <DataType>rim:StringValueType</DataType>
                         </Element>
                     </Element>
                 </Element>
@@ -268,8 +270,8 @@
                         </Attribute>
                         <Element>
                             <Term>rim:Value</Term>
-                            <DataType>rim:StringValueType</DataType>
                             <Name>Notice Type Code</Name>
+                            <DataType>rim:StringValueType</DataType>
                         </Element>
                     </Element>
                 </Element>
@@ -278,9 +280,8 @@
                 <Term>rim:Slot@name=Classification</Term>
                 <Name>Classification</Name>
                 <Description>Used to search upon the values of designated classification systems (BT-26) being either
-                    main (BT-262) or additional commodities classifications (BT-263). Currently, only the “CPV”,
-                    “SupplementaryCPV” and "other" values are considered. "Other" is used to search for key words within
-                    other classification system.
+                    main (BT-262) or additional commodities classifications (BT-263). Currently, only the "CPV" and
+                    "SupplementaryCPV" values are considered.
                 </Description>
                 <Attribute>
                     <Term>name</Term>
@@ -342,6 +343,7 @@
                         </Attribute>
                         <Element>
                             <Term>rim:Value</Term>
+                            <Name>Contract Nature Code</Name>
                             <DataType>rim:StringValueType</DataType>
                         </Element>
                     </Element>
@@ -375,6 +377,7 @@
                         </Attribute>
                         <Element>
                             <Term>rim:Value</Term>
+                            <Name>NUTS Code</Name>
                             <DataType>rim:StringValueType</DataType>
                         </Element>
                     </Element>
@@ -463,6 +466,7 @@
                             </Attribute>
                             <Element>
                                 <Term>rim:Value</Term>
+                                <Name>Currency Code</Name>
                                 <DataType>rim:StringValueType</DataType>
                             </Element>
                         </Element>
@@ -500,6 +504,7 @@
                         </Attribute>
                         <Element>
                             <Term>rim:Value</Term>
+                            <Name>Procurement Procedure Type Code</Name>
                             <DataType>rim:StringValueType</DataType>
                         </Element>
                     </Element>
@@ -508,6 +513,7 @@
             <Element cardinality="0..1">
                 <Term>rim:Slot@name=SubmissionLanguage</Term>
                 <Name>SubmissionLanguage</Name>
+                <Description>Used to search upon the languages that may be used to submit tenders (BT-97).</Description>
                 <Attribute>
                     <Term>name</Term>
                     <Value type="FIXED">SubmissionLanguage</Value>
@@ -530,6 +536,7 @@
                         </Attribute>
                         <Element>
                             <Term>rim:Value</Term>
+                            <Name>Language Code</Name>
                             <DataType>rim:StringValueType</DataType>
                         </Element>
                     </Element>
@@ -563,6 +570,10 @@
                             <Term>xsi:type</Term>
                             <Value type="FIXED">rim:DateTimeValueType</Value>
                         </Attribute>
+                        <Element>
+                            <Term>rim:Value</Term>
+                            <DataType>rim:DateTimeValueType</DataType>
+                        </Element>
                     </Element>
                 </Element>
                 <Element>
@@ -579,6 +590,10 @@
                             <Term>xsi:type</Term>
                             <Value type="FIXED">rim:DateTimeValueType</Value>
                         </Attribute>
+                        <Element>
+                            <Term>rim:Value</Term>
+                            <DataType>rim:DateTimeValueType</DataType>
+                        </Element>
                     </Element>
                 </Element>
             </Element>
@@ -607,6 +622,10 @@
                             <Term>xsi:type</Term>
                             <Value type="FIXED">rim:DateTimeValueType</Value>
                         </Attribute>
+                        <Element>
+                            <Term>rim:Value</Term>
+                            <DataType>rim:DateTimeValueType</DataType>
+                        </Element>
                     </Element>
                 </Element>
                 <Element>
@@ -623,6 +642,10 @@
                             <Term>xsi:type</Term>
                             <Value type="FIXED">rim:DateTimeValueType</Value>
                         </Attribute>
+                        <Element>
+                            <Term>rim:Value</Term>
+                            <DataType>rim:DateTimeValueType</DataType>
+                        </Element>
                     </Element>
                 </Element>
             </Element>
@@ -652,6 +675,10 @@
                             <Term>xsi:type</Term>
                             <Value type="FIXED">rim:DateTimeValueType</Value>
                         </Attribute>
+                        <Element>
+                            <Term>rim:Value</Term>
+                            <DataType>rim:DateTimeValueType</DataType>
+                        </Element>
                     </Element>
                 </Element>
                 <Element>
@@ -668,6 +695,10 @@
                             <Term>xsi:type</Term>
                             <Value type="FIXED">rim:DateTimeValueType</Value>
                         </Attribute>
+                        <Element>
+                            <Term>rim:Value</Term>
+                            <DataType>rim:DateTimeValueType</DataType>
+                        </Element>
                     </Element>
                 </Element>
             </Element>
@@ -697,6 +728,10 @@
                             <Term>xsi:type</Term>
                             <Value type="FIXED">rim:DateTimeValueType</Value>
                         </Attribute>
+                        <Element>
+                            <Term>rim:Value</Term>
+                            <DataType>rim:DateTimeValueType</DataType>
+                        </Element>
                     </Element>
                 </Element>
                 <Element>
@@ -713,12 +748,19 @@
                             <Term>xsi:type</Term>
                             <Value type="FIXED">rim:DateTimeValueType</Value>
                         </Attribute>
+                        <Element>
+                            <Term>rim:Value</Term>
+                            <DataType>rim:DateTimeValueType</DataType>
+                        </Element>
                     </Element>
                 </Element>
             </Element>
             <Element cardinality="0..1">
                 <Term>rim:Slot@name=NoticeIdentifier</Term>
                 <Name>NoticeIdentifier</Name>
+                <Description>Used to search for notice identifiers (BT-701) allowing to uniquely distinguishing notices
+                    amongst all other existing ones.
+                </Description>
                 <Attribute>
                     <Term>name</Term>
                     <Value type="FIXED">NoticeIdentifier</Value>
@@ -745,6 +787,9 @@
             <Element cardinality="0..1">
                 <Term>rim:Slot@name=ProcedureIdentifier</Term>
                 <Name>ProcedureIdentifier</Name>
+                <Description>Used to search for procedure identifiers (BT-04) allowing to uniquely distinguishing
+                    procurement procedures.
+                </Description>
                 <Attribute>
                     <Term>name</Term>
                     <Value type="FIXED">ProcedureIdentifier</Value>
@@ -770,7 +815,7 @@
             </Element>
             <Element cardinality="0..1">
                 <Term>rim:Slot@name=ProcedureLegalBasis</Term>
-                <name>ProcedureLegalBasis</name>
+                <Name>ProcedureLegalBasis</Name>
                 <Description>Used to search for legal references. The code indicates the EU Directive under which a
                     notice is published.
                 </Description>
@@ -797,6 +842,7 @@
                         <Element>
                             <Term>rim:Value</Term>
                             <Name>Procedure Legal Basis Code</Name>
+                            <DataType>rim:StringValueType</DataType>
                         </Element>
                     </Element>
                 </Element>
@@ -830,6 +876,7 @@
                         <Element>
                             <Term>rim:Value</Term>
                             <Name>Reserved Participation Code</Name>
+                            <DataType>rim:StringValueType</DataType>
                         </Element>
                     </Element>
                 </Element>
@@ -848,6 +895,7 @@
                     </Attribute>
                     <Element>
                         <Term>rim:Value</Term>
+                        <DataType>rim:BooleanValueType</DataType>
                     </Element>
                 </Element>
             </Element>
@@ -865,6 +913,7 @@
                     </Attribute>
                     <Element>
                         <Term>rim:Value</Term>
+                        <DataType>rim:StringValueType</DataType>
                     </Element>
                 </Element>
             </Element>
@@ -897,6 +946,7 @@
                         <Element>
                             <Term>rim:Value</Term>
                             <Name>Award Criterion Type Code</Name>
+                            <DataType>rim:StringValueType</DataType>
                         </Element>
                     </Element>
                 </Element>
@@ -914,6 +964,7 @@
                 <Element cardinality="0..1">
                     <Term>rim:Slot@name=Name</Term>
                     <Name>Name</Name>
+                    <Description>Used to search for the contracting party organisation name (BT-500).</Description>
                     <Attribute>
                         <Term>name</Term>
                         <Value type="FIXED">Name</Value>
@@ -934,6 +985,8 @@
                 <Element cardinality="0..1">
                     <Term>rim:Slot@name=OrganisationNumber</Term>
                     <Name>OrganisationNumber</Name>
+                    <Description>Used to search for the contracting party organisation identifier (BT-501).
+                    </Description>
                     <Attribute>
                         <Term>name</Term>
                         <Value type="FIXED">OrganisationNumber</Value>
@@ -953,6 +1006,8 @@
                 <Element cardinality="0..1">
                     <Term>rim:Slot@name=City</Term>
                     <Name>City</Name>
+                    <Description>Used to search for the contracting party organisation identifier (BT-501).
+                    </Description>
                     <Attribute>
                         <Term>name</Term>
                         <Value type="FIXED">City</Value>
@@ -972,6 +1027,7 @@
                 <Element cardinality="0..1">
                     <Term>rim:Slot@name=PostCode</Term>
                     <Name>PostCode</Name>
+                    <Description>Used to search for the contracting party organisation post code (BT-512).</Description>
                     <Attribute>
                         <Term>name</Term>
                         <Value type="FIXED">PostCode</Value>
@@ -991,6 +1047,9 @@
                 <Element cardinality="0..1">
                     <Term>rim:Slot@name=OrganizationCountrySubdivision</Term>
                     <Name>OrganizationCountrySubdivision</Name>
+                    <Description>Used to search for the contracting party organisation country subdivision (BT-500)
+                        according to the Nomenclature of territorial units for statistics (NUTS).
+                    </Description>
                     <Attribute>
                         <Term>name</Term>
                         <Value type="FIXED">OrganizationCountrySubdivision</Value>
@@ -1014,11 +1073,113 @@
                             <Element>
                                 <Term>rim:Value</Term>
                                 <Name>NUTS Code</Name>
+                                <DataType>rim:StringValueType</DataType>
                             </Element>
                         </Element>
                     </Element>
                 </Element>
-                <!-- todo @schoemer -->
+                <Element cardinality="0..1">
+                    <Term>rim:Slot@name=CountryCode</Term>
+                    <Name>CountryCode</Name>
+                    <Description>Used to search for the contracting party country code (BT-514) according to country
+                        codes.
+                    </Description>
+                    <Attribute>
+                        <Term>name</Term>
+                        <Value type="FIXED">CountryCode</Value>
+                    </Attribute>
+                    <Attribute>
+                        <Term>type</Term>
+                        <Value type="FIXED">http://publications.europa.eu/resource/authority/country</Value>
+                    </Attribute>
+                    <Element>
+                        <Term>rim:SlotValue</Term>
+                        <Attribute>
+                            <Term>xsi:type</Term>
+                            <Value type="FIXED">rim:CollectionValueType</Value>
+                        </Attribute>
+                        <Element cardinality="1..n">
+                            <Term>rim:Element</Term>
+                            <Attribute>
+                                <Term>xsi:type</Term>
+                                <Value type="FIXED">rim:StringValueType</Value>
+                            </Attribute>
+                            <Element>
+                                <Term>rim:Value</Term>
+                                <Name>Country Code</Name>
+                                <DataType>rim:StringValueType</DataType>
+                            </Element>
+                        </Element>
+                    </Element>
+                </Element>
+                <Element cardinality="0..1">
+                    <Term>rim:Slot@name=LegalType</Term>
+                    <Name>LegalType</Name>
+                    <Description>Used to search for the contracting party type code (BT-11) according to legal type
+                        codes.
+                    </Description>
+                    <Attribute>
+                        <Term>name</Term>
+                        <Value type="FIXED">LegalType</Value>
+                    </Attribute>
+                    <Attribute>
+                        <Term>type</Term>
+                        <Value type="FIXED">http://publications.europa.eu/resource/authority/buyer-legal-type</Value>
+                    </Attribute>
+                    <Element>
+                        <Term>rim:SlotValue</Term>
+                        <Attribute>
+                            <Term>xsi:type</Term>
+                            <Value type="FIXED">rim:CollectionValueType</Value>
+                        </Attribute>
+                        <Element cardinality="1..n">
+                            <Term>rim:Element</Term>
+                            <Attribute>
+                                <Term>xsi:type</Term>
+                                <Value type="FIXED">rim:StringValueType</Value>
+                            </Attribute>
+                            <Element>
+                                <Term>rim:Value</Term>
+                                <Name>Buyer Legal Type Code</Name>
+                                <DataType>rim:StringValueType</DataType>
+                            </Element>
+                        </Element>
+                    </Element>
+                </Element>
+                <Element cardinality="0..1">
+                    <Term>MainActivity</Term>
+                    <Name>MainActivity</Name>
+                    <Description>Used to search for the contracting activity type code (BT-610) of the buyer according
+                        to main activity codes.
+                    </Description>
+                    <Attribute>
+                        <Term>MainActivity</Term>
+                        <Value type="FIXED">MainActivity</Value>
+                    </Attribute>
+                    <Attribute>
+                        <Term>type</Term>
+                        <Value type="FIXED">http://publications.europa.eu/resource/authority/main-activity</Value>
+                    </Attribute>
+                    <Element>
+                        <Term>rim:SlotValue</Term>
+                        <Attribute>
+                            <Term>xsi:type</Term>
+                            <Value type="FIXED">rim:CollectionValueType</Value>
+                        </Attribute>
+                        <Element cardinality="1..n">
+                            <Term>rim:Element</Term>
+                            <Attribute>
+                                <Term>xsi:type</Term>
+                                <Value type="FIXED">rim:StringValueType</Value>
+                            </Attribute>
+                            <Element>
+                                <Term>rim:Value</Term>
+                                <Name>Main Activity Code</Name>
+                                <DataType>rim:StringValueType</DataType>
+                            </Element>
+                        </Element>
+                    </Element>
+                </Element>
             </Element>
         </Element>
     </Document>
