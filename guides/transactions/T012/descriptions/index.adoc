@@ -6,12 +6,13 @@ Limited support for this, see {name-profile-org}.
 == Query Response
 
 === Specification Identification
-
 [source,xml,indent=0]
 ....
 include::../files/ExampleSearchNoticeResponse.xml[tags=specification-identification]
 ....
-<.> Always use the same specification identification for the request.
+<.> Identifier for the set of rules and transactions for a search notice response.
+<.> The value for the specification identification is always "urn:www.cenbii.eu:transaction:biitrdm100:ver3.0:extended:urn:fdc:peppol.eu:2021:pracc:t012:ver1.0", just like in the given example.
+
 
 === Business Process Type Identifier
 [source,xml,indent=0]
@@ -19,26 +20,40 @@ include::../files/ExampleSearchNoticeResponse.xml[tags=specification-identificat
 include::../files/ExampleSearchNoticeResponse.xml[tags=business-process-type-identifier]
 ....
 <.> See the other chapters of peppol to select the right business process type and its identifier.
+<.> The value for the specification identification is always "urn:fdc:peppol.eu:2020:pracc:p006:01:1.0", just like in the given example.
+
+=== Issue Date Time
+[source,xml,indent=0]
+....
+include::../files/ExampleSearchNoticeResponse.xml[tags=issue-date-time]
+....
+<.> Date and time when the request was being issued.
+<.> The SlotValue type has to be DateTimeValueType you have to give stick to the format and add date and time granular to seconds and the timezone.
 
 === Sender electronic address
 [source,xml,indent=0]
 ....
 include::../files/ExampleSearchNoticeResponse.xml[tags=sender-electronic-address]
 ....
-<.> You have to fill your own sender id into this slot. The endpoint id is clarified in the type attribute of the slot.
+<.> The endpoint id is clarified in the type attribute of the slot.
+<.> Fill the electronic sender address into this slot.
 
 === Receiver electronic address
 [source,xml,indent=0]
 ....
-include::../files/ExampleSearchNoticeResponse.xml[tags=sender-electronic-address]
+include::../files/ExampleSearchNoticeResponse.xml[tags=receiver-electronic-address]
 ....
-<.> Here goes the address of the receiver of your query. The endpoint id is clarified in the type attribute of the slot.
+<.> The endpoint id is clarified in the type attribute of the slot.
+<.> Fill the electronic receiver address into this slot.
 
-== Registry Object List
+== Registry Object
 [source,xml,indent=0]
 ....
 include::../files/ExampleSearchNoticeResponse.xml[tags=registry-object-list]
 ....
+<.> The Registry object list contains the registry object, which contains the requested form.
 <.> Here you can find the uuids from your request as you defined them in the notice (id) and procedure (lid) identifier.
-<.> This is the code of the type of document you searched for. Possible values can be taken from the list, which has to be deposited in the type-attribute of the slot.
-<.> Here goes the link to the document of the searched for procedure as an eform.
+<.> Electronic address used by the buyer, just like the ones from the receiver or sender.
+<.> This is the UBL code of the type of document you searched for. Possible values can be taken from the list, which has to be deposited in the type-attribute of the slot.
+<.> Reference to the eform xml with the requested information included.
+
