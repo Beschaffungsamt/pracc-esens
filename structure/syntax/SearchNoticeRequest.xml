@@ -234,6 +234,7 @@
                         <Element>
                             <Term>rim:Value</Term>
                             <DataType>rim:StringValueType</DataType>
+                            <Name>Form Type Code</Name>
                         </Element>
                     </Element>
                 </Element>
@@ -268,6 +269,7 @@
                         <Element>
                             <Term>rim:Value</Term>
                             <DataType>rim:StringValueType</DataType>
+                            <Name>Notice Type Code</Name>
                         </Element>
                     </Element>
                 </Element>
@@ -286,7 +288,12 @@
                 </Attribute>
                 <Attribute>
                     <Term>type</Term>
-                    <Value type="FIXED">http://publications.europa.eu/resource/authority/cpv/cpv</Value>
+                    <Value type="EXAMPLE">http://publications.europa.eu/resource/authority/cpv/cpv</Value>
+                    <Description>
+                        http://publications.europa.eu/resource/authority/cpv/cpv
+                        or
+                        http://publications.europa.eu/resource/authority/cpv/cpvsuppl
+                    </Description>
                 </Attribute>
                 <Element>
                     <Term>rim:SlotValue</Term>
@@ -901,7 +908,116 @@
                     <Term>name</Term>
                     <Value type="FIXED">BuyerInformation</Value>
                 </Attribute>
-                <Description>Used to search for the awarding criterion type code (BT-539) that is used to assess the tenders. </Description>
+                <Description>Used to search for the awarding criterion type code (BT-539) that is used to assess the
+                    tenders.
+                </Description>
+                <Element cardinality="0..1">
+                    <Term>rim:Slot@name=Name</Term>
+                    <Name>Name</Name>
+                    <Attribute>
+                        <Term>name</Term>
+                        <Value type="FIXED">Name</Value>
+                    </Attribute>
+                    <Element>
+                        <Term>rim:SlotValue</Term>
+                        <Attribute>
+                            <Term>xsi:type</Term>
+                            <Value type="FIXED">rim:StringValueType</Value>
+                        </Attribute>
+                        <Element>
+                            <Term>rim:Value</Term>
+                            <DataType>rim:StringValueType</DataType>
+                            <Value type="EXAMPLE">Beschaffungsamt des BMI</Value>
+                        </Element>
+                    </Element>
+                </Element>
+                <Element cardinality="0..1">
+                    <Term>rim:Slot@name=OrganisationNumber</Term>
+                    <Name>OrganisationNumber</Name>
+                    <Attribute>
+                        <Term>name</Term>
+                        <Value type="FIXED">OrganisationNumber</Value>
+                    </Attribute>
+                    <Element>
+                        <Term>rim:SlotValue</Term>
+                        <Attribute>
+                            <Term>xsi:type</Term>
+                            <Value type="FIXED">rim:StringValueType</Value>
+                        </Attribute>
+                        <Element>
+                            <Term>rim:Value</Term>
+                            <DataType>rim:StringValueType</DataType>
+                        </Element>
+                    </Element>
+                </Element>
+                <Element cardinality="0..1">
+                    <Term>rim:Slot@name=City</Term>
+                    <Name>City</Name>
+                    <Attribute>
+                        <Term>name</Term>
+                        <Value type="FIXED">City</Value>
+                    </Attribute>
+                    <Element>
+                        <Term>rim:SlotValue</Term>
+                        <Attribute>
+                            <Term>xsi:type</Term>
+                            <Value type="FIXED">rim:StringValueType</Value>
+                        </Attribute>
+                        <Element>
+                            <Term>rim:Value</Term>
+                            <DataType>rim:StringValueType</DataType>
+                        </Element>
+                    </Element>
+                </Element>
+                <Element cardinality="0..1">
+                    <Term>rim:Slot@name=PostCode</Term>
+                    <Name>PostCode</Name>
+                    <Attribute>
+                        <Term>name</Term>
+                        <Value type="FIXED">PostCode</Value>
+                    </Attribute>
+                    <Element>
+                        <Term>rim:SlotValue</Term>
+                        <Attribute>
+                            <Term>xsi:type</Term>
+                            <Value type="FIXED">rim:StringValueType</Value>
+                        </Attribute>
+                        <Element>
+                            <Term>rim:Value</Term>
+                            <DataType>rim:StringValueType</DataType>
+                        </Element>
+                    </Element>
+                </Element>
+                <Element cardinality="0..1">
+                    <Term>rim:Slot@name=OrganizationCountrySubdivision</Term>
+                    <Name>OrganizationCountrySubdivision</Name>
+                    <Attribute>
+                        <Term>name</Term>
+                        <Value type="FIXED">OrganizationCountrySubdivision</Value>
+                    </Attribute>
+                    <Attribute>
+                        <Term>type</Term>
+                        <Value type="FIXED">http://publications.europa.eu/resource/authority/nuts</Value>
+                    </Attribute>
+                    <Element>
+                        <Term>rim:SlotValue</Term>
+                        <Attribute>
+                            <Term>xsi:type</Term>
+                            <Value type="FIXED">rim:CollectionValueType</Value>
+                        </Attribute>
+                        <Element cardinality="1..n">
+                            <Term>rim:Element</Term>
+                            <Attribute>
+                                <Term>xsi:type</Term>
+                                <Value type="FIXED">rim:StringValueType</Value>
+                            </Attribute>
+                            <Element>
+                                <Term>rim:Value</Term>
+                                <Name>NUTS Code</Name>
+                            </Element>
+                        </Element>
+                    </Element>
+                </Element>
                 <!-- todo @schoemer -->
             </Element>
         </Element>
