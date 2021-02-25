@@ -10,35 +10,47 @@ Limited support for this, see {name-profile-org}.
 ....
 include::../files/ExampleSearchNoticeRequest.xml[tags=specification-identification]
 ....
-<.> Always use the same specification identification for the request.
+<.> Identifier for the set of rules and transactions for a search notice request.
+<.> The value for the specification identification is always "urn:fdc:peppol.eu:2021:pracc:t011:1.0", just like in the given example.
 
 === Business Process Type Identifier
 [source,xml,indent=0]
 ....
 include::../files/ExampleSearchNoticeRequest.xml[tags=business-process-type-identifier]
 ....
-<.> See the other chapters of peppol to select the right business process type and its identifier.
+<.> Identifier for the business process context of the search notice response.
+<.> The value for the business process type identifier is always "urn:fdc:peppol.eu:2021:pracc:p006:1.0", just like in the given example.
+
+=== Issue Date Time
+[source,xml,indent=0]
+....
+include::../files/ExampleSearchNoticeRequest.xml[tags=issue-date-time]
+....
+<.> Date and time when the request was being issued.
+<.> The SlotValue type has to be DateTimeValueType you have to give stick to the format and add date and time granular to seconds and the timezone.
 
 === Sender electronic address
 [source,xml,indent=0]
 ....
 include::../files/ExampleSearchNoticeRequest.xml[tags=sender-electronic-address]
 ....
-<.> You have to fill your own sender id into this slot. The endpoint id is clarified in the attribute named type of the slot and is equivalent to the schemeId in UBL.
+<.> The endpoint id is clarified in the type attribute of the slot.
+<.> Fill the electronic sender address into this slot.
 
 === Receiver electronic address
 [source,xml,indent=0]
 ....
 include::../files/ExampleSearchNoticeRequest.xml[tags=receiver-electronic-address]
 ....
-<.> Here goes the address of the receiver of your query. The endpoint id is clarified in the type attribute of the slot.
+<.> The endpoint id is clarified in the type attribute of the slot.
+<.> Fill the electronic receiver address into this slot
 
 == Response Option
 [source,xml,indent=0]
 ....
 include::../files/ExampleSearchNoticeRequest.xml[tags=response-option]
 ....
-
+<.> You have to include the response option with its default option "LeafClassWithRepositoryItem" to allow for the response to include the required repository items.
 
 == Query
 === Keywords
@@ -48,7 +60,7 @@ include::../files/ExampleSearchNoticeRequest.xml[tags=keywords]
 ....
 <.> All keywords are collected as one single string. Just enter the desired keywords for your search as you would expect it from a searchbar. Select keywords for any parameter of your search as if searching for a specific procedure.
 
-This slot is optional.
+This slot is optional and can only included once.
 
 === Form Type
 [source,xml,indent=0]
@@ -58,7 +70,7 @@ include::../files/ExampleSearchNoticeRequest.xml[tags=form-type]
 <.> Select the type from the given collection. Into the type-attribute of the slot is to fill with the listID of your source.
 The type of the slotValue is a CollectionValueType, so you can enter more than one element. Each element has its own type, i.e. StringValueType.
 
-The whole slot is optional.
+This slot is optional and can only included once.
 
 === Notice Type
 [source,xml,indent=0]
@@ -67,7 +79,7 @@ include::../files/ExampleSearchNoticeRequest.xml[tags=form-type]
 ....
 <.> Just like the form type, you may select the notice type, you want to search for. The ID of your list has to be filled into the type-attribute of the slot.
 
-The type of the slotValue is a CollectionValueType, so you can enter more than one element. Each element has its own type, i.e. StringValueType. The whole slot is optional.
+The type of the slotValue is a CollectionValueType, so you can enter more than one element. Each element has its own type, i.e. StringValueType. This slot is optional and can only included once.
 
 === Classification
 [source,xml,indent=0]
@@ -75,7 +87,7 @@ The type of the slotValue is a CollectionValueType, so you can enter more than o
 include::../files/ExampleSearchNoticeRequest.xml[tags=classification]
 ....
 <.> The classification consists of the type of classification and the value. The type of classification is filled into the type-attribute in form of your listID.
-Therefore, the type of your classification has to be the same for each element. Into the value tag goes the selected CPV, CPVsuppl or other code for your search request.
+Therefore, the type of your classification has to be the same for each element. Into the value tag goes the selected CPV or CPVsuppl code for your search request.
 
 The type of the slotValue is a CollectionValueType, so you can enter more than one element. Each element has its own type, i.e. StringValueType, that you have to declare. The whole slot is optional.
 
@@ -88,7 +100,7 @@ include::../files/ExampleSearchNoticeRequest.xml[tags=contract-nature]
 <.> Each element has its own type, i.e. StringValueType, that you have to declare.
 <.> The values were chosen to match the classification codes.
 
-The whole slot is optional.
+This slot is optional and can only included once.
 
 === Place of Performance
 [source,xml,indent=0]
@@ -97,9 +109,9 @@ include::../files/ExampleSearchNoticeRequest.xml[tags=place-of-performance]
 ....
 <.> The type of the slotValue is a CollectionValueType, so you can enter more than one element. The selected listID has to be filled into the type-attribute of the slot. Each location is added in form of its NUTS-Code.
 
-The whole slot is optional.
+This slot is optional and can only included once.
 
-=== Tender Value
+=== Estimated Value
 [source,xml,indent=0]
 ....
 include::../files/ExampleSearchNoticeRequest.xml[tag=estimatedValue]
@@ -109,6 +121,8 @@ include::../files/ExampleSearchNoticeRequest.xml[tag=estimatedValue]
 <.> Corresponding to minimum, the second value you can search for in the tender value is the maximum. Just like the minimum the maximum tender value you are searching for is a float.
 <.> The third possible criteria is the currency. This one is a CollectionValueType you can enter more than one element. The values are selected from the list which ID is deposited in the type-attribute of the slot.
 
+This slot is optional and can only included once. If Estimated Value is included at least one of minimum, maximum or currency has to be included as well. These can only be included once.
+
 === Procedure Type
 [source,xml,indent=0]
 ....
@@ -116,7 +130,7 @@ include::../files/ExampleSearchNoticeRequest.xml[tags=procedure-type]
 ....
 <.> The type of the slotValue is a CollectionValueType, so you can enter more than one element. The selected listID has to be filled into the type-attribute of the slot. The value of the slot is chosen from the list.
 
-The whole slot is optional.
+This slot is optional and can only included once.
 
 === Submission language
 [source,xml,indent=0]
@@ -125,7 +139,7 @@ include::../files/ExampleSearchNoticeRequest.xml[tags=submission-language]
 ....
 <.> The type of the slotValue is a CollectionValueType, so you can enter more than one element. The selected listID has to be filled into the type-attribute of the slot. The value of the slot is chosen from the list.
 
-The whole slot is optional.
+This slot is optional and can only included once.
 
 === Publication Date
 [source,xml,indent=0]
@@ -136,6 +150,8 @@ include::../files/ExampleSearchNoticeRequest.xml[tags=publication-date]
 <.> The first slot can be filled with a potential start date and time of the publication. With the DateTimeValueType in mind you can declare the desired date in the standard DateTime format.
 <.> The second slot can be filled with a possible end date and time of the publication. With the DateTimeValueType in mind you can declare the desired date in the standard DateTime format.
 
+This slot is optional and can only included once.
+
 === Deadline Receipt Tenders
 [source,xml,indent=0]
 ....
@@ -144,6 +160,8 @@ include::../files/ExampleSearchNoticeRequest.xml[tags=deadline-receipt-tenders]
 <.> The second of four date slots. Here you can search for the deadline of receipt tenders. The slot can consist of up to two slots, each of a DateTimeValueType.
 <.> The first slot can be filled with a potential start date and time for the deadline for receipt tenders. With the DateTimeValueType in mind you can declare the desired date in the standard DateTime format.
 <.> The second slot can be filled with a possible end date and time for the deadline for receipt tenders. With the DateTimeValueType in mind you can declare the desired date in the standard DateTime format.
+
+This slot is optional and can only included once.
 
 === Additional Information Deadline
 [source,xml,indent=0]
@@ -154,6 +172,8 @@ include::../files/ExampleSearchNoticeRequest.xml[tags=additional-information-dea
 <.> The first slot can be filled with a potential start date and time for the deadline of additional information. With the DateTimeValueType in mind you can declare the desired date in the standard DateTime format.
 <.> The second slot can be filled with a possible end date and time for the deadline of additional information. With the DateTimeValueType in mind you can declare the desired date in the standard DateTime format.
 
+This slot is optional and can only included once.
+
 === Deadline Receipt Requests
 [source,xml,indent=0]
 ....
@@ -163,6 +183,8 @@ include::../files/ExampleSearchNoticeRequest.xml[tags=deadline-receipt-requests]
 <.> The first slot can be filled with a potential start date and time for the deadline of receipt requests. With the DateTimeValueType in mind you can declare the desired date in the standard DateTime format.
 <.> The second slot can be filled with a possible end date and time for the deadline  of receipt requests. With the DateTimeValueType in mind you can declare the desired date in the standard DateTime format.
 
+This slot is optional and can only included once.
+
 === Notice Identifier
 [source,xml,indent=0]
 ....
@@ -170,7 +192,7 @@ include::../files/ExampleSearchNoticeRequest.xml[tags=notice-identifier]
 ....
 <.> The type of the slotValue is a CollectionValueType, so you can enter more than one element. The UUID is matching with the id you get in your response.
 
-The whole slot is optional.
+This slot is optional and can only included once.
 
 === Procedure Identifier
 [source,xml,indent=0]
@@ -179,7 +201,7 @@ include::../files/ExampleSearchNoticeRequest.xml[tags=procedure-identifier]
 ....
 <.> The type of the slotValue is a CollectionValueType, so you can enter more than one element. The UUID is matching with the logical id you get in your response.
 
-The whole slot is optional.
+This slot is optional and can only included once.
 
 === Procedure legal basis
 [source,xml,indent=0]
@@ -188,16 +210,16 @@ include::../files/ExampleSearchNoticeRequest.xml[tags=procedure-legal-basis]
 ....
 <.> Insert the id of the legal base from which you draw the procedure.
 
-The whole slot is optional.
+This slot is optional and can only included once.
 
 === Reserved Participation
 [source,xml,indent=0]
 ....
 include::../files/ExampleSearchNoticeRequest.xml[tags=reserved-participation]
 ....
-<.> The type of the slotValue is a CollectionValueType, so you can enter more than one element. The selected listID has to be filled into the type-attribute of the slot. The value of the slot is chosen from the list. Choose if the procedure is only accessible for certain types of companys.
+<.> The type of the slotValue is a CollectionValueType, so you can enter more than one element. The selected listID has to be filled into the type-attribute of the slot. The value of the slot is chosen from the list. Choose if the procedure is only accessible for certain types of companies.
 
-The whole slot is optional.
+This slot is optional and can only included once.
 
 === Suitable for SMEs
 [source,xml,indent=0]
@@ -206,7 +228,7 @@ include::../files/ExampleSearchNoticeRequest.xml[tags=suitable-for-smes]
 ....
 <.> As this slotValue is a boolean, please only insert true or false, if the procedure has to be suitable for small or medium sized economic operators.
 
-The whole slot is optional.
+This slot is optional and can only included once.
 
 === Winner economic operator name
 [source,xml,indent=0]
@@ -215,7 +237,7 @@ include::../files/ExampleSearchNoticeRequest.xml[tags=winner-economic-operator-n
 ....
 <.> Insert the official name of the company which won the procedure.
 
-The whole slot is optional.
+This slot is optional and can only included once.
 
 === Award criterion type
 [source,xml,indent=0]
@@ -224,7 +246,7 @@ include::../files/ExampleSearchNoticeRequest.xml[tags=award-criterion-type]
 ....
 <.> The type of the slotValue is a CollectionValueType, so you can enter more than one element. The selected listID has to be filled into the type-attribute of the slot. The value of the slot is chosen from the list. Some of the values cannot be combined with each other, so be careful in selecting each.
 
-The whole slot is optional.
+This slot is optional and can only included once.
 
 === Buyer Information
 [source,xml,indent=0]
@@ -235,9 +257,9 @@ include::../files/ExampleSearchNoticeRequest.xml[tags=information-about-buyer]
 <.> The number of the organisation, as defined in each country.
 <.> The address of the company - city.
 <.> The address of the company - postcode.
-<.> The id of each affected subdivison of the company, as selected from the code list. The list id has to be deposit in the type attribute of the slot.
-<.> The country code of each affected country, as selected from the code list. The list id has to be deposit in the type attribute of the slot.
-<.> The legal type of the buying company, as selected from the code list. The list id has to be deposit in the type attribute of the slot.
-<.> The main activity of the buying company, as selected from the code list. The list id has to be deposit in the type attribute of the slot.
+<.> The id of each affected subdivision of the company, as selected from the code list. The list id has to be deposited in the type attribute of the slot. Multiple can be added.
+<.> The country code of each affected country, as selected from the code list. The list id has to be deposited in the type attribute of the slot. Multiple can be added.
+<.> The legal type of the buying company, as selected from the code list. The list id has to be deposited in the type attribute of the slot. Multiple can be added.
+<.> The main activity of the buying company, as selected from the code list. The list id has to be deposited in the type attribute of the slot. Multiple can be added.
 
-The whole slot is optional.
+The whole slot is optional and can be included multiple times. If Buyer Information is included at least one of name, organisation number, city, postcode, organisation country subdivision, country code, legal type or main activity has to be included as well. These can only be included once.

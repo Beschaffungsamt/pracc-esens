@@ -13,33 +13,35 @@
         http://docs.oasis-open.org/regrep/regrep-core/v4.0/csd01/xsd/query.xsd"
 >
     <!-- tag::specification-identification[] -->
-    <rim:Slot name="SpecificationIdentification">
+    <rim:Slot name="SpecificationIdentification"> <!--.-->
         <rim:SlotValue xsi:type="rim:StringValueType">
             <rim:Value>urn:fdc:peppol.eu:2021:pracc:t011:1.0</rim:Value> <!--.-->
         </rim:SlotValue>
     </rim:Slot>
     <!-- end::specification-identification[] -->
     <!-- tag::business-process-type-identifier[] -->
-    <rim:Slot name="BusinessProcessTypeIdentifier">
+    <rim:Slot name="BusinessProcessTypeIdentifier"> <!--.-->
         <rim:SlotValue xsi:type="rim:StringValueType">
             <rim:Value>urn:fdc:peppol.eu:2021:pracc:p006:1.0</rim:Value> <!--.-->
         </rim:SlotValue>
     </rim:Slot>
     <!-- end::business-process-type-identifier[] -->
-    <rim:Slot name="IssueDateTime">
-        <rim:SlotValue xsi:type="rim:DateTimeValueType">
+    <!-- tag::issue-date-time[] -->
+    <rim:Slot name="IssueDateTime"> <!--.-->
+        <rim:SlotValue xsi:type="rim:DateTimeValueType"> <!--.-->
             <rim:Value>2021-02-05T09:28:00Z</rim:Value>
         </rim:SlotValue>
     </rim:Slot>
+    <!-- end::issue-date-time[] -->
     <!-- tag::sender-electronic-address[] -->
-    <rim:Slot name="SenderElectronicAddress" type="PT:VAT">
+    <rim:Slot name="SenderElectronicAddress" type="PT:VAT"> <!--.-->
         <rim:SlotValue xsi:type="rim:StringValueType">
             <rim:Value>9946:500820007</rim:Value> <!--.-->
         </rim:SlotValue>
     </rim:Slot>
     <!-- end::sender-electronic-address[] -->
     <!-- tag::receiver-electronic-address[] -->
-    <rim:Slot name="ReceiverElectronicAddress" type="DE:VAT">
+    <rim:Slot name="ReceiverElectronicAddress" type="DE:VAT"> <!--.-->
         <rim:SlotValue xsi:type="rim:StringValueType">
             <rim:Value>9930:DE122268496</rim:Value> <!--.-->
         </rim:SlotValue>
@@ -47,7 +49,7 @@
     <!-- end::receiver-electronic-address[] -->
 
     <!-- tag::response-option[] -->
-    <query:ResponseOption returnType="LeafClassWithRepositoryItem"/>
+    <query:ResponseOption returnType="LeafClassWithRepositoryItem"/> <!--.-->
     <!-- end::response-option[] -->
 
     <query:Query queryDefinition="SearchNotice">
@@ -357,8 +359,8 @@
                     </rim:Element>
                 </rim:SlotValue>
             </rim:Slot>
-
-            <rim:Slot name="BuyerInformation"> <!--.-->
+            <!-- end::information-about-buyer[] -->
+            <rim:Slot name="BuyerInformation">
                 <rim:Slot name="Name">
                     <rim:SlotValue xsi:type="rim:StringValueType">
                         <rim:Value>SME GmbH</rim:Value>
@@ -406,6 +408,5 @@
                 </rim:Slot>
             </rim:Slot>
         </rim:Slot>
-        <!-- end::information-about-buyer[] -->
     </query:Query>
 </query:QueryRequest>
