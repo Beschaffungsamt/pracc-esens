@@ -5,7 +5,7 @@
         xmlns:query="urn:oasis:names:tc:ebxml-regrep:xsd:query:4.0"
         xmlns:xlink="http://www.w3.org/1999/xlink"
         totalResultCount="-1"
-        requestId="1"
+        requestId="48ac7379-731d-40be-bc48-599934182d45"
         startIndex="0"
         status=""
         xsi:schemaLocation="
@@ -30,7 +30,7 @@
         </rim:SlotValue>
     </rim:Slot>
     <!-- end::business-process-type-identification[] -->
-    <rim:Slot name="Issue">
+    <rim:Slot name="IssueDateTime">
         <rim:SlotValue xsi:type="rim:DateTimeValueType">
             <rim:Value>2020-02-14T19:20:30+01:00</rim:Value>
         </rim:SlotValue>
@@ -65,7 +65,7 @@
                     <rim:Value>CN</rim:Value> <!--.-->
                 </rim:SlotValue>
             </rim:Slot>
-            <rim:RepositoryItemRef xlink:href="./53EB9F20-EE12-474F-9424-78FC604E8FAE.eform.xml" /> <!--.-->
+            <rim:RepositoryItemRef xlink:href="./53EB9F20-EE12-474F-9424-78FC604E8FAE.eform.xml"/> <!--.-->
         </rim:RegistryObject>
     </rim:RegistryObjectList>
     <!-- end::registry-object-list[] -->
