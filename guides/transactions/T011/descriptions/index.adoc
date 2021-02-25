@@ -32,14 +32,13 @@ include::../files/ExampleSearchNoticeRequest.xml[tags=sender-electronic-address]
 include::../files/ExampleSearchNoticeRequest.xml[tags=receiver-electronic-address]
 ....
 <.> Here goes the address of the receiver of your query. The endpoint id is clarified in the type attribute of the slot.
-<.> Place your Endpoint Id here.
 
 == Response Option
 [source,xml,indent=0]
 ....
 include::../files/ExampleSearchNoticeRequest.xml[tags=response-option]
 ....
-<.> The response option is a standard part of the Query, as the returnType LeafClassWithRepositoryItem is the standard for the response option.
+
 
 == Query
 === Keywords
@@ -103,7 +102,7 @@ The whole slot is optional.
 === Tender Value
 [source,xml,indent=0]
 ....
-include::../files/ExampleSearchNoticeRequest.xml[tags=tenderValue]
+include::../files/ExampleSearchNoticeRequest.xml[tag=estimatedValue]
 ....
 <.> The slot for the tender value consists of four different slots, which can all be added to specify the tender value. The slot as a whole is optional, as are each of the three slots in it.
 <.> The first one is minimum, the minimal tender value you are looking for. It has to be declared as a float.
