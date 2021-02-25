@@ -19,7 +19,7 @@ include::../files/ExampleSearchNoticeResponse.xml[tags=specification-identificat
 ....
 include::../files/ExampleSearchNoticeResponse.xml[tags=business-process-type-identifier]
 ....
-<.> See the other chapters of peppol to select the right business process type and its identifier.
+<.> Identifier for the business process context of the search notice response.
 <.> The value for the specification identification is always "urn:fdc:peppol.eu:2020:pracc:p006:01:1.0", just like in the given example.
 
 === Issue Date Time
