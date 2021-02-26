@@ -3,18 +3,13 @@
 
 The following parties participate as business partners in this transaction, acting in the roles as defined below
 
-[cols="2,5,5", options="header"]
+[cols="5,10", options="header"]
 .parties
 |===
-| Party
+| Business Partner
 | Description
-| Example of roles
-| *Customer*
-| The customer is the legal person or organization who is in demand of a product, service or works.
-| Buyer, consignee, debtor, contracting body
-| *Supplier*
-| The supplier is the legal person or organization who provides a product, service or works.
-| Seller, consignor, creditor, economic operator
+| *Governmental or private organization*
+| Any organisation.
 |===
 
 
@@ -23,8 +18,13 @@ The following parties participate as business partners in this transaction, acti
 |===
 | Role
 | Description
-| *Contracting body*
-| The contracting authority or contracting entity who is buying supplies, services or tendering works.
-| *Economic operator*
-| Party participating with a bid in a procurement process to sell goods, services or works.
+| *Requester*
+| A service or economic operator in search of opportunities.
+| *Provider*
+| A data service that discloses information on notices (whether governmental or a private organisation).
 |===
+
+NOTE: Also other bodies than economic operators may need to search for notices, such as a statistics office or scholars. This profile particularly focuses on the tendering process, involving tendering platforms that are operated for economic operators. However, the search process and the transactions described in this profile may not necessarily be used by economic operators alone.
+
+
+
