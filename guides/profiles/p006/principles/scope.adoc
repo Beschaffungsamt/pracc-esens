@@ -5,7 +5,7 @@
 
 include::introduction.adoc[]
 
-include::tendering.adoc[]
+include::notification.adoc[]
 
 include::parties-roles.adoc[]
 

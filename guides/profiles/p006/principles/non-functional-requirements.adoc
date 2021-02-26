@@ -8,22 +8,25 @@ For the {link-peppol} BIS all {link-peppol} non-functional requirements are appl
 | Req. ID
 | Requirement statement
 
-| br50-001
-| A request for clarification can be issued by the contracting body only.
+| br45-001
+| Two transactions should be available, the Search Notice Request transaction (QueryRequest) and the Search Notice Response transaction (QueryResponse).
 
-| br50-002
-| A request for clarification must refer to a tender that has been opened.
+| br45-002
+| The Search Notice Request shall support queries on notice metadata.
 
-| br50-003
-| A request for clarification and its answer must be duly justified. E.g. of justification: +
-- if obvious clerical errors in the drafting of the tender need to be corrected; +
-- to request additional material or clarification on exclusion or selection criteria.
+| br45-003
+| The Search Notice Response shall have zero or more notices included in the same envelope.
 
-| br50-004
-| A request for clarification constitutes a 'note to the procurement file'. It must be recorded together with the procurement file.
+| br45-004
+| The transactions are independent of the tool and implementation of the platform.
 
-| br50-005
-| The traceability and integrity of when the contact with tenderers as well as the content of this contact must be assured.
+| br45-005
+| The metadata elements searched for are independent of the query language used.
 
+| br45-006
+| The Search Notice Request transaction shall be based on defined metadata.
+
+| br45-007
+| The Search Notices Response transaction returns the set of metadata with the corresponding notices in xml format based on {eforms-specs}.
 
 |===

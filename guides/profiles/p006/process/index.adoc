@@ -4,27 +4,32 @@ The following {link-bpmn}[BPMN] diagram shows the choreography of the business p
 
 image::processTC.png[align="center", width=800]
 
+The process starts by the requester preparing a Search Notice Request, based on his ambitions and capabilities. He then sends the query to the provider. The provider interprets the query and assembles a package with notices that fulfill the query conditions. The package consists of a list of notice objects containing the notice metadata and a local reference to the actual XML notice based on {eforms-specs} which is expressed by the {ubl-pin}, {ubl-cn} and {ubl-can}. If the result is zero notices found, then a package will be sent indicating that no notice corresponding to the search criteria were found. The Search Notice Request and Search Notice Response are facilitated by {regrep}, a standard defining the service interfaces, protocols and information model for an integrated registry and repository. Both transactions are therefore described by {ebrim}. As three types of notices exist: Contract Notice, Prior Information Notice and Contract Award Notice, three notices types may be included to the package as a result of the process. Each of them may be repeated, depending on the number of notices found for the query. The notices included in the results are in an agreed XML syntax format following the rules of {eforms-specs}.
+
 [cols="2,10", options="header"]
 .Business process
 |===
 | Category | Description
-| Description | As the tender is not clear, the contracting body asks the economic operator to clarify his tender.
+| Description | A requester searches for relevant notices on a given platform.
 
-The economic operator answers the questions and sends the answers to the contracting body.
+| Pre-conditions | The requester can make a Search Notices Request using the search criteria that are defined in this profile.
+| Post-conditions | The requester has received the result of his search: notice metadata and notices in xml based on {eforms-specs}.
+| Remarks | As a search can have a result containing zero notices, the result transaction must permit the information "totalResultCount = 0".
 
-| Pre-conditions | The contracting body has opened the tender.
-| Post-conditions | The tender has been clarified.
 |===
 
 [cols="3,2,7", options="header"]
 .Role description
 |===
 | Activity | Role involved | Description
-| Send Tender clarification request | Contracting body | The contracting body sends questions to the economic operator.
-| Send Tender clarification request | Economic operator | The economic operator receives the tender questions.
-| Clarify tender | Economic operator | The economic operator formulates clarifications.
-| Send tender clarification | Economic operator | The economic operator sends the answers to the contracting body.
-| Receive tender clarification | Contracting body | The contracting body receives the tender clarification.
+| Prepare query | Requester  | The requester prepares a Search Notice Request using the defined search criteria.
+| Send query | Requester  | The requester sends the prepared Search Notice Request to the provider.
+| Receive query | Provider | The provider receives a structured Search Notice Request.
+| Process query | Provider | The provider processes the Search Notice Request.
+| Assemble notice metadata and notices | Provider | The provider assembles the notice metadata and the related notices in the format of {eforms-specs}. If no results the provider indicates this in the "totalResultCount=0".
+| Package result | Provider | All notice metadata and notices are assembled and grouped together in a package.
+| Send result | Provider | The provider sends the package to the requester.
+| Receive result | Requester | The requester receives the package of results.
 |===
 
 :leveloffset: +1

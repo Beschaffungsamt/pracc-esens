@@ -2,16 +2,23 @@
 = Implementation guidelines
 
 
-{name-profile} is based on work done by {link-bii3}, and business rules and code lists used are inherited from the following {link-bii3} and {link-ubl} documents:
+{name-profile} is based on work done by {link-bii3}. Business terms, Business rules and code lists used are inherited from the following {link-bii3} and {eforms-specs} and {regrep} documents:
 
- urn:oasis:names:specification:ubl:schema:xsd:Enquiry-2
- urn:oasis:names:specification:ubl:schema:xsd:EnquiryResponse-2
+* urn:oasis:names:tc:ebxml-regrep:xsd:rim:4.0
+* urn:oasis:names:tc:ebxml-regrep:xsd:query:4.0
+* urn:oasis:names:specification:ubl:schema:xsd:PriorInformationNotice-2
+* urn:oasis:names:specification:ubl:schema:xsd:ContractNotice-2
+* urn:oasis:names:specification:ubl:schema:xsd:ContractAwardNotice-2
 
-* {ubl-enquiry}[UBL Enquiry Schema] sent by a requestor to a responder requesting information about a particular business process.
-* {ubl-enquiry-response}[UBL Enquiry Response Schema] sent by a responder to a requester answering a particular enquiry.
-* {link-profile} (CWA 17027-115:2016) describing a process providing electronic messaging support for the business process of answering questions of a contracting body about a tender.
+The Search Notice Request is based on {ebrim} and adapted according to the Query Protocol of {ebrs}. The QueryRequest is  sent by a requester to a provider requesting information about notices based on search criteria that are defined along business terms defined in {eforms-specs} and {link-profile}.
+
+The Search Notice Response is based on {ebrim} and adapted according to the Query Protocol of {ebrs}. The QueryResponse is sent by a provider to a requester answering QueryRequest. The package contains notices metadata defined along business terms defined in {eforms-specs} and {link-profile} and notices in XML format.
+
+* {ubl-pin}: Describes the notices type "Prior Information Notice" that can be referenced in the QueryResponse. The XML must be formatted according to {eforms-specs}.
+* {ubl-cn}: Describes the notices type "Contract Notice" that can be referenced in the QueryResponse.The XML must be formatted according to {eforms-specs}.
+* {ubl-can} Describes the notices type "Contract Award Notice" that can be referenced in the QueryResponse.The XML must be formatted according to {eforms-specs}.
 
 {link-peppol} {name-profile} business process includes 2 transactions:
 
-* link:../../transactions/T009/index.html[T009 - Tender Clarification Request]
-* link:../../transactions/T010/index.html[T010 - Tender Clarification]
+* link:../../transactions/T011/index.html[T011 - Search Notice Request]
+* link:../../transactions/T012/index.html[T012 - Search Notice Response]
