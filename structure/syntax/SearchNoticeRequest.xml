@@ -1147,7 +1147,7 @@
                     </Element>
                 </Element>
                 <Element cardinality="0..1">
-                    <Term>MainActivity</Term>
+                    <Term>rim:Slot@name=MainActivity</Term>
                     <Name>MainActivity</Name>
                     <Description>Used to search for the contracting activity type code (BT-610) of the buyer according
                         to main activity codes.
