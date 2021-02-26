@@ -126,7 +126,7 @@
               query:QueryRequest/query:Query/rim:Slot[@name='EstimatedValue']/rim:Slot[@name='Minimum']/rim:SlotValue
             | query:QueryRequest/query:Query/rim:Slot[@name='EstimatedValue']/rim:Slot[@name='Maximum']/rim:SlotValue
             ">
-            <assert id="PEPPOL-T011-R046" flag="fatal" test="@xsi:type='rim:FloatValueType'">A Minimum or Maximum MUST have an element SlotValue with xsi:type of rim:StringValueType.</assert>
+            <assert id="PEPPOL-T011-R046" flag="fatal" test="@xsi:type='rim:FloatValueType'">A Minimum or Maximum MUST have an element SlotValue with xsi:type of rim:FloatValueType.</assert>
         </rule>
 
         <rule context="query:QueryRequest/query:Query/rim:Slot[@name='EstimatedValue']/rim:Slot[@name='Currency']">
@@ -203,76 +203,56 @@
             <assert id="PEPPOL-T011-R060" flag="fatal" test="rim:SlotValue[@xsi:type='rim:BooleanValueType']">Suitable For SMEs MUST have an element SlotValue with xsi:type of rim:BooleanValueType.</assert>
         </rule>
 
-        <rule context="query:QueryRequest/query:Query/rim:Slot[@name='WinnerEconomicOperatorName']">
-            <assert id="PEPPOL-T011-R061" flag="fatal" test="rim:SlotValue[@xsi:type='rim:StringValueType']">A Winner Economic Operator Name MUST have an element SlotValue with xsi:type of rim:StringValueType.</assert>
-        </rule>
-
-        <rule context="query:QueryRequest/query:Query/rim:Slot[@name='AwardCriterionType']">
-            <assert id="PEPPOL-T011-R062" flag="fatal" test="@type='http://publications.europa.eu/resource/authority/award-criterion-type'">An Award Criterion Type MUST have a type of the value of "http://publications.europa.eu/resource/authority/award-criterion-type".</assert>
+         <rule context="query:QueryRequest/query:Query/rim:Slot[@name='AwardCriterionType']">
+            <assert id="PEPPOL-T011-R061" flag="fatal" test="@type='http://publications.europa.eu/resource/authority/award-criterion-type'">An Award Criterion Type MUST have a type of the value of "http://publications.europa.eu/resource/authority/award-criterion-type".</assert>
         </rule>
 
         <rule context="query:QueryRequest/query:Query/rim:Slot[@name='BuyerInformation']">
-            <assert id="PEPPOL-T011-R063" flag="fatal" test="count(rim:Slot) > 0">A Buyer Information MUST have at least one slot.</assert>
-            <assert id="PEPPOL-T011-R064" flag="fatal" test="count(rim:Slot) &lt; 9">There MUST NOT be more than 8 elements for Buyer Information.</assert>
-            <assert id="PEPPOL-T011-R065" flag="fatal" test="count(rim:Slot[@name='Name']) &lt; 2">The rim:Slot name "Name" can only be used once.</assert>
-            <assert id="PEPPOL-T011-R066" flag="fatal" test="count(rim:Slot[@name='OrganisationNumber']) &lt; 2">The rim:Slot name "OrganisationNumber" can only be used once.</assert>
-            <assert id="PEPPOL-T011-R067" flag="fatal" test="count(rim:Slot[@name='City']) &lt; 2">The rim:Slot name "OrganisationNumber" can only be used once.</assert>
-            <assert id="PEPPOL-T011-R068" flag="fatal" test="count(rim:Slot[@name='PostCode']) &lt; 2">The rim:Slot name "City" can only be used once.</assert>
-            <assert id="PEPPOL-T011-R069" flag="fatal" test="count(rim:Slot[@name='OrganizationCountrySubdivision']) &lt; 2">The rim:Slot name "OrganizationCountrySubdivision" can only be used once.</assert>
-            <assert id="PEPPOL-T011-R070" flag="fatal" test="count(rim:Slot[@name='CountryCode']) &lt; 2">The rim:Slot name "Country" can only be used once.</assert>
-            <assert id="PEPPOL-T011-R071" flag="fatal" test="count(rim:Slot[@name='LegalType']) &lt; 2">The rim:Slot name "LegalType" can only be used once.</assert>
-            <assert id="PEPPOL-T011-R072" flag="fatal" test="count(rim:Slot[@name='MainActivity']) &lt; 2">The rim:Slot name "MainActivity" can only be used once.</assert>
+            <assert id="PEPPOL-T011-R062" flag="fatal" test="count(rim:Slot) > 0">A Buyer Information MUST have at least one slot.</assert>
+            <assert id="PEPPOL-T011-R063" flag="fatal" test="count(rim:Slot) &lt; 9">There MUST NOT be more than 8 elements for Buyer Information.</assert>
+            <assert id="PEPPOL-T011-R064" flag="fatal" test="count(rim:Slot[@name='Name']) &lt; 2">The rim:Slot name "Name" can only be used once.</assert>
+            <assert id="PEPPOL-T011-R065" flag="fatal" test="count(rim:Slot[@name='OrganisationNumber']) &lt; 2">The rim:Slot name "OrganisationNumber" can only be used once.</assert>
+            <assert id="PEPPOL-T011-R066" flag="fatal" test="count(rim:Slot[@name='City']) &lt; 2">The rim:Slot name "OrganisationNumber" can only be used once.</assert>
+            <assert id="PEPPOL-T011-R067" flag="fatal" test="count(rim:Slot[@name='PostCode']) &lt; 2">The rim:Slot name "City" can only be used once.</assert>
+            <assert id="PEPPOL-T011-R068" flag="fatal" test="count(rim:Slot[@name='OrganizationCountrySubdivision']) &lt; 2">The rim:Slot name "OrganizationCountrySubdivision" can only be used once.</assert>
+            <assert id="PEPPOL-T011-R069" flag="fatal" test="count(rim:Slot[@name='CountryCode']) &lt; 2">The rim:Slot name "Country" can only be used once.</assert>
+            <assert id="PEPPOL-T011-R070" flag="fatal" test="count(rim:Slot[@name='LegalType']) &lt; 2">The rim:Slot name "LegalType" can only be used once.</assert>
+            <assert id="PEPPOL-T011-R071" flag="fatal" test="count(rim:Slot[@name='MainActivity']) &lt; 2">The rim:Slot name "MainActivity" can only be used once.</assert>
         </rule>
 
         <rule context="query:QueryRequest/query:Query/rim:Slot[@name='BuyerInformation']/rim:Slot">
-            <assert id="PEPPOL-T011-R073" flag="fatal" test="@name = 'Name' or @name = 'OrganisationNumber' or @name = 'City' or @name = 'PostCode' or @name = 'OrganizationCountrySubdivision' or @name = 'CountryCode' or @name = 'LegalType' or @name = 'MainActivity'">The name of the slots under Buyer Information MUST be one of "Name" or "OrganisationNumber" or "City" or "PostCode"  or "OrganizationCountrySubdivision" or "Country" or "LegalType" or "MainActivity".</assert>
-        </rule>
-
-        <rule context="query:QueryRequest/query:Query/rim:Slot[@name='BuyerInformation']">
-            <assert id="PEPPOL-T011-R074" flag="fatal" test="rim:Slot[@name='Name']/rim:SlotValue[@xsi:type='rim:StringValueType']">A Name MUST have an element SlotValue with xsi:type of rim:StringValueType.</assert>
-        </rule>
-
-        <rule context="query:QueryRequest/query:Query/rim:Slot[@name='BuyerInformation']">
-            <assert id="PEPPOL-T011-R075" flag="fatal" test="rim:Slot[@name='OrganisationNumber']/rim:SlotValue[@xsi:type='rim:StringValueType']">An Organization Number MUST have an element SlotValue with xsi:type of rim:StringValueType.</assert>
-        </rule>
-
-        <rule context="query:QueryRequest/query:Query/rim:Slot[@name='BuyerInformation']">
-            <assert id="PEPPOL-T011-R076" flag="fatal" test="rim:Slot[@name='City']/rim:SlotValue[@xsi:type='rim:StringValueType']">A City MUST have an element SlotValue with xsi:type of rim:StringValueType.</assert>
-        </rule>
-
-        <rule context="query:QueryRequest/query:Query/rim:Slot[@name='BuyerInformation']">
-            <assert id="PEPPOL-T011-R077" flag="fatal" test="rim:Slot[@name='PostCode']/rim:SlotValue[@xsi:type='rim:StringValueType']">A Post Code MUST have an element SlotValue with xsi:type of rim:StringValueType.</assert>
+            <assert id="PEPPOL-T011-R072" flag="fatal" test="@name = 'Name' or @name = 'OrganisationNumber' or @name = 'City' or @name = 'PostCode' or @name = 'OrganizationCountrySubdivision' or @name = 'CountryCode' or @name = 'LegalType' or @name = 'MainActivity'">The name of the slots under Buyer Information MUST be one of "Name" or "OrganisationNumber" or "City" or "PostCode"  or "OrganizationCountrySubdivision" or "Country" or "LegalType" or "MainActivity".</assert>
         </rule>
 
         <rule context="query:QueryRequest/query:Query/rim:Slot[@name='BuyerInformation']/rim:Slot[@name='OrganizationCountrySubdivision']">
-            <assert id="PEPPOL-T011-R078" flag="fatal" test="@type='http://publications.europa.eu/resource/authority/nuts'">An Organization Country Subdivision MUST have a type of the value of "http://publications.europa.eu/resource/authority/nuts".</assert>
+            <assert id="PEPPOL-T011-R073" flag="fatal" test="@type='http://publications.europa.eu/resource/authority/nuts'">An Organization Country Subdivision MUST have a type of the value of "http://publications.europa.eu/resource/authority/nuts".</assert>
         </rule>
 
         <rule context="query:QueryRequest/query:Query/rim:Slot[@name='BuyerInformation']/rim:Slot[@name='CountryCode']">
-            <assert id="PEPPOL-T011-R079" flag="fatal" test="@type='http://publications.europa.eu/resource/authority/country'">A Country Code MUST have a type of the value of "http://publications.europa.eu/resource/authority/country".</assert>
+            <assert id="PEPPOL-T011-R074" flag="fatal" test="@type='http://publications.europa.eu/resource/authority/country'">A Country Code MUST have a type of the value of "http://publications.europa.eu/resource/authority/country".</assert>
         </rule>
 
         <rule context="query:QueryRequest/query:Query/rim:Slot[@name='BuyerInformation']/rim:Slot[@name='LegalType']">
-            <assert id="PEPPOL-T011-R080" flag="fatal" test="@type='http://publications.europa.eu/resource/authority/buyer-legal-type'">A Legal Type MUST have a type of the value of "http://publications.europa.eu/resource/authority/buyer-legal-type".</assert>
+            <assert id="PEPPOL-T011-R075" flag="fatal" test="@type='http://publications.europa.eu/resource/authority/buyer-legal-type'">A Legal Type MUST have a type of the value of "http://publications.europa.eu/resource/authority/buyer-legal-type".</assert>
         </rule>
 
         <rule context="query:QueryRequest/query:Query/rim:Slot[@name='BuyerInformation']/rim:Slot[@name='MainActivity']">
-            <assert id="PEPPOL-T011-R081" flag="fatal" test="@type='http://publications.europa.eu/resource/authority/main-activity'">A Main Activity MUST have a type of the value of "http://publications.europa.eu/resource/authority/main-activity".</assert>
+            <assert id="PEPPOL-T011-R076" flag="fatal" test="@type='http://publications.europa.eu/resource/authority/main-activity'">A Main Activity MUST have a type of the value of "http://publications.europa.eu/resource/authority/main-activity".</assert>
         </rule>
 
         <!--Gobal Rules (only matches if no other does)-->
 
         <rule context="*/rim:Value">
-            <assert id="PEPPOL-T011-R082" flag="fatal" test="./text()[normalize-space() != '']">Value MUST have a text.</assert>
+            <assert id="PEPPOL-T011-R077" flag="fatal" test="./text()[normalize-space() != '']">Value MUST have a text.</assert>
         </rule>
 
         <rule context="*/rim:SlotValue[@xsi:type!='rim:CollectionValueType']">
-            <assert id="PEPPOL-T011-R083" flag="fatal" test="count(rim:Value) > 0">A Value for each SlotValue MUST be given.</assert>
+            <assert id="PEPPOL-T011-R078" flag="fatal" test="count(rim:Value) > 0">A Value for each SlotValue MUST be given.</assert>
         </rule>
 
         <rule context="*/rim:SlotValue[@xsi:type='rim:CollectionValueType']/rim:Element">
-            <assert id="PEPPOL-T011-R084" flag="fatal" test="@xsi:type='rim:StringValueType'">rim:Element be of type rim:StringValueType.</assert>
-            <assert id="PEPPOL-T011-R085" flag="fatal" test="count(rim:Value) > 0">At least one element MUST be given in a CollectionValueType.</assert>
+            <assert id="PEPPOL-T011-R079" flag="fatal" test="@xsi:type='rim:StringValueType'">rim:Element be of type rim:StringValueType.</assert>
+            <assert id="PEPPOL-T011-R080" flag="fatal" test="count(rim:Value) > 0">At least one element MUST be given in a CollectionValueType.</assert>
         </rule>
 
     </pattern>
