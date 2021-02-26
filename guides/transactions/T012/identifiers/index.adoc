@@ -1,5 +1,5 @@
 
-include::../../shared/peppol.adoc[]
+include::peppol.adoc[]
 
 [cols="2,2,3,5", options="header"]
 .Customization ID to be used for this transaction.
@@ -10,9 +10,9 @@ include::../../shared/peppol.adoc[]
 | Short Description
 | `cbc:CustomizationID`
 
-| T010
-| TenderClarification
-| The EO sends the tender clarification to the CA.
-| urn:www.cenbii.eu:transaction:biitrdm085:ver3.0:extended: +
-urn:fdc:peppol.eu:2020:pracc:t010:ver1.0
+| T012
+| Search Notice Response
+| The provider sends the search notice response to the requester.
+| urn:www.cenbii.eu:transaction:biitrdm100:ver3.0:extended: +
+urn:fdc:peppol.eu:2020:pracc:t012:ver1.0
 |===

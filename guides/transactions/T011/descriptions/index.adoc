@@ -1,7 +1,7 @@
 [[descriptions]]
 = Description of selected parts of the transaction
 
-Limited support for this, see {name-profile-org}.
+The transaction is based upon the definitions of {name-transaction-org} described in {link-profile}. Business terms, Business rules and code lists used are inherited from the following {link-bii3} and {eforms-specs} and {regrep} documents:
 
 == Query Request
 
