@@ -11,12 +11,12 @@
         <rule context="query:QueryResponse">
             <assert id="PEPPOL-T012-R001" flag="fatal" test="./@requestId">A Notice QueryResponse MUST have an provide a reference to the QueryRequest Identifier.</assert>
             <assert id="PEPPOL-T012-R002" flag="fatal" test="matches(normalize-space(./@requestId), '^[0-9a-fA-F]{8}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{12}$')">The Request Identifier value MUST be expressed in a UUID syntax (RFC 4122).</assert>
-            <assert id="PEPPOL-T012-R003" flag="fatal" test="(rim:Slot[@name='SpecificationIdentification']) = 1">There MUST be exactly 1 SpecificationIdentification.</assert>
+            <assert id="PEPPOL-T012-R003" flag="fatal" test="count(rim:Slot[@name='SpecificationIdentification']) = 1">There MUST be exactly 1 SpecificationIdentification.</assert>
             <assert id="PEPPOL-T012-R004" flag="fatal" test="count(rim:Slot[@name='BusinessProcessTypeIdentifier']) = 1">There MUST be exactly 1 BusinessProcessTypeIdentifier.</assert>
             <assert id="PEPPOL-T012-R005" flag="fatal" test="count(rim:Slot[@name='IssueDateTime']) = 1">There MUST be exactly 1 IssueDateTime.</assert>
             <assert id="PEPPOL-T012-R006" flag="fatal" test="count(rim:Slot[@name='SenderElectronicAddress']) = 1">There MUST be exactly 1 SenderElectronicAddress.</assert>
             <assert id="PEPPOL-T012-R007" flag="fatal" test="count(rim:Slot[@name='ReceiverElectronicAddress']) = 1">There MUST be exactly 1 ReceiverElectronicAddress.</assert>
-            <assert id="PEPPOL-T012-R008" flag="fatal" test="rim:RegistryObjectList">A Notice QueryResponse MUST have a Registry Object List. </assert>
+            <assert id="PEPPOL-T012-R008" flag="fatal" test="rim:RegistryObjectList">A Notice QueryResponse MUST have a Registry Object List.</assert>
         </rule>
 
         <rule context="
