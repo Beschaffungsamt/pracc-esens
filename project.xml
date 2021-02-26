@@ -152,13 +152,13 @@
         <Identifier>T011</Identifier>
         <Type>native:Schematron</Type>
         <Path>rules/peppol-search-notice/PEPPOL-T011.sch</Path>
-        <Title>PEPPOL T011</Title>
+        <Title>PEPPOL T011 rules</Title>
     </Resource>
     <Resource>
         <Identifier>T012</Identifier>
         <Type>native:Schematron</Type>
         <Path>rules/peppol-search-notice/PEPPOL-T012.sch</Path>
-        <Title>PEPPOL T012</Title>
+        <Title>PEPPOL T012 rules</Title>
     </Resource>
     <Resource>
         <Identifier>T011</Identifier>
