@@ -154,6 +154,12 @@
         <Title>PEPPOL T011</Title>
     </Resource>
     <Resource>
+        <Identifier>T012</Identifier>
+        <Type>native:Schematron</Type>
+        <Path>rules/peppol-search-notice/PEPPOL-T012.sch</Path>
+        <Title>PEPPOL T012</Title>
+    </Resource>
+    <Resource>
         <Identifier>BIIT004</Identifier>
         <Type>native:Schematron</Type>
         <Path>rules/peppol-call-for-tender-1.0/CENBII/BIIRULES-UBL-T83_eSENS.sch</Path>
