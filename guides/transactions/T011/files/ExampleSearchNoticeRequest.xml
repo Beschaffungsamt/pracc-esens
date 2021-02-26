@@ -61,7 +61,7 @@
         </rim:Slot>
         <!-- end::keywords[] -->
         <!-- tag::form-type[] -->
-        <rim:Slot name="FormType" type="http://publications.europa.eu/resource/authority/form-type"> <!--- optional -->
+        <rim:Slot name="FormType" type="http://publications.europa.eu/resource/authority/form-type">
             <rim:SlotValue xsi:type="rim:CollectionValueType">
                 <rim:Element xsi:type="rim:StringValueType">
                     <rim:Value>competition</rim:Value> <!--.-->
@@ -121,7 +121,7 @@
         <rim:Slot name="PlaceOfPerformance" type="http://publications.europa.eu/resource/authority/nuts"> <!--.-->
             <rim:SlotValue xsi:type="rim:CollectionValueType">
                 <rim:Element xsi:type="rim:StringValueType">
-                    <rim:Value>IE063</rim:Value> <!--Midland--> <!--.-->
+                    <rim:Value>IE063</rim:Value> <!--.-->
                 </rim:Element>
             </rim:SlotValue>
         </rim:Slot>
@@ -253,7 +253,7 @@
         <!-- end::procedure-legal-basis[] -->
         <!-- tag::reserved-participation[] -->
         <rim:Slot name="ReservedParticipation"
-                  type="http://publications.europa.eu/resource/authority/reserved-procurement"> <!-- optional -->
+                  type="http://publications.europa.eu/resource/authority/reserved-procurement">
             <rim:SlotValue xsi:type="rim:CollectionValueType">
                 <rim:Element xsi:type="rim:StringValueType">
                     <rim:Value>res-ws</rim:Value> <!--.-->
@@ -265,14 +265,14 @@
         </rim:Slot>
         <!-- end::reserved-participation[] -->
         <!-- tag::suitable-for-smes[] -->
-        <rim:Slot name="SuitableForSMEs"> <!--- optional -->
+        <rim:Slot name="SuitableForSMEs">
             <rim:SlotValue xsi:type="rim:BooleanValueType">
                 <rim:Value>true</rim:Value> <!--.-->
             </rim:SlotValue>
         </rim:Slot>
         <!-- end::suitable-for-smes[] -->
         <!-- tag::winner-economic-operator-name[] -->
-        <rim:Slot name="WinnerEconomicOperatorName"> <!--- optional -->
+        <rim:Slot name="WinnerEconomicOperatorName">
             <rim:SlotValue xsi:type="rim:StringValueType">
                 <rim:Value>Company Y SE</rim:Value> <!--.-->
             </rim:SlotValue>
@@ -280,13 +280,13 @@
         <!-- end::winner-economic-operator-name[] -->
         <!-- tag::award-criterion-type[] -->
         <rim:Slot name="AwardCriterionType"
-                  type="http://publications.europa.eu/resource/authority/award-criterion-type"> <!-- optional -->
+                  type="http://publications.europa.eu/resource/authority/award-criterion-type">
             <rim:SlotValue xsi:type="rim:CollectionValueType">
                 <rim:Element xsi:type="rim:StringValueType">
-                    <rim:Value>quality</rim:Value> <!--quality--> <!--.-->
+                    <rim:Value>quality</rim:Value> <!--.-->
                 </rim:Element>
                 <rim:Element xsi:type="rim:StringValueType">
-                    <rim:Value>price</rim:Value> <!--price-->
+                    <rim:Value>price</rim:Value>
                 </rim:Element>
             </rim:SlotValue>
         </rim:Slot>
@@ -300,7 +300,7 @@
             </rim:Slot>
             <rim:Slot name="OrganisationNumber"> <!--.-->
                 <rim:SlotValue xsi:type="rim:StringValueType">
-                    <rim:Value>IRE703</rim:Value>
+                    <rim:Value>04011000-1234512345-06</rim:Value>
                 </rim:SlotValue>
             </rim:Slot>
             <rim:Slot name="City"> <!--.-->
@@ -317,23 +317,23 @@
                       type="http://publications.europa.eu/resource/authority/nuts"> <!--.-->
                 <rim:SlotValue xsi:type="rim:CollectionValueType">
                     <rim:Element xsi:type="rim:StringValueType">
-                        <rim:Value>IE063</rim:Value> <!-- Midlands -->
+                        <rim:Value>IE063</rim:Value>
                     </rim:Element>
                     <rim:Element xsi:type="rim:StringValueType">
-                        <rim:Value>DE300</rim:Value> <!-- Berlin -->
+                        <rim:Value>DE300</rim:Value>
                     </rim:Element>
                     <rim:Element xsi:type="rim:StringValueType">
-                        <rim:Value>DEA22</rim:Value> <!-- Bonn -->
+                        <rim:Value>DEA22</rim:Value>
                     </rim:Element>
                 </rim:SlotValue>
             </rim:Slot>
             <rim:Slot name="CountryCode" type="http://publications.europa.eu/resource/authority/country"> <!--.-->
                 <rim:SlotValue xsi:type="rim:CollectionValueType">
                     <rim:Element xsi:type="rim:StringValueType">
-                        <rim:Value>DNK</rim:Value> <!--DNK-->
+                        <rim:Value>DNK</rim:Value>
                     </rim:Element>
                     <rim:Element xsi:type="rim:StringValueType">
-                        <rim:Value>IRL</rim:Value> <!--IRL-->
+                        <rim:Value>IRL</rim:Value>
                     </rim:Element>
                 </rim:SlotValue>
             </rim:Slot>
@@ -367,16 +367,11 @@
                     <rim:Value>SME GmbH</rim:Value>
                 </rim:SlotValue>
             </rim:Slot>
-            <rim:Slot name="OrganisationNumber">
-                <rim:SlotValue xsi:type="rim:StringValueType">
-                    <rim:Value>DE909</rim:Value>
-                </rim:SlotValue>
-            </rim:Slot>
             <rim:Slot name="OrganizationCountrySubdivision"
                       type="http://publications.europa.eu/resource/authority/nuts">
                 <rim:SlotValue xsi:type="rim:CollectionValueType">
                     <rim:Element xsi:type="rim:StringValueType">
-                        <rim:Value>DEG0L</rim:Value> <!-- Bonn -->
+                        <rim:Value>DEG0L</rim:Value>
                     </rim:Element>
                 </rim:SlotValue>
             </rim:Slot>
