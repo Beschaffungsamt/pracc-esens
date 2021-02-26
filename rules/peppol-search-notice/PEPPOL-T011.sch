@@ -8,175 +8,276 @@
 
     <pattern>
         <rule context="query:QueryRequest">
-            <assert id="PEPPOL-T011-R001" flag="fatal" test="(rim:Slot[@name='SpecificationIdentification'])">A Search Notice Request MUST have a specification identification.</assert>
-            <assert id="PEPPOL-T011-R002" flag="fatal" test="(rim:Slot[@name='BusinessProcessTypeIdentifier'])">A Search Notice Request MUST have a business process type identifier.</assert>
-            <assert id="PEPPOL-T011-R003" flag="fatal" test="(rim:Slot[@name='Issue'])">A Search Notice Request MUST have a issue dateTime.</assert>
-            <assert id="PEPPOL-T011-R004" flag="fatal" test="(rim:Slot[@name='SenderElectronicAddress'])">A Search Notice Request MUST have a sender electronic address.</assert>
-            <assert id="PEPPOL-T011-R005" flag="fatal" test="(rim:Slot[@name='ReceiverElectronicAddress'])">A Search Notice Request MUST have a receiver electronic address.</assert>
-            <assert id="PEPPOL-T011-R006" flag="fatal" test="(query:Query[@queryDefinition='SearchNotice'])">A Search Notice Request MUST have a Query with a queryDefinition set to 'SearchNotice'.</assert>
+            <assert id="PEPPOL-T011-R001" flag="fatal" test="matches(normalize-space(./@id), '^[0-9a-fA-F]{8}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{12}$')">QueryRequest Identifier value MUST be expressed in a UUID syntax (RFC 4122).</assert>
+            <assert id="PEPPOL-T011-R002" flag="fatal" test="(rim:Slot[@name='SpecificationIdentification'])">A Search Notice Request MUST have a SpecificationIdentification.</assert>
+            <assert id="PEPPOL-T011-R003" flag="fatal" test="count(rim:Slot[@name='SpecificationIdentification']) = 1">There MUST be exactly 1 SpecificationIdentification.</assert>
+            <assert id="PEPPOL-T011-R004" flag="fatal" test="(rim:Slot[@name='BusinessProcessTypeIdentifier'])">A Search Notice Request MUST have a BusinessProcessTypeIdentifier.</assert>
+            <assert id="PEPPOL-T011-R005" flag="fatal" test="count(rim:Slot[@name='BusinessProcessTypeIdentifier']) = 1">There MUST be exactly 1 BusinessProcessTypeIdentifier.</assert>
+            <assert id="PEPPOL-T011-R006" flag="fatal" test="(rim:Slot[@name='IssueDateTime'])">A Search Notice Request MUST have an issue dateTime.</assert>
+            <assert id="PEPPOL-T011-R007" flag="fatal" test="count(rim:Slot[@name='IssueDateTime']) = 1">There MUST be exactly 1 IssueDateTime.</assert>
+            <assert id="PEPPOL-T011-R008" flag="fatal" test="(rim:Slot[@name='SenderElectronicAddress'])">A Search Notice QueryRequest MUST identify the Sender by its party identifier and its SenderElectronicAddress.</assert>
+            <assert id="PEPPOL-T011-R009" flag="fatal" test="count(rim:Slot[@name='SenderElectronicAddress']) = 1">There MUST be exactly 1 SenderElectronicAddress.</assert>
+            <assert id="PEPPOL-T011-R010" flag="fatal" test="(rim:Slot[@name='ReceiverElectronicAddress'])">A Search Notice QueryRequest MUST identify the Receiver by its party identifier and its ReceiverElectronicAddress.</assert>
+            <assert id="PEPPOL-T011-R011" flag="fatal" test="count(rim:Slot[@name='ReceiverElectronicAddress']) = 1">There MUST be exactly 1 ReceiverElectronicAddress.</assert>
+            <assert id="PEPPOL-T011-R012" flag="fatal" test="(query:Query[@queryDefinition='SearchNotice'])">A Search Notice Request MUST have a Query with a queryDefinition set to 'SearchNotice'.</assert>
         </rule>
 
         <rule context="*/rim:Value">
-            <assert id="PEPPOL-T011-R007" flag="fatal" test="./text()[normalize-space() != '']">Value MUST have a text.</assert>
+            <assert id="PEPPOL-T011-R013" flag="fatal" test="./text()[normalize-space() != '']">Value MUST have a text.</assert>
+        </rule>
+
+        <rule context="*/rim:SlotValue[@xsi:type='rim:CollectionValueType']/rim:Element">
+            <assert id="PEPPOL-T011-R014" flag="fatal" test="@xsi:type='rim:StringValueType'">rim:Element be of type rim:StringValueType.</assert>
+        </rule>
+
+        <rule context="*/rim:SlotValue[@xsi:type='rim:CollectionValueType']/rim:Element[@xsi:type='rim:StringValueType']">
+            <assert id="PEPPOL-T011-R015" flag="fatal" test="count(rim:Value) > 0">At least one element MUST be given in a CollectionValueType.</assert>
         </rule>
 
         <rule context="query:QueryRequest/rim:Slot[@name='SpecificationIdentification']">
-            <assert id="PEPPOL-T011-R008" flag="fatal" test="rim:SlotValue[@xsi:type='rim:StringValueType']/rim:Value/text()[normalize-space() = 'urn:fdc:peppol.eu:2021:pracc:t011:1.0']">A value for Specification Id MUST be given.</assert>
+            <assert id="PEPPOL-T011-R016" flag="fatal" test="rim:SlotValue[@xsi:type='rim:StringValueType']/rim:Value/text()[normalize-space() = 'urn:fdc:peppol.eu:2021:pracc:t011:1.0']">SpecificationIdentification value MUST be 'urn:www.cenbii.eu:transaction:biitrdm099:ver3.0:extended:urn:fdc:peppol.eu:2020:pracc:t011:ver1.0'.</assert>
         </rule>
 
         <rule context="query:QueryRequest/rim:Slot[@name='BusinessProcessTypeIdentifier']">
-            <assert id="PEPPOL-T011-R009" flag="fatal" test="rim:SlotValue[@xsi:type='rim:StringValueType']/rim:Value/text()[normalize-space() = 'urn:fdc:peppol.eu:2021:pracc:p006:1.0']">A value for Business Process Type Identifier MUST be given.</assert>
+            <assert id="PEPPOL-T011-R017" flag="fatal" test="rim:SlotValue[@xsi:type='rim:StringValueType']/rim:Value/text()[normalize-space() = 'urn:fdc:peppol.eu:2021:pracc:p006:1.0']">BusinessProcessTypeIdentifier value MUST be 'urn:fdc:peppol.eu:2020:pracc:p006:01:1.0'.</assert>
         </rule>
 
-        <rule context="query:QueryRequest/rim:Slot[@name='Issue']">
-            <assert id="PEPPOL-T011-R010" flag="fatal" test="rim:SlotValue[@xsi:type='rim:DateTimeValueType']/rim:Value">A value for Issue MUST be given.</assert>
+        <rule context="query:QueryRequest/rim:Slot[@name='IssueDateTime']">
+            <assert id="PEPPOL-T011-R018" flag="fatal" test="rim:SlotValue[@xsi:type='rim:DateTimeValueType']/rim:Value">A Search Notice Request MUST have an IssueDateTime.</assert>
         </rule>
 
         <rule context="query:QueryRequest/rim:Slot[@name='SenderElectronicAddress']">
-            <assert id="PEPPOL-T011-R011" flag="fatal" test="rim:Slot[@name='EndpointId']">A Receiver Electronic Address MUST have an EndpointId.</assert>
-            <assert id="PEPPOL-T011-R012" flag="fatal" test="matches(normalize-space(rim:Slot[@name='EndpointId']/@type), '^(FR:SIRENE|SE:ORGNR|FR:SIRET|FI:OVT|DUNS|GLN|DK:P|IT:FTI|NL:KVK|IT:SIA|IT:SECETI|DK:CPR|DK:CVR|DK:SE|DK:VANS|IT:VAT|IT:CF|NO:ORGNR|NO:VAT|HU:VAT|EU:REID|AT:VAT|AT:GOV|IS:KT|IBAN|AT:KUR|ES:VAT|IT:IPA|AD:VAT|AL:VAT|BA:VAT|BE:VAT|BG:VAT|CH:VAT|CY:VAT|CZ:VAT|DE:VAT|EE:VAT|GB:VAT|GR:VAT|HR:VAT|IE:VAT|LI:VAT|LT:VAT|LU:VAT|LV:VAT|MC:VAT|ME:VAT|MK:VAT|MT:VAT|NL:VAT|PL:VAT|PT:VAT|RO:VAT|RS:VAT|SI:VAT|SK:VAT|SM:VAT|TR:VAT|VA:VAT|NL:ION|SE:VAT|ZZZ)$')">A EndpointId MUST have an attribute type.</assert>
-            <assert id="PEPPOL-T011-R013" flag="fatal" test="rim:Slot[@name='EndpointId']/rim:SlotValue[@xsi:type='rim:StringValueType']">A EndpointId MUST have an element SlotValue with xsi:type of rim:StringValueType.</assert>
+            <assert id="PEPPOL-T011-R019" flag="fatal" test="matches(normalize-space(./@type), '^(FR:SIRENE|SE:ORGNR|FR:SIRET|FI:OVT|DUNS|GLN|DK:P|IT:FTI|NL:KVK|IT:SIA|IT:SECETI|DK:CPR|DK:CVR|DK:SE|DK:VANS|IT:VAT|IT:CF|NO:ORGNR|NO:VAT|HU:VAT|EU:REID|AT:VAT|AT:GOV|IS:KT|IBAN|AT:KUR|ES:VAT|IT:IPA|AD:VAT|AL:VAT|BA:VAT|BE:VAT|BG:VAT|CH:VAT|CY:VAT|CZ:VAT|DE:VAT|EE:VAT|GB:VAT|GR:VAT|HR:VAT|IE:VAT|LI:VAT|LT:VAT|LU:VAT|LV:VAT|MC:VAT|ME:VAT|MK:VAT|MT:VAT|NL:VAT|PL:VAT|PT:VAT|RO:VAT|RS:VAT|SI:VAT|SK:VAT|SM:VAT|TR:VAT|VA:VAT|NL:ION|SE:VAT|ZZZ)$')">A SenderElectronicAddress MUST have a scheme identifier attribute from the list of "PEPPOL Party Identifiers described in the "PEPPOL Policy for using Identifiers".</assert>
+            <assert id="PEPPOL-T011-R020" flag="fatal" test="rim:SlotValue[@xsi:type='rim:StringValueType']">A SenderElectronicAddress MUST have an element SlotValue with xsi:type of rim:StringValueType.</assert>
         </rule>
 
         <rule context="query:QueryRequest/rim:Slot[@name='ReceiverElectronicAddress']">
-            <assert id="PEPPOL-T011-R014" flag="fatal" test="rim:Slot[@name='EndpointId']">A Receiver Electronic Address MUST have an EndpointId.</assert>
-            <assert id="PEPPOL-T011-R015" flag="fatal" test="matches(normalize-space(rim:Slot[@name='EndpointId']/@type), '^(FR:SIRENE|SE:ORGNR|FR:SIRET|FI:OVT|DUNS|GLN|DK:P|IT:FTI|NL:KVK|IT:SIA|IT:SECETI|DK:CPR|DK:CVR|DK:SE|DK:VANS|IT:VAT|IT:CF|NO:ORGNR|NO:VAT|HU:VAT|EU:REID|AT:VAT|AT:GOV|IS:KT|IBAN|AT:KUR|ES:VAT|IT:IPA|AD:VAT|AL:VAT|BA:VAT|BE:VAT|BG:VAT|CH:VAT|CY:VAT|CZ:VAT|DE:VAT|EE:VAT|GB:VAT|GR:VAT|HR:VAT|IE:VAT|LI:VAT|LT:VAT|LU:VAT|LV:VAT|MC:VAT|ME:VAT|MK:VAT|MT:VAT|NL:VAT|PL:VAT|PT:VAT|RO:VAT|RS:VAT|SI:VAT|SK:VAT|SM:VAT|TR:VAT|VA:VAT|NL:ION|SE:VAT|ZZZ)$')">A EndpointId MUST have an attribute type.</assert>
-            <assert id="PEPPOL-T011-R016" flag="fatal" test="rim:Slot[@name='EndpointId']/rim:SlotValue[@xsi:type='rim:StringValueType']">A EndpointId MUST have an element SlotValue with xsi:type of rim:StringValueType.</assert>
+            <assert id="PEPPOL-T011-R021" flag="fatal" test="matches(normalize-space(./@type), '^(FR:SIRENE|SE:ORGNR|FR:SIRET|FI:OVT|DUNS|GLN|DK:P|IT:FTI|NL:KVK|IT:SIA|IT:SECETI|DK:CPR|DK:CVR|DK:SE|DK:VANS|IT:VAT|IT:CF|NO:ORGNR|NO:VAT|HU:VAT|EU:REID|AT:VAT|AT:GOV|IS:KT|IBAN|AT:KUR|ES:VAT|IT:IPA|AD:VAT|AL:VAT|BA:VAT|BE:VAT|BG:VAT|CH:VAT|CY:VAT|CZ:VAT|DE:VAT|EE:VAT|GB:VAT|GR:VAT|HR:VAT|IE:VAT|LI:VAT|LT:VAT|LU:VAT|LV:VAT|MC:VAT|ME:VAT|MK:VAT|MT:VAT|NL:VAT|PL:VAT|PT:VAT|RO:VAT|RS:VAT|SI:VAT|SK:VAT|SM:VAT|TR:VAT|VA:VAT|NL:ION|SE:VAT|ZZZ)$')">A ReceiverElectronicAddress MUST have a scheme identifier attribute from the list of PEPPOL Party Identifiers described in the "PEPPOL Policy for using Identifiers".</assert>
+            <assert id="PEPPOL-T011-R022" flag="fatal" test="rim:SlotValue[@xsi:type='rim:StringValueType']">A ReceiverElectronicAddress MUST have an element SlotValue with xsi:type of rim:StringValueType.</assert>
+        </rule>
+
+        <rule context="query:QueryRequest/query:Query">
+            <assert id="PEPPOL-T011-R023" flag="fatal" test="count(rim:Slot[@name='Keywords']) &lt; 2">A rim:Slot Keywords can only be used once.</assert>
+            <assert id="PEPPOL-T011-R024" flag="fatal" test="count(rim:Slot[@name='FormType']) &lt; 2">A rim:Slot FormType can only be used once.</assert>
+            <assert id="PEPPOL-T011-R025" flag="fatal" test="count(rim:Slot[@name='NoticeType']) &lt; 2">A rim:Slot NoticeType can only be used once.</assert>
+            <assert id="PEPPOL-T011-R026" flag="fatal" test="count(rim:Slot[@name='Classification']) &lt; 3">A rim:Slot Classification can only be used twice.</assert>
+            <assert id="PEPPOL-T011-R027" flag="fatal" test="count(rim:Slot[@name='ContractNature']) &lt; 2">A rim:Slot ContractNature can only be used once.</assert>
+            <assert id="PEPPOL-T011-R028" flag="fatal" test="count(rim:Slot[@name='PlaceOfPerformance']) &lt; 2">A rim:Slot PlaceOfPerformance can only be used once.</assert>
+            <assert id="PEPPOL-T011-R029" flag="fatal" test="count(rim:Slot[@name='EstimatedValue']) &lt; 2">A rim:Slot EstimatedValue can only be used once.</assert>
+            <assert id="PEPPOL-T011-R030" flag="fatal" test="count(rim:Slot[@name='ProcedureType']) &lt; 2">A rim:Slot ProcedureType can only be used once.</assert>
+            <assert id="PEPPOL-T011-R031" flag="fatal" test="count(rim:Slot[@name='SubmissionLanguage']) &lt; 2">A rim:Slot SubmissionLanguage can only be used once.</assert>
+            <assert id="PEPPOL-T011-R032" flag="fatal" test="count(rim:Slot[@name='PublicationDate']) &lt; 2">A rim:Slot PublicationDate can only be used once.</assert>
+            <assert id="PEPPOL-T011-R033" flag="fatal" test="count(rim:Slot[@name='DeadlineReceiptTenders']) &lt; 2">A rim:Slot DeadlineReceiptTenders can only be used once.</assert>
+            <assert id="PEPPOL-T011-R034" flag="fatal" test="count(rim:Slot[@name='AdditionalInformationDeadline']) &lt; 2">A rim:Slot AdditionalInformationDeadline can only be used once.</assert>
+            <assert id="PEPPOL-T011-R035" flag="fatal" test="count(rim:Slot[@name='DeadlineReceiptRequests']) &lt; 2">A rim:Slot DeadlineReceiptRequests can only be used once.</assert>
+            <assert id="PEPPOL-T011-R036" flag="fatal" test="count(rim:Slot[@name='NoticeIdentifier']) &lt; 2">A rim:Slot NoticeIdentifier can only be used once.</assert>
+            <assert id="PEPPOL-T011-R037" flag="fatal" test="count(rim:Slot[@name='ProcedureIdentifier']) &lt; 2">A rim:Slot ProcedureIdentifier can only be used once.</assert>
+            <assert id="PEPPOL-T011-R038" flag="fatal" test="count(rim:Slot[@name='ProcedureLegalBasis']) &lt; 2">A rim:Slot ProcedureLegalBasis can only be used once.</assert>
+            <assert id="PEPPOL-T011-R039" flag="fatal" test="count(rim:Slot[@name='ReservedParticipation']) &lt; 2">A rim:Slot ReservedParticipation can only be used once.</assert>
+            <assert id="PEPPOL-T011-R040" flag="fatal" test="count(rim:Slot[@name='SuitableForSMEs']) &lt; 2">A rim:Slot SuitableForSMEs can only be used once.</assert>
+            <assert id="PEPPOL-T011-R041" flag="fatal" test="count(rim:Slot[@name='WinnerEconomicOperatorName']) &lt; 2">A rim:Slot WinnerEconomicOperatorName can only be used once.</assert>
+            <assert id="PEPPOL-T011-R042" flag="fatal" test="count(rim:Slot[@name='AwardCriterionType']) &lt; 2">A rim:Slot AwardCriterionType can only be used once.</assert>
         </rule>
 
         <rule context="query:QueryRequest/query:Query/rim:Slot[@name='Keywords']">
-            <assert id="PEPPOL-T011-R017" flag="fatal" test="rim:SlotValue[@xsi:type='rim:StringValueType']/rim:Value">A value for Keywords MUST be given.</assert>
+            <assert id="PEPPOL-T011-R043" flag="fatal" test="rim:SlotValue[@xsi:type='rim:StringValueType']/rim:Value">A value for Keywords MUST be given.</assert>
         </rule>
 
         <rule context="query:QueryRequest/query:Query/rim:Slot[@name='FormType']">
-            <assert id="PEPPOL-T011-R018" flag="fatal" test="@type = 'http://publications.europa.eu/resource/authority/form-type'">A Form Type MUST have a type of the value of "http://publications.europa.eu/resource/authority/form-type".</assert>
-            <assert id="PEPPOL-T011-R019" flag="fatal" test="count(rim:SlotValue[@xsi:type='rim:CollectionValueType']/rim:Element[@xsi:type='rim:StringValueType']/rim:Value) > 0">At least element for Form Type MUST be given.</assert>
+            <assert id="PEPPOL-T011-R044" flag="fatal" test="@type = 'http://publications.europa.eu/resource/authority/form-type'">A Form Type MUST have a type of the value of "http://publications.europa.eu/resource/authority/form-type".</assert>
         </rule>
 
         <rule context="query:QueryRequest/query:Query/rim:Slot[@name='NoticeType']">
-            <assert id="PEPPOL-T011-R020" flag="fatal" test="@type = 'http://publications.europa.eu/resource/authority/notice-type'">A Notice Type MUST have a type of the value of "http://publications.europa.eu/resource/authority/notice-type".</assert>
-            <assert id="PEPPOL-T011-R021" flag="fatal" test="count(rim:SlotValue[@xsi:type='rim:CollectionValueType']/rim:Element[@xsi:type='rim:StringValueType']/rim:Value) > 0">At least one element for Notice Type MUST be given.</assert>
+            <assert id="PEPPOL-T011-R045" flag="fatal" test="@type = 'http://publications.europa.eu/resource/authority/notice-type'">A Notice Type MUST have a type of the value of "http://publications.europa.eu/resource/authority/notice-type".</assert>
         </rule>
 
         <rule context="query:QueryRequest/query:Query/rim:Slot[@name='Classification']">
-            <assert id="PEPPOL-T011-R022" flag="fatal" test="normalize-space(./@type) != ''">A Classification MUST have a type.</assert>
-            <assert id="PEPPOL-T011-R023" flag="fatal" test="count(rim:SlotValue[@xsi:type='rim:CollectionValueType']/rim:Element[@xsi:type='rim:StringValueType']/rim:Value) > 0">At least one element for the Classification MUST be given.</assert>
+            <assert id="PEPPOL-T011-R046" flag="fatal" test="normalize-space(./@type) = 'http://publications.europa.eu/resource/authority/cpv/cpv' or normalize-space(./@type) = 'http://publications.europa.eu/resource/authority/cpv/cpvsuppl'">The Type for Classification MUST be "http://publications.europa.eu/resource/authority/cpv/cpv" or "http://publications.europa.eu/resource/authority/cpv/cpvsuppl".</assert>
         </rule>
 
         <rule context="query:QueryRequest/query:Query/rim:Slot[@name='ContractNature']">
-            <assert id="PEPPOL-T011-R024" flag="fatal" test="@type = 'http://publications.europa.eu/resource/authority/contract-nature'">A Contract Nature MUST have a type of the value of "http://publications.europa.eu/resource/authority/contract-nature".</assert>
-            <assert id="PEPPOL-T011-R025" flag="fatal" test="count(rim:SlotValue[@xsi:type='rim:CollectionValueType']/rim:Element[@xsi:type='rim:StringValueType']/rim:Value) > 0">At least one element for Contract Nature MUST be given.</assert>
+            <assert id="PEPPOL-T011-R047" flag="fatal" test="@type = 'http://publications.europa.eu/resource/authority/contract-nature'">A Contract Nature MUST have a type of the value of "http://publications.europa.eu/resource/authority/contract-nature".</assert>
         </rule>
 
         <rule context="query:QueryRequest/query:Query/rim:Slot[@name='PlaceOfPerformance']">
-            <assert id="PEPPOL-T011-R026" flag="fatal" test="@type = 'http://publications.europa.eu/resource/authority/nuts'">The Place Of Performance MUST have a type of the value of "http://publications.europa.eu/resource/authority/nuts".</assert>
-            <assert id="PEPPOL-T011-R027" flag="fatal" test="count(rim:SlotValue[@xsi:type='rim:CollectionValueType']/rim:Element[@xsi:type='rim:StringValueType']/rim:Value) > 0">At least one element for the Place Of Performance MUST be given.</assert>
+            <assert id="PEPPOL-T011-R048" flag="fatal" test="@type = 'http://publications.europa.eu/resource/authority/nuts'">The Place Of Performance MUST have a type of the value of "http://publications.europa.eu/resource/authority/nuts".</assert>
         </rule>
 
-        <rule context="query:QueryRequest/query:Query/rim:Slot[@name='TenderValue']">
-            <assert id="PEPPOL-T011-R028" flag="fatal" test="count(rim:Slot) > 0">At least one element for Tender Value MUST be given.</assert>
-           <!-- <assert id="PEPPOL-T011-R040" flag="fatal" test="count(rim:Slot) < 4">At least one element for Tender Value MUST be given.</assert> -->
+        <rule context="query:QueryRequest/query:Query/rim:Slot[@name='EstimatedValue']">
+            <assert id="PEPPOL-T011-R049" flag="fatal" test="count(rim:Slot) > 0">At least one element for Estimated Value MUST be given.</assert>
+            <assert id="PEPPOL-T011-R050" flag="fatal" test="count(rim:Slot) &lt; 4">There MUST NOT be more than 3 elements for Estimated Value.</assert>
+            <assert id="PEPPOL-T011-R051" flag="fatal" test="count(rim:Slot[@name='Minimum']) &lt; 2">The rim:Slot name "Minimum" can only be used once.</assert>
+            <assert id="PEPPOL-T011-R052" flag="fatal" test="count(rim:Slot[@name='Maximum']) &lt; 2">The rim:Slot name "Maximum" can only be used once.</assert>
+            <assert id="PEPPOL-T011-R053" flag="fatal" test="count(rim:Slot[@name='Currency']) &lt; 2">The rim:Slot name "Currency" can only be used once.</assert>
         </rule>
 
-        <rule context="query:QueryRequest/query:Query/rim:Slot[@name='TenderValue']/rim:Slot[@name='Currency']">
-            <assert id="PEPPOL-T011-R029" flag="fatal" test="@type='http://publications.europa.eu/resource/authority/currency'">The Currency of the Tender Value MUST have a type of the value of "http://publications.europa.eu/resource/authority/currency".</assert>
-            <assert id="PEPPOL-T011-R030" flag="fatal" test="count(rim:SlotValue[@xsi:type='rim:CollectionValueType']/rim:Element[@xsi:type='rim:StringValueType']/rim:Value) > 0">At least one element for the Currency MUST be given.</assert>
+        <rule context="query:QueryRequest/query:Query/rim:Slot[@name='EstimatedValue']/rim:Slot">
+            <assert id="PEPPOL-T011-R054" flag="fatal" test="@name = 'Minimum' or @name = 'Maximum' or @name = 'Currency'">The name of the slots under Estimated Value MUST be one of "Minimum", "Maximum" or "Currency".</assert>
+        </rule>
+
+        <rule context="query:QueryRequest/query:Query/rim:Slot[@name='EstimatedValue']/rim:Slot[@name='Minimum']/rim:SlotValue">
+            <assert id="PEPPOL-T011-R055" flag="fatal" test="@xsi:type='rim:FloatValueType'">A Minimum MUST have an element SlotValue with xsi:type of rim:StringValueType.</assert>
+        </rule>
+
+        <rule context="query:QueryRequest/query:Query/rim:Slot[@name='EstimatedValue']/rim:Slot[@name='Maximum']/rim:SlotValue">
+            <assert id="PEPPOL-T011-R056" flag="fatal" test="@xsi:type='rim:FloatValueType'">A Maximum MUST have an element SlotValue with xsi:type of rim:StringValueType.</assert>
+        </rule>
+
+        <rule context="query:QueryRequest/query:Query/rim:Slot[@name='EstimatedValue']/rim:Slot[@name='Currency']">
+            <assert id="PEPPOL-T011-R057" flag="fatal" test="@type='http://publications.europa.eu/resource/authority/currency'">The Currency of the Estimated Value MUST have a type of the value of "http://publications.europa.eu/resource/authority/currency".</assert>
+        </rule>
+
+        <rule context="query:QueryRequest/query:Query/rim:Slot[@name='EstimatedValue']/rim:Slot[@name='Currency']/rim:SlotValue[@xsi:type='rim:CollectionValueType']/rim:Element">
+            <assert id="PEPPOL-T011-R058" flag="fatal" test="@xsi:type = 'rim:StringValueType'">Every element in the currency collection MUST be a StringValueType.</assert>
         </rule>
 
         <rule context="query:QueryRequest/query:Query/rim:Slot[@name='ProcedureType']">
-            <assert id="PEPPOL-T011-R031" flag="fatal" test="@type='http://publications.europa.eu/resource/authority/procurement-procedure-type'">A Procedure Type MUST have a type of the value of "http://publications.europa.eu/resource/authority/procurement-procedure-type".</assert>
-            <assert id="PEPPOL-T011-R032" flag="fatal" test="count(rim:SlotValue[@xsi:type='rim:CollectionValueType']/rim:Element[@xsi:type='rim:StringValueType']/rim:Value) > 0">At least one element for Procedure Type MUST be given.</assert>
+            <assert id="PEPPOL-T011-R059" flag="fatal" test="@type='http://publications.europa.eu/resource/authority/procurement-procedure-type'">A Procedure Type MUST have a type of the value of "http://publications.europa.eu/resource/authority/procurement-procedure-type".</assert>
         </rule>
 
         <rule context="query:QueryRequest/query:Query/rim:Slot[@name='SubmissionLanguage']">
-            <assert id="PEPPOL-T011-R033" flag="fatal" test="@type='http://publications.europa.eu/resource/authority/language'">A Submission Language MUST have a type of the value of "http://publications.europa.eu/resource/authority/language".</assert>
-            <assert id="PEPPOL-T011-R034" flag="fatal" test="count(rim:SlotValue[@xsi:type='rim:CollectionValueType']/rim:Element[@xsi:type='rim:StringValueType']/rim:Value) > 0">At least one element for Submission Language MUST be given.</assert>
+            <assert id="PEPPOL-T011-R060" flag="fatal" test="@type='http://publications.europa.eu/resource/authority/language'">A Submission Language MUST have a type of the value of "http://publications.europa.eu/resource/authority/language".</assert>
         </rule>
 
-        <rule context="query:QueryRequest/query:Query/rim:Slot[@name='PublicatonDate']">
-            <assert id="PEPPOL-T011-R040" flag="fatal" test="count(rim:Slot) > 0">A Publication Date MUST have at least one slot</assert>
+        <rule context="query:QueryRequest/query:Query/rim:Slot[@name='PublicationDate']">
+            <assert id="PEPPOL-T011-R061" flag="fatal" test="count(rim:Slot) > 0">A Publication Date MUST have at least one slot.</assert>
+            <assert id="PEPPOL-T011-R062" flag="fatal" test="count(rim:Slot) &lt; 3">There MUST NOT be more than 2 elements for Publication Date.</assert>
+            <assert id="PEPPOL-T011-R063" flag="fatal" test="count(rim:Slot[@name='StartDate']) &lt; 2">The rim:Slot name "StartDate" can only be used once.</assert>
+            <assert id="PEPPOL-T011-R064" flag="fatal" test="count(rim:Slot[@name='EndDate']) &lt; 2">The rim:Slot name "EndDate" can only be used once.</assert>
+        </rule>
+
+        <rule context="query:QueryRequest/query:Query/rim:Slot[@name='PublicationDate']/rim:Slot">
+            <assert id="PEPPOL-T011-R065" flag="fatal" test="@name = 'StartDate' or @name = 'EndDate'">The name of the slots under Publication Date MUST be one of "StartDate" or "EndDate".</assert>
+        </rule>
+
+        <rule context="query:QueryRequest/query:Query/rim:Slot[@name='PublicationDate']/rim:Slot[@name='Minimum']/rim:SlotValue">
+            <assert id="PEPPOL-T011-R066" flag="fatal" test="@xsi:type='rim:DateTimeValue'">A StartDate MUST have an element SlotValue with xsi:type of rim:DateTimeValue.</assert>
+        </rule>
+
+        <rule context="query:QueryRequest/query:Query/rim:Slot[@name='PublicationDate']/rim:Slot[@name='Minimum']/rim:SlotValue">
+            <assert id="PEPPOL-T011-R067" flag="fatal" test="@xsi:type='rim:DateTimeValue'">A EndDate MUST have an element SlotValue with xsi:type of rim:DateTimeValue.</assert>
         </rule>
 
         <rule context="query:QueryRequest/query:Query/rim:Slot[@name='DeadlineReceiptTenders']">
-            <assert id="PEPPOL-T011-R041" flag="fatal" test="count(rim:Slot) > 0">A Deadline Receipt Tenders MUST have at least one slot</assert>
+            <assert id="PEPPOL-T011-R068" flag="fatal" test="count(rim:Slot) > 0">A Deadline Receipt Tenders MUST have at least one slot.</assert>
+            <assert id="PEPPOL-T011-R069" flag="fatal" test="count(rim:Slot) &lt; 3">There MUST NOT be more than 2 elements for Deadline Receipt Tenders.</assert>
+            <assert id="PEPPOL-T011-R070" flag="fatal" test="count(rim:Slot[@name='StartDate']) &lt; 2">The rim:Slot name "StartDate" can only be used once.</assert>
+            <assert id="PEPPOL-T011-R071" flag="fatal" test="count(rim:Slot[@name='EndDate']) &lt; 2">The rim:Slot name "EndDate" can only be used once.</assert>
+        </rule>
+
+        <rule context="query:QueryRequest/query:Query/rim:Slot[@name='DeadlineReceiptTenders']/rim:Slot">
+            <assert id="PEPPOL-T011-R072" flag="fatal" test="@name = 'StartDate' or @name = 'EndDate'">The name of the slots under Deadline Receipt Tenders MUST be one of "StartDate" or "EndDate".</assert>
+        </rule>
+
+        <rule context="query:QueryRequest/query:Query/rim:Slot[@name='DeadlineReceiptTenders']/rim:Slot[@name='Minimum']/rim:SlotValue">
+            <assert id="PEPPOL-T011-R073" flag="fatal" test="@xsi:type='rim:DateTimeValue'">A StartDate MUST have an element SlotValue with xsi:type of rim:DateTimeValue.</assert>
+        </rule>
+
+        <rule context="query:QueryRequest/query:Query/rim:Slot[@name='DeadlineReceiptTenders']/rim:Slot[@name='Minimum']/rim:SlotValue">
+            <assert id="PEPPOL-T011-R074" flag="fatal" test="@xsi:type='rim:DateTimeValue'">A EndDate MUST have an element SlotValue with xsi:type of rim:DateTimeValue.</assert>
         </rule>
 
         <rule context="query:QueryRequest/query:Query/rim:Slot[@name='AdditionalInformationDeadline']">
-            <assert id="PEPPOL-T011-R042" flag="fatal" test="count(rim:Slot) > 0">An Additional Information Deadline MUST have at least one slot</assert>
+            <assert id="PEPPOL-T011-R075" flag="fatal" test="count(rim:Slot) > 0">A Additional Information Deadline MUST have at least one slot.</assert>
+            <assert id="PEPPOL-T011-R076" flag="fatal" test="count(rim:Slot) &lt; 3">There MUST NOT be more than 2 elements for Additional Information Deadline.</assert>
+            <assert id="PEPPOL-T011-R077" flag="fatal" test="count(rim:Slot[@name='StartDate']) &lt; 2">The rim:Slot name "StartDate" can only be used once.</assert>
+            <assert id="PEPPOL-T011-R078" flag="fatal" test="count(rim:Slot[@name='EndDate']) &lt; 2">The rim:Slot name "EndDate" can only be used once.</assert>
+        </rule>
+
+        <rule context="query:QueryRequest/query:Query/rim:Slot[@name='AdditionalInformationDeadline']/rim:Slot">
+            <assert id="PEPPOL-T011-R079" flag="fatal" test="@name = 'StartDate' or @name = 'EndDate'">The name of the slots under Additional Information Deadline MUST be one of "StartDate" or "EndDate".</assert>
+        </rule>
+
+        <rule context="query:QueryRequest/query:Query/rim:Slot[@name='AdditionalInformationDeadline']/rim:Slot[@name='Minimum']/rim:SlotValue">
+            <assert id="PEPPOL-T011-R080" flag="fatal" test="@xsi:type='rim:DateTimeValue'">A StartDate MUST have an element SlotValue with xsi:type of rim:DateTimeValue.</assert>
+        </rule>
+
+        <rule context="query:QueryRequest/query:Query/rim:Slot[@name='AdditionalInformationDeadline']/rim:Slot[@name='Minimum']/rim:SlotValue">
+            <assert id="PEPPOL-T011-R081" flag="fatal" test="@xsi:type='rim:DateTimeValue'">A EndDate MUST have an element SlotValue with xsi:type of rim:DateTimeValue.</assert>
         </rule>
 
         <rule context="query:QueryRequest/query:Query/rim:Slot[@name='DeadlineReceiptRequests']">
-            <assert id="PEPPOL-T011-R043" flag="fatal" test="count(rim:Slot) > 0">The Deadline Receipt Requests MUST have at least one slot</assert>
+            <assert id="PEPPOL-T011-R082" flag="fatal" test="count(rim:Slot) > 0">A Deadline Receipt Requests MUST have at least one slot.</assert>
+            <assert id="PEPPOL-T011-R083" flag="fatal" test="count(rim:Slot) &lt; 3">There MUST NOT be more than 2 elements for Deadline Receipt Requests.</assert>
+            <assert id="PEPPOL-T011-R084" flag="fatal" test="count(rim:Slot[@name='StartDate']) &lt; 2">The rim:Slot name "StartDate" can only be used once.</assert>
+            <assert id="PEPPOL-T011-R085" flag="fatal" test="count(rim:Slot[@name='EndDate']) &lt; 2">The rim:Slot name "EndDate" can only be used once.</assert>
         </rule>
 
-        <rule context="query:QueryRequest/query:Query/rim:Slot[@name='NoticeIdentifier']">
-            <assert id="PEPPOL-T011-R044" flag="fatal" test="count(rim:SlotValue[@xsi:type='rim:CollectionValueType']/rim:Element[@xsi:type='rim:StringValueType']/rim:Value) > 0">At least one element for Notice Identifier MUST be given.</assert>
+        <rule context="query:QueryRequest/query:Query/rim:Slot[@name='DeadlineReceiptRequests']/rim:Slot">
+            <assert id="PEPPOL-T011-R086" flag="fatal" test="@name = 'StartDate' or @name = 'EndDate'">The name of the slots under Deadline Receipt Requests MUST be one of "StartDate" or "EndDate".</assert>
         </rule>
 
-        <rule context="query:QueryRequest/query:Query/rim:Slot[@name='ProcedureIdentifier']">
-            <assert id="PEPPOL-T011-R045" flag="fatal" test="count(rim:SlotValue[@xsi:type='rim:CollectionValueType']/rim:Element[@xsi:type='rim:StringValueType']/rim:Value) > 0">At least one element for Procedure Identifier MUST be given.</assert>
+        <rule context="query:QueryRequest/query:Query/rim:Slot[@name='DeadlineReceiptRequests']/rim:Slot[@name='Minimum']/rim:SlotValue">
+            <assert id="PEPPOL-T011-R087" flag="fatal" test="@xsi:type='rim:DateTimeValue'">A StartDate MUST have an element SlotValue with xsi:type of rim:DateTimeValue.</assert>
         </rule>
 
-        <rule context="query:QueryRequest/query:Query/rim:Slot[@name='ProcedureLegalBasis']">
-            <assert id="PEPPOL-T011-R046" flag="fatal" test="count(rim:SlotValue[@xsi:type='rim:CollectionValueType']/rim:Element[@xsi:type='rim:StringValueType']/rim:Value) > 0">At least one element for Procedure Legal Basis MUST be given.</assert>
+        <rule context="query:QueryRequest/query:Query/rim:Slot[@name='DeadlineReceiptRequests']/rim:Slot[@name='Minimum']/rim:SlotValue">
+            <assert id="PEPPOL-T011-R088" flag="fatal" test="@xsi:type='rim:DateTimeValue'">A EndDate MUST have an element SlotValue with xsi:type of rim:DateTimeValue.</assert>
         </rule>
 
         <rule context="query:QueryRequest/query:Query/rim:Slot[@name='ReservedParticipation']">
-            <assert id="PEPPOL-T011-R047" flag="fatal" test="@type='http://publications.europa.eu/resource/authority/reserved-procurement'">A Reserved Participation MUST have a type of the value of "http://publications.europa.eu/resource/authority/reserved-procurement".</assert>
-            <assert id="PEPPOL-T011-R048" flag="fatal" test="count(rim:SlotValue[@xsi:type='rim:CollectionValueType']/rim:Element[@xsi:type='rim:StringValueType']/rim:Value) > 0">At least one element for Reserved Participation MUST be given.</assert>
+            <assert id="PEPPOL-T011-R089" flag="fatal" test="@type='http://publications.europa.eu/resource/authority/reserved-procurement'">A Reserved Participation MUST have a type of the value of "http://publications.europa.eu/resource/authority/reserved-procurement".</assert>
         </rule>
 
         <rule context="query:QueryRequest/query:Query/rim:Slot[@name='SuitableForSMEs']">
-            <assert id="PEPPOL-T011-R049" flag="fatal" test="rim:SlotValue[@xsi:type='rim:BooleanValueType']">Suitable For SMEs MUST have an element SlotValue with xsi:type of rim:BooleanValueType.</assert>
+            <assert id="PEPPOL-T011-R090" flag="fatal" test="rim:SlotValue[@xsi:type='rim:BooleanValueType']">Suitable For SMEs MUST have an element SlotValue with xsi:type of rim:BooleanValueType.</assert>
         </rule>
 
         <rule context="query:QueryRequest/query:Query/rim:Slot[@name='WinnerEconomicOperatorName']">
-            <assert id="PEPPOL-T011-R050" flag="fatal" test="rim:SlotValue[@xsi:type='rim:StringValueType']">A Winner Economic Operator Name MUST have an element SlotValue with xsi:type of rim:StringValueType.</assert>
+            <assert id="PEPPOL-T011-R091" flag="fatal" test="rim:SlotValue[@xsi:type='rim:StringValueType']">A Winner Economic Operator Name MUST have an element SlotValue with xsi:type of rim:StringValueType.</assert>
         </rule>
 
         <rule context="query:QueryRequest/query:Query/rim:Slot[@name='AwardCriterionType']">
-            <assert id="PEPPOL-T011-R051" flag="fatal" test="@type='http://publications.europa.eu/resource/authority/award-criterion-type'">An Award Criterion Type MUST have a type of the value of "http://publications.europa.eu/resource/authority/award-criterion-type".</assert>
-            <assert id="PEPPOL-T011-R052" flag="fatal" test="count(rim:SlotValue[@xsi:type='rim:CollectionValueType']/rim:Element[@xsi:type='rim:StringValueType']/rim:Value) > 0">At least one element for Award Criterion Type MUST be given.</assert>
+            <assert id="PEPPOL-T011-R092" flag="fatal" test="@type='http://publications.europa.eu/resource/authority/award-criterion-type'">An Award Criterion Type MUST have a type of the value of "http://publications.europa.eu/resource/authority/award-criterion-type".</assert>
         </rule>
 
         <rule context="query:QueryRequest/query:Query/rim:Slot[@name='BuyerInformation']">
-            <assert id="PEPPOL-T011-R053" flag="fatal" test="count(rim:Slot) > 0">A Buyer Information MUST have at least one slot</assert>
+            <assert id="PEPPOL-T011-R093" flag="fatal" test="count(rim:Slot) > 0">A Buyer Information MUST have at least one slot.</assert>
+            <assert id="PEPPOL-T011-R094" flag="fatal" test="count(rim:Slot) &lt; 9">There MUST NOT be more than 8 elements for Buyer Information.</assert>
+            <assert id="PEPPOL-T011-R095" flag="fatal" test="count(rim:Slot[@name='Name']) &lt; 2">The rim:Slot name "Name" can only be used once.</assert>
+            <assert id="PEPPOL-T011-R096" flag="fatal" test="count(rim:Slot[@name='OrganisationNumber']) &lt; 2">The rim:Slot name "OrganisationNumber" can only be used once.</assert>
+            <assert id="PEPPOL-T011-R097" flag="fatal" test="count(rim:Slot[@name='City']) &lt; 2">The rim:Slot name "OrganisationNumber" can only be used once.</assert>
+            <assert id="PEPPOL-T011-R098" flag="fatal" test="count(rim:Slot[@name='PostCode']) &lt; 2">The rim:Slot name "City" can only be used once.</assert>
+            <assert id="PEPPOL-T011-R099" flag="fatal" test="count(rim:Slot[@name='OrganizationCountrySubdivision']) &lt; 2">The rim:Slot name "OrganizationCountrySubdivision" can only be used once.</assert>
+            <assert id="PEPPOL-T011-R100" flag="fatal" test="count(rim:Slot[@name='CountryCode']) &lt; 2">The rim:Slot name "Country" can only be used once.</assert>
+            <assert id="PEPPOL-T011-R101" flag="fatal" test="count(rim:Slot[@name='LegalType']) &lt; 2">The rim:Slot name "LegalType" can only be used once.</assert>
+            <assert id="PEPPOL-T011-R102" flag="fatal" test="count(rim:Slot[@name='MainActivity']) &lt; 2">The rim:Slot name "MainActivity" can only be used once.</assert>
+        </rule>
+
+        <rule context="query:QueryRequest/query:Query/rim:Slot[@name='BuyerInformation']/rim:Slot">
+            <assert id="PEPPOL-T011-R103" flag="fatal" test="@name = 'Name' or @name = 'OrganisationNumber' or @name = 'City' or @name = 'PostCode' or @name = 'OrganizationCountrySubdivision' or @name = 'CountryCode' or @name = 'LegalType' or @name = 'MainActivity'">The name (<value-of select="@name" />) of the slots under Buyer Information MUST be one of "Name" or "OrganisationNumber" or "City" or "PostCode"  or "OrganizationCountrySubdivision" or "Country" or "LegalType" or "MainActivity".</assert>
         </rule>
 
         <rule context="query:QueryRequest/query:Query/rim:Slot[@name='BuyerInformation']">
-             <assert id="PEPPOL-T011-R054" flag="fatal" test="rim:Slot[@name='Name']/rim:SlotValue[@xsi:type='rim:StringValueType']">A Name MUST have an element SlotValue with xsi:type of rim:StringValueType.</assert>
+            <assert id="PEPPOL-T011-R104" flag="fatal" test="rim:Slot[@name='Name']/rim:SlotValue[@xsi:type='rim:StringValueType']">A Name MUST have an element SlotValue with xsi:type of rim:StringValueType.</assert>
         </rule>
 
         <rule context="query:QueryRequest/query:Query/rim:Slot[@name='BuyerInformation']">
-            <assert id="PEPPOL-T011-R055" flag="fatal" test="rim:Slot[@name='OrganisationNumber']/rim:SlotValue[@xsi:type='rim:StringValueType']">An Organization Number MUST have an element SlotValue with xsi:type of rim:StringValueType.</assert>
+            <assert id="PEPPOL-T011-R105" flag="fatal" test="rim:Slot[@name='OrganisationNumber']/rim:SlotValue[@xsi:type='rim:StringValueType']">An Organization Number MUST have an element SlotValue with xsi:type of rim:StringValueType.</assert>
         </rule>
 
         <rule context="query:QueryRequest/query:Query/rim:Slot[@name='BuyerInformation']">
-            <assert id="PEPPOL-T011-R056" flag="fatal" test="rim:Slot[@name='City']/rim:SlotValue[@xsi:type='rim:StringValueType']">A City MUST have an element SlotValue with xsi:type of rim:StringValueType.</assert>
+            <assert id="PEPPOL-T011-R106" flag="fatal" test="rim:Slot[@name='City']/rim:SlotValue[@xsi:type='rim:StringValueType']">A City MUST have an element SlotValue with xsi:type of rim:StringValueType.</assert>
         </rule>
 
         <rule context="query:QueryRequest/query:Query/rim:Slot[@name='BuyerInformation']">
-            <assert id="PEPPOL-T011-R057" flag="fatal" test="rim:Slot[@name='PostCode']/rim:SlotValue[@xsi:type='rim:StringValueType']">A Post Code MUST have an element SlotValue with xsi:type of rim:StringValueType.</assert>
+            <assert id="PEPPOL-T011-R107" flag="fatal" test="rim:Slot[@name='PostCode']/rim:SlotValue[@xsi:type='rim:StringValueType']">A Post Code MUST have an element SlotValue with xsi:type of rim:StringValueType.</assert>
         </rule>
 
         <rule context="query:QueryRequest/query:Query/rim:Slot[@name='BuyerInformation']/rim:Slot[@name='OrganizationCountrySubdivision']">
-            <assert id="PEPPOL-T011-R058" flag="fatal" test="@type='http://publications.europa.eu/resource/authority/nuts'">An Organization Country Subdivision MUST have a type of the value of "http://publications.europa.eu/resource/authority/nuts".</assert>
-            <assert id="PEPPOL-T011-R059" flag="fatal" test="count(rim:SlotValue[@xsi:type='rim:CollectionValueType']/rim:Element[@xsi:type='rim:StringValueType']/rim:Value) > 0">At least one element for Organization Country Subdivision MUST be given.</assert>
+            <assert id="PEPPOL-T011-R108" flag="fatal" test="@type='http://publications.europa.eu/resource/authority/nuts'">An Organization Country Subdivision MUST have a type of the value of "http://publications.europa.eu/resource/authority/nuts".</assert>
         </rule>
 
         <rule context="query:QueryRequest/query:Query/rim:Slot[@name='BuyerInformation']/rim:Slot[@name='CountryCode']">
-            <assert id="PEPPOL-T011-R060" flag="fatal" test="@type='http://publications.europa.eu/resource/authority/country'">A Country Code MUST have a type of the value of "http://publications.europa.eu/resource/authority/country".</assert>
-            <assert id="PEPPOL-T011-R061" flag="fatal" test="count(rim:SlotValue[@xsi:type='rim:CollectionValueType']/rim:Element[@xsi:type='rim:StringValueType']/rim:Value) > 0">At least one element for Country Code MUST be given.</assert>
+            <assert id="PEPPOL-T011-R109" flag="fatal" test="@type='http://publications.europa.eu/resource/authority/country'">A Country Code MUST have a type of the value of "http://publications.europa.eu/resource/authority/country".</assert>
         </rule>
 
         <rule context="query:QueryRequest/query:Query/rim:Slot[@name='BuyerInformation']/rim:Slot[@name='LegalType']">
-            <assert id="PEPPOL-T011-R062" flag="fatal" test="@type='http://publications.europa.eu/resource/authority/buyer-legal-type'">A Legal Type MUST have a type of the value of "http://publications.europa.eu/resource/authority/buyer-legal-type".</assert>
-            <assert id="PEPPOL-T011-R063" flag="fatal" test="count(rim:SlotValue[@xsi:type='rim:CollectionValueType']/rim:Element[@xsi:type='rim:StringValueType']/rim:Value) > 0">At least one element for Legal Type MUST be given.</assert>
+            <assert id="PEPPOL-T011-R110" flag="fatal" test="@type='http://publications.europa.eu/resource/authority/buyer-legal-type'">A Legal Type MUST have a type of the value of "http://publications.europa.eu/resource/authority/buyer-legal-type".</assert>
         </rule>
 
         <rule context="query:QueryRequest/query:Query/rim:Slot[@name='BuyerInformation']/rim:Slot[@name='MainActivity']">
-            <assert id="PEPPOL-T011-R064" flag="fatal" test="@type='http://publications.europa.eu/resource/authority/main-activity'">A Main Activity MUST have a type of the value of "http://publications.europa.eu/resource/authority/main-activity".</assert>
-            <assert id="PEPPOL-T011-R065" flag="fatal" test="count(rim:SlotValue[@xsi:type='rim:CollectionValueType']/rim:Element[@xsi:type='rim:StringValueType']/rim:Value) > 0">At least one element for Main Activity Type MUST be given.</assert>
+            <assert id="PEPPOL-T011-R112" flag="fatal" test="@type='http://publications.europa.eu/resource/authority/main-activity'">A Main Activity MUST have a type of the value of "http://publications.europa.eu/resource/authority/main-activity".</assert>
         </rule>
 
     </pattern>

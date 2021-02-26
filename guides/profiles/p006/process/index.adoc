@@ -1,8 +1,9 @@
 
 = Business process
+
 The following {link-bpmn}[BPMN] diagram shows the choreography of the business process implemented by the profile. The choreography of business collaborations defines the sequence of interactions when the profile is run within its context.
 
-image::processTC.png[align="center", width=800]
+image::process.svg[align="center", width=800]
 
 The process starts by the requester preparing a Search Notice Request, based on his ambitions and capabilities. He then sends the query to the provider. The provider interprets the query and assembles a package with notices that fulfill the query conditions. The package consists of a list of notice objects containing the notice metadata and a local reference to the actual XML notice based on {eforms-specs} which is expressed by the {ubl-pin}, {ubl-cn} and {ubl-can}. If the result is zero notices found, then a package will be sent indicating that no notice corresponding to the search criteria were found. The Search Notice Request and Search Notice Response are facilitated by {regrep}, a standard defining the service interfaces, protocols and information model for an integrated registry and repository. Both transactions are therefore described by {ebrim}. As three types of notices exist: Contract Notice, Prior Information Notice and Contract Award Notice, three notices types may be included to the package as a result of the process. Each of them may be repeated, depending on the number of notices found for the query. The notices included in the results are in an agreed XML syntax format following the rules of {eforms-specs}.
 

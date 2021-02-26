@@ -262,7 +262,6 @@
                 </Description>
                 <DataType>cac:ExternalReferenceType</DataType>
                 <Reference type="RULE">PEPPOL-T010-R028</Reference>
-                <Reference type="RULE">PEPPOL-T010-R029</Reference>
                 <Element cardinality="0..1">
                     <Term>cbc:MimeCode</Term>
                     <Name>Mime Code of the file</Name>
