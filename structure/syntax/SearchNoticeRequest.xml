@@ -9,13 +9,21 @@
 
     <Document>
         <Term>query:QueryRequest</Term>
-        <Name>Search Notice Request root</Name>
+        <Name>Search Notice Request root element</Name>
         <Description>The Search Notice Request is a query transaction that requests notices using either a set of
             criteria for notices usually based on the eTendering Service Providers or Economic Operators ambitions and
             capabilities.
         </Description>
+        <Reference type="RULE">PEPPOL-T011-R001</Reference>
+        <Reference type="RULE">PEPPOL-T011-R002</Reference>
+        <Reference type="RULE">PEPPOL-T011-R003</Reference>
+        <Reference type="RULE">PEPPOL-T011-R004</Reference>
+        <Reference type="RULE">PEPPOL-T011-R005</Reference>
+        <Reference type="RULE">PEPPOL-T011-R006</Reference>
+        <Reference type="RULE">PEPPOL-T011-R007</Reference>
         <Attribute usage="Optional">
             <Term>startIndex</Term>
+            <Name>Start Index</Name>
             <Description>The Search Notice Request and Response support the ability to iterate over a large result set
                 matching a query by allowing multiple QueryRequest requests to be submitted in succession such that each
                 query requests a different subset of results within the result set. This feature enables the server to
@@ -28,6 +36,7 @@
         </Attribute>
         <Attribute usage="Optional">
             <Term>maxResults</Term>
+            <Name>Maximum Number Of Results</Name>
             <Description>This attribute specifies a limit on the maximum number of results the sender wishes the query
                 to return. A receiver of the request MUST return a result set whose size is less than or equal to the
                 maxResults parameter depending upon whether enough results are available starting at startIndex. If the
@@ -38,6 +47,7 @@
         </Attribute>
         <Attribute>
             <Term>id</Term>
+            <Name>Search Notice Request Identfier</Name>
             <Description>Specifies the unique identifier for an Identifiable Search Notice Request. In case of different
                 start index for same QueryRequest is used it is possible to use the same Search Notice Request
                 Identfier.
@@ -183,6 +193,26 @@
             <Description>The definition of the query and its parameters. This is indicated through the
                 queryDefinition="SearchNotice".
             </Description>
+            <Reference type="RULE">PEPPOL-T011-R023</Reference>
+            <Reference type="RULE">PEPPOL-T011-R024</Reference>
+            <Reference type="RULE">PEPPOL-T011-R025</Reference>
+            <Reference type="RULE">PEPPOL-T011-R026</Reference>
+            <Reference type="RULE">PEPPOL-T011-R027</Reference>
+            <Reference type="RULE">PEPPOL-T011-R028</Reference>
+            <Reference type="RULE">PEPPOL-T011-R029</Reference>
+            <Reference type="RULE">PEPPOL-T011-R030</Reference>
+            <Reference type="RULE">PEPPOL-T011-R031</Reference>
+            <Reference type="RULE">PEPPOL-T011-R032</Reference>
+            <Reference type="RULE">PEPPOL-T011-R033</Reference>
+            <Reference type="RULE">PEPPOL-T011-R034</Reference>
+            <Reference type="RULE">PEPPOL-T011-R035</Reference>
+            <Reference type="RULE">PEPPOL-T011-R036</Reference>
+            <Reference type="RULE">PEPPOL-T011-R037</Reference>
+            <Reference type="RULE">PEPPOL-T011-R038</Reference>
+            <Reference type="RULE">PEPPOL-T011-R039</Reference>
+            <Reference type="RULE">PEPPOL-T011-R040</Reference>
+            <Reference type="RULE">PEPPOL-T011-R041</Reference>
+            <Reference type="RULE">PEPPOL-T011-R042</Reference>
             <Attribute>
                 <Term>queryDefinition</Term>
                 <Value type="FIXED">SearchNotice</Value>
@@ -386,6 +416,11 @@
             <Element cardinality="0..1">
                 <Term>rim:Slot@name=EstimatedValue</Term>
                 <Name>EstimatedValue</Name>
+                <Reference type="RULE">PEPPOL-T011-R049</Reference>
+                <Reference type="RULE">PEPPOL-T011-R050</Reference>
+                <Reference type="RULE">PEPPOL-T011-R051</Reference>
+                <Reference type="RULE">PEPPOL-T011-R052</Reference>
+                <Reference type="RULE">PEPPOL-T011-R053</Reference>
                 <Description>An abstract class that defines a container for search attributes related to estimated
                     overall contract amount. Can be used to specify a minimum, maximum, range value or a currency for
                     the procurement. The results correspond to the amounts indicated in the fields Estimated Value
@@ -393,7 +428,7 @@
                 </Description>
                 <Attribute>
                     <Term>name</Term>
-                    <Value type="FIXED">TenderValue</Value>
+                    <Value type="FIXED">EstimatedValue</Value>
                 </Attribute>
                 <Element cardinality="0..1">
                     <Term>rim:Slot@name=Minimum</Term>
@@ -547,10 +582,9 @@
                 <Term>rim:Slot@name=PublicationDate</Term>
                 <Name>PublicationDate</Name>
                 <Description>
-                    An abstract class that defines a container for search attributes related to the
-                    Publication Date Preferred (BT-738) for notices and for planning notices to specify when the
-                    competition notice will be published (BT-127). Can be used to specify a start date, end date or a
-                    time range.
+                    An abstract class that defines a container for search attributes related to the Publication Date
+                    Preferred (BT-738) for notices and for planning notices to specify when the competition notice will
+                    be published (BT-127). Can be used to specify a start date, end date or a time range.
                 </Description>
                 <Attribute>
                     <Term>name</Term>
