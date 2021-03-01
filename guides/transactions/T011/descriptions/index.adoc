@@ -5,6 +5,29 @@ The transaction is based upon the definitions of {name-transaction-org} describe
 
 == Query Request
 
+=== Parameter maxResults and startIndex
+
+The Search Notice Request and Response support the ability to iterate over a large result set matching a query by allowing multiple QueryRequest requests to be submitted in succession such that each query requests a different subset of results within the result set. This feature enables the server to handle queries that match a very large result set, in a scalable manner also know as pagination.
+
+[source,xml,indent=0]
+....
+include::../files/ExampleSearchNoticeRequest.xml[lines=3..15]
+....
+
+[cols="4,8", options="header"]
+|===
+| name
+| description
+
+| maxResults
+| This attribute is used to indicate which result must be returned as the first result when iterating over a large result set. The default value is 0, which returns the result set starting with index 0 (first result).
+
+| startIndex
+| This attribute specifies a limit on the maximum number of results the sender wishes the query to return. A receiver of the request MUST return a result set whose size is less than or equal to the maxResults parameter depending upon whether enough results are available starting at startIndex. If the default value -1 is used, the receiver SHOULD return all the results.
+| id
+| Specifies the unique identifier for an Identifiable Search Notice Request. In case of different start index for same QueryRequest is used it is possible to use the same Search Notice Request identifier.
+|===
+
 === Specification Identification
 [source,xml,indent=0]
 ....

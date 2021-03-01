@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Structure xmlns="urn:fdc:difi.no:2017:vefa:structure-1">
-    <Term>Search Notice Response</Term>
+    <Term>SearchNoticeResponse</Term>
     <Name>Search Notice Response (T012)</Name>
 
     <Namespace prefix="query">urn:oasis:names:tc:ebxml-regrep:xsd:query:4.0</Namespace>
@@ -13,7 +13,7 @@
         <Description>The Search Notice Response contains a package with the information on zero or more notices. Both
             the metadata of the notices are included and the full text of the notices in xml.
         </Description>
-        <Attribute usage="Optional">
+        <Attribute usage="OPTIONAL">
             <Term>totalResultCount</Term>
             <Name>Total Result Count</Name>
             <Description>This parameter specifies the size of the complete result set matching the query within the
@@ -24,7 +24,7 @@
                 Queries section.
             </Description>
         </Attribute>
-        <Attribute usage="Optional">
+        <Attribute usage="OPTIONAL">
             <Term>startIndex</Term>
             <Name>Start Index</Name>
             <Description>This integer value is used to indicate the index for the first result in the result set

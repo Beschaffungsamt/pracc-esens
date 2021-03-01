@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Structure xmlns="urn:fdc:difi.no:2017:vefa:structure-1">
-    <Term>Search Notice Request</Term>
+    <Term>SearchNoticeRequest</Term>
     <Name>Search Notice Request (T011)</Name>
 
     <Namespace prefix="query">urn:oasis:names:tc:ebxml-regrep:xsd:query:4.0</Namespace>
@@ -21,7 +21,7 @@
         <Reference type="RULE">PEPPOL-T011-R005</Reference>
         <Reference type="RULE">PEPPOL-T011-R006</Reference>
         <Reference type="RULE">PEPPOL-T011-R007</Reference>
-        <Attribute usage="Optional">
+        <Attribute usage="OPTIONAL">
             <Term>startIndex</Term>
             <Name>Start Index</Name>
             <Description>The Search Notice Request and Response support the ability to iterate over a large result set
@@ -34,7 +34,7 @@
             <DataType>integer</DataType>
             <Value type="DEFAULT">0</Value>
         </Attribute>
-        <Attribute usage="Optional">
+        <Attribute usage="OPTIONAL">
             <Term>maxResults</Term>
             <Name>Maximum Number Of Results</Name>
             <Description>This attribute specifies a limit on the maximum number of results the sender wishes the query
@@ -47,10 +47,10 @@
         </Attribute>
         <Attribute>
             <Term>id</Term>
-            <Name>Search Notice Request Identfier</Name>
+            <Name>Search Notice Request Identifier</Name>
             <Description>Specifies the unique identifier for an Identifiable Search Notice Request. In case of different
                 start index for same QueryRequest is used it is possible to use the same Search Notice Request
-                Identfier.
+                Identifier.
             </Description>
         </Attribute>
         <Element>
@@ -319,12 +319,12 @@
                 </Attribute>
                 <Attribute>
                     <Term>type</Term>
-                    <Value type="EXAMPLE">http://publications.europa.eu/resource/authority/cpv/cpv</Value>
                     <Description>
                         http://publications.europa.eu/resource/authority/cpv/cpv
                         or
                         http://publications.europa.eu/resource/authority/cpv/cpvsuppl
                     </Description>
+                    <Value type="EXAMPLE">http://publications.europa.eu/resource/authority/cpv/cpv</Value>
                 </Attribute>
                 <Element>
                     <Term>rim:SlotValue</Term>
@@ -416,16 +416,16 @@
             <Element cardinality="0..1">
                 <Term>rim:Slot@name=EstimatedValue</Term>
                 <Name>EstimatedValue</Name>
-                <Reference type="RULE">PEPPOL-T011-R049</Reference>
-                <Reference type="RULE">PEPPOL-T011-R050</Reference>
-                <Reference type="RULE">PEPPOL-T011-R051</Reference>
-                <Reference type="RULE">PEPPOL-T011-R052</Reference>
-                <Reference type="RULE">PEPPOL-T011-R053</Reference>
                 <Description>An abstract class that defines a container for search attributes related to estimated
                     overall contract amount. Can be used to specify a minimum, maximum, range value or a currency for
                     the procurement. The results correspond to the amounts indicated in the fields Estimated Value
                     (BT-27).
                 </Description>
+                <Reference type="RULE">PEPPOL-T011-R049</Reference>
+                <Reference type="RULE">PEPPOL-T011-R050</Reference>
+                <Reference type="RULE">PEPPOL-T011-R051</Reference>
+                <Reference type="RULE">PEPPOL-T011-R052</Reference>
+                <Reference type="RULE">PEPPOL-T011-R053</Reference>
                 <Attribute>
                     <Term>name</Term>
                     <Value type="FIXED">EstimatedValue</Value>
@@ -988,13 +988,13 @@
             <Element cardinality="0..n">
                 <Term>rim:Slot@name=BuyerInformation</Term>
                 <Name>BuyerInformation</Name>
+                <Description>Used to search for the awarding criterion type code (BT-539) that is used to assess the
+                    tenders.
+                </Description>
                 <Attribute>
                     <Term>name</Term>
                     <Value type="FIXED">BuyerInformation</Value>
                 </Attribute>
-                <Description>Used to search for the awarding criterion type code (BT-539) that is used to assess the
-                    tenders.
-                </Description>
                 <Element cardinality="0..1">
                     <Term>rim:Slot@name=Name</Term>
                     <Name>Name</Name>
