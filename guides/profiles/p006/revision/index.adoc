@@ -27,17 +27,23 @@
 | added example xmls, description and first schematrons
 
 | 0.4
-| 2021-02-26
+| 2021-02-25
 | Ansgar Mondorf
 | Universität Koblenz-Landau
 | Profile Description for P006
 
 
-| 0.4
+| 0.5
 | 2021-02-26
 | Ansgar Mondorf
 | Universität Koblenz-Landau
-| Profile Description for P006
+| Description of Search Notice Request and Search Notice Response Transactions
+
+| 0.6
+| 2021-01-03
+| Ansgar Mondorf
+| Universität Koblenz-Landau
+| Inclusion of Figures, Graphics and Key Examples
 
 
 |===
