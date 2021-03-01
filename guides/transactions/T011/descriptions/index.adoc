@@ -11,7 +11,7 @@ The Search Notice Request and Response support the ability to iterate over a lar
 
 [source,xml,indent=0]
 ....
-include::../files/ExampleSearchNoticeRequest.xml[lines=3..15]
+include::../files/ExampleSearchNoticeRequest.xml[lines=2..14]
 ....
 
 [cols="4,8", options="header"]
