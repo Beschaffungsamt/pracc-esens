@@ -1,13 +1,10 @@
 [appendix]
-= T012 - Search Notice Response Exchange Data Model
-
-
+== T012 - Search Notice Response Exchange Data Model
 
 image::../files/SearchNoticeResponseEDM.png[align="center", width=800]
 
-___
 [appendix]
-= Key examples/use cases
+== Key examples/use cases
 
 link:files/ExampleSearchNoticeResponse.xml[Link to example file]
 
@@ -15,5 +12,4 @@ link:files/ExampleSearchNoticeResponse.xml[Link to example file]
 .Example file for {name-transaction}
 ----
 include::../files/ExampleSearchNoticeResponse.xml[tag=**]
-
-
+----

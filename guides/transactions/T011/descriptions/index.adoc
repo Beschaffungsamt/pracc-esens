@@ -28,6 +28,12 @@ include::../files/ExampleSearchNoticeRequest.xml[lines=2..14]
 | Specifies the unique identifier for an Identifiable Search Notice Request. In case of different start index for same QueryRequest is used it is possible to use the same Search Notice Request identifier.
 |===
 
+[plantuml, pagination-seq-diagram, svg]
+.Example of a request with maxResults set to 100.
+....
+include::../../../shared/pagination.PLANTUML[]
+....
+
 === Specification Identification
 [source,xml,indent=0]
 ....

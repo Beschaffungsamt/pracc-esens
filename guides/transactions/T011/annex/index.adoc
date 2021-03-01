@@ -1,13 +1,10 @@
 [appendix]
-= T011 - Search Notice Request Exchange Data Model
+== T011 - Search Notice Request Exchange Data Model
 
-
-
-image::../files/SearchNoticeRequestEDM.png[align="center", width=800]
----
+image::../files/SearchNoticeRequestEDM.png[align="center"]
 
 [appendix]
-= Key examples/use cases
+== Key examples/use cases
 
 link:{xml-doc-file}[Link to example file]
 
@@ -16,4 +13,3 @@ link:{xml-doc-file}[Link to example file]
 ----
 include::../files/ExampleSearchNoticeRequest.xml[tag=**]
 ----
-

@@ -5,7 +5,33 @@ Limited support for this, see {name-profile-org}.
 
 == Query Response
 
+=== Parameter totalResultCount and startIndex
+
+[source,xml,indent=0]
+....
+include::../files/ExampleSearchNoticeResponse.xml[lines=2..16]
+....
+
+[cols="4,8", options="header"]
+|===
+| name
+| description
+
+| totalResultCount
+| This parameter specifies the size of the complete result set matching the query within the server. When this value is unspecified, the client should assume it is the size of the result set contained within the result. When this value is -1, the client should assume that the number of total results is unknown. In this case the client should keep iterating through the remaining result set for the query until no more results are returned.
+
+| startIndex
+| This integer value is used to indicate the index for the first result in the result set returned by the query, within the complete result set matching the query. By default, this value is 0.
+|===
+
+[plantuml, pagination-seq-diagram, svg]
+.Example of a request with maxResults set to 100.
+....
+include::../../../shared/pagination.PLANTUML[]
+....
+
 === Specification Identification
+
 [source,xml,indent=0]
 ....
 include::../files/ExampleSearchNoticeResponse.xml[tags=specification-identification]

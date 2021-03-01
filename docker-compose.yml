@@ -3,6 +3,8 @@ services:
 
   asciidoctor:
     image: "difi/asciidoctor"
+    environment:
+      diagram: 'true'
     volumes:
       - .:/documents
       - ./target:/target
