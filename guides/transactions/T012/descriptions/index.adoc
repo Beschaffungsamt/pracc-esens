@@ -28,7 +28,7 @@ include::../files/ExampleSearchNoticeResponse.xml[tags=business-process-type-ide
 include::../files/ExampleSearchNoticeResponse.xml[tags=issue-date-time]
 ....
 <.> Date and time when the request was being issued.
-<.> The SlotValue type has to be DateTimeValueType you have to give stick to the format and add date and time granular to seconds and the timezone.
+<.> The SlotValue type has to be DateTimeValueType. Stick to the format "yyyy-mm-ddThh:mm:ss" and add the timezone in the end (i.e. Z or +01:00). Values for seconds, and the timezone must be given.
 
 === Sender electronic address
 [source,xml,indent=0]

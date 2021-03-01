@@ -82,11 +82,9 @@
         <rim:Slot name="Classification" type="http://publications.europa.eu/resource/authority/cpv/cpv"> <!--.-->
             <rim:SlotValue xsi:type="rim:CollectionValueType">
                 <rim:Element xsi:type="rim:StringValueType">
-                    <!-- Cotton seeds -->
                     <rim:Value>03111400-6</rim:Value>
                 </rim:Element>
                 <rim:Element xsi:type="rim:StringValueType">
-                    <!-- Cotton -->
                     <rim:Value>03115110-4</rim:Value>
                 </rim:Element>
             </rim:SlotValue>
@@ -94,11 +92,9 @@
         <rim:Slot name="Classification" type="http://publications.europa.eu/resource/authority/cpv/cpvsuppl"> <!--.-->
             <rim:SlotValue xsi:type="rim:CollectionValueType">
                 <rim:Element xsi:type="rim:StringValueType">
-                    <!-- tin -->
                     <rim:Value>AA08</rim:Value>
                 </rim:Element>
                 <rim:Element xsi:type="rim:StringValueType">
-                    <!-- Glass inners -->
                     <rim:Value>AB22</rim:Value>
                 </rim:Element>
             </rim:SlotValue>

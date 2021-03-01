@@ -50,7 +50,7 @@ include::../files/ExampleSearchNoticeRequest.xml[tags=business-process-type-iden
 include::../files/ExampleSearchNoticeRequest.xml[tags=issue-date-time]
 ....
 <.> Date and time when the request was being issued.
-<.> The SlotValue type has to be DateTimeValueType you have to give stick to the format and add date and time granular to seconds and the timezone.
+<.> The SlotValue type has to be DateTimeValueType. Stick to the format "yyyy-mm-ddThh:mm:ss" and add the timezone in the end (i.e. Z or +01:00). Values for seconds, and the timezone must be given.
 
 === Sender electronic address
 [source,xml,indent=0]
@@ -81,7 +81,7 @@ include::../files/ExampleSearchNoticeRequest.xml[tags=response-option]
 ....
 include::../files/ExampleSearchNoticeRequest.xml[tags=keywords]
 ....
-<.> All keywords are collected as one single string. Just enter the desired keywords for your search as you would expect it from a searchbar. Select keywords for any parameter of your search as if searching for a specific procedure.
+<.> All keywords are collected as one single string. Enter the keywords for the search as expecting it from a searchbar. Select keywords for any parameter of the search as if searching for a specific procedure.
 
 This slot is optional and can only included once.
 
@@ -90,27 +90,27 @@ This slot is optional and can only included once.
 ....
 include::../files/ExampleSearchNoticeRequest.xml[tags=form-type]
 ....
-<.> Select the type from the given collection. Into the type-attribute of the slot is to fill with the listID of your source.
-The type of the slotValue is a CollectionValueType, so you can enter more than one element. Each element has its own type, i.e. StringValueType.
+<.> Select the type from the given collection. Into the type-attribute of the slot is to fill with the listID "http://publications.europa.eu/resource/authority/form-type".
 
-This slot is optional and can only included once.
+The type of the slotValue is a CollectionValueType, so you can enter more than one element. Each element has to be of a xsi:type StringValueType. This slot is optional and can only included once.
 
 === Notice Type
 [source,xml,indent=0]
 ....
 include::../files/ExampleSearchNoticeRequest.xml[tags=form-type]
 ....
-<.> Just like the form type, you may select the notice type, you want to search for. The ID of your list has to be filled into the type-attribute of the slot.
+<.> Just like the form type, you may select the notice type, you want to search for. The ID of the list has to be "http://publications.europa.eu/resource/authority/notice-type" in the type attribute of the slot.
 
-The type of the slotValue is a CollectionValueType, so you can enter more than one element. Each element has its own type, i.e. StringValueType. This slot is optional and can only included once.
+The type of the slotValue is a CollectionValueType, so you can enter more than one element. Each element has to be of a xsi:type StringValueType. This slot is optional and can only included once.
 
 === Classification
 [source,xml,indent=0]
 ....
 include::../files/ExampleSearchNoticeRequest.xml[tags=classification]
 ....
-<.> The classification consists of the type of classification and the value. The type of classification is filled into the type-attribute in form of your listID.
-Therefore, the type of your classification has to be the same for each element. Into the value tag goes the selected CPV or CPVsuppl code for your search request.
+<.> The classification consists of the type of classification and the value. The type of classification is filled into the type-attribute in form of your listID ("http://publications.europa.eu/resource/authority/cpv/cpv" or "http://publications.europa.eu/resource/authority/cpv/cpvsuppl").
+Therefore, the type of your classification has to be the same for each element. Into the value tag goes the selected CPV or CPVsuppl code for the search request.
+<.> This would be an example of to different kinds of classifications searched for in the same request. The first one is a standard cpv code, and the second a cpvsuppl code. Both have to be put in different classification slots. In total there can be two classification slots, but each consists of multiple elements with various codes.
 
 The type of the slotValue is a CollectionValueType, so you can enter more than one element. Each element has its own type, i.e. StringValueType, that you have to declare. The whole slot is optional.
 
@@ -119,7 +119,7 @@ The type of the slotValue is a CollectionValueType, so you can enter more than o
 ....
 include::../files/ExampleSearchNoticeRequest.xml[tags=contract-nature]
 ....
-<.> The type of the slotValue is a CollectionValueType, so you can enter more than one element. The selected listID has to be filled into the type-attribute of the slot.
+<.> The type of the slotValue is a CollectionValueType, so you can enter more than one element. The listID "http://publications.europa.eu/resource/authority/contract-nature" has to be filled into the type-attribute of the slot.
 <.> Each element has its own type, i.e. StringValueType, that you have to declare.
 <.> The values were chosen to match the classification codes.
 
@@ -130,7 +130,7 @@ This slot is optional and can only included once.
 ....
 include::../files/ExampleSearchNoticeRequest.xml[tags=place-of-performance]
 ....
-<.> The type of the slotValue is a CollectionValueType, so you can enter more than one element. The selected listID has to be filled into the type-attribute of the slot. Each location is added in form of its NUTS-Code.
+<.> The type of the slotValue is a CollectionValueType, so you can enter more than one element. The listID "http://publications.europa.eu/resource/authority/nuts" has to be filled into the type-attribute of the slot. Each location is added in form of a standard NUTS-Code.
 
 This slot is optional and can only included once.
 
@@ -139,10 +139,10 @@ This slot is optional and can only included once.
 ....
 include::../files/ExampleSearchNoticeRequest.xml[tag=estimatedValue]
 ....
-<.> The slot for the tender value consists of four different slots, which can all be added to specify the tender value. The slot as a whole is optional, as are each of the three slots in it.
+<.> The slot for the estimated tender value consists of four different slots, which can all be added to specify the tender value. The slot as a whole is optional, as are each of the three slots in it.
 <.> The first one is minimum, the minimal tender value you are looking for. It has to be declared as a float.
 <.> Corresponding to minimum, the second value you can search for in the tender value is the maximum. Just like the minimum the maximum tender value you are searching for is a float.
-<.> The third possible criteria is the currency. This one is a CollectionValueType you can enter more than one element. The values are selected from the list which ID is deposited in the type-attribute of the slot.
+<.> The third possible criteria is the currency. This one is a CollectionValueType you can enter more than one element. The values are selected from the list "http://publications.europa.eu/resource/authority/currency" which ID is deposited in the type-attribute of the slot.
 
 This slot is optional and can only included once. If Estimated Value is included at least one of minimum, maximum or currency has to be included as well. These can only be included once.
 
@@ -151,7 +151,7 @@ This slot is optional and can only included once. If Estimated Value is included
 ....
 include::../files/ExampleSearchNoticeRequest.xml[tags=procedure-type]
 ....
-<.> The type of the slotValue is a CollectionValueType, so you can enter more than one element. The selected listID has to be filled into the type-attribute of the slot. The value of the slot is chosen from the list.
+<.> The type of the slotValue is a CollectionValueType, so you can enter more than one element. The listID "http://publications.europa.eu/resource/authority/procurement-procedure-type" has to be filled into the type-attribute of the slot. The value of the slot is chosen from the list.
 
 This slot is optional and can only included once.
 
@@ -160,7 +160,7 @@ This slot is optional and can only included once.
 ....
 include::../files/ExampleSearchNoticeRequest.xml[tags=submission-language]
 ....
-<.> The type of the slotValue is a CollectionValueType, so you can enter more than one element. The selected listID has to be filled into the type-attribute of the slot. The value of the slot is chosen from the list.
+<.> The type of the slotValue is a CollectionValueType, so you can enter more than one element. The listID "http://publications.europa.eu/resource/authority/language" has to be filled into the type-attribute of the slot. The value of the slot is chosen from the list.
 
 This slot is optional and can only included once.
 
@@ -170,8 +170,8 @@ This slot is optional and can only included once.
 include::../files/ExampleSearchNoticeRequest.xml[tags=publication-date]
 ....
 <.> The first of four date slots. Here you can search for the date of publication. The slot can consist of up to two slots, each of a DateTimeValueType.
-<.> The first slot can be filled with a potential start date and time of the publication. With the DateTimeValueType in mind you can declare the desired date in the standard DateTime format.
-<.> The second slot can be filled with a possible end date and time of the publication. With the DateTimeValueType in mind you can declare the desired date in the standard DateTime format.
+<.> The first slot can be filled with a potential start date and time of the publication. With the DateTimeValueType in mind you can declare the desired date in the standard DateTime format ("yyyy-mm-ddThh:mm:ss", the timezone in the end (i.e. Z or +01:00)). Values for seconds, and the timezone must be given.
+<.> The second slot can be filled with a possible end date and time of the publication. With the DateTimeValueType in mind you can declare the desired date in the standard DateTime format ("yyyy-mm-ddThh:mm:ss", the timezone in the end (i.e. Z or +01:00)). Values for seconds, and the timezone must be given.
 
 This slot is optional and can only included once.
 
@@ -181,8 +181,8 @@ This slot is optional and can only included once.
 include::../files/ExampleSearchNoticeRequest.xml[tags=deadline-receipt-tenders]
 ....
 <.> The second of four date slots. Here you can search for the deadline of receipt tenders. The slot can consist of up to two slots, each of a DateTimeValueType.
-<.> The first slot can be filled with a potential start date and time for the deadline for receipt tenders. With the DateTimeValueType in mind you can declare the desired date in the standard DateTime format.
-<.> The second slot can be filled with a possible end date and time for the deadline for receipt tenders. With the DateTimeValueType in mind you can declare the desired date in the standard DateTime format.
+<.> The first slot can be filled with a potential start date and time for the deadline for receipt tenders. With the DateTimeValueType in mind you can declare the desired date in the standard DateTime format ("yyyy-mm-ddThh:mm:ss", the timezone in the end (i.e. Z or +01:00)). Values for seconds, and the timezone must be given.
+<.> The second slot can be filled with a possible end date and time for the deadline for receipt tenders. With the DateTimeValueType in mind you can declare the desired date in the standard DateTime format ("yyyy-mm-ddThh:mm:ss", the timezone in the end (i.e. Z or +01:00)). Values for seconds, and the timezone must be given.
 
 This slot is optional and can only included once.
 
@@ -192,8 +192,8 @@ This slot is optional and can only included once.
 include::../files/ExampleSearchNoticeRequest.xml[tags=additional-information-deadline]
 ....
 <.> The third of four date slots. Here you can search for the deadline of additional information. The slot can consist of up to two slots, each of a DateTimeValueType.
-<.> The first slot can be filled with a potential start date and time for the deadline of additional information. With the DateTimeValueType in mind you can declare the desired date in the standard DateTime format.
-<.> The second slot can be filled with a possible end date and time for the deadline of additional information. With the DateTimeValueType in mind you can declare the desired date in the standard DateTime format.
+<.> The first slot can be filled with a potential start date and time for the deadline of additional information. With the DateTimeValueType in mind you can declare the desired date in the standard DateTime format ("yyyy-mm-ddThh:mm:ss", the timezone in the end (i.e. Z or +01:00)). Values for seconds, and the timezone must be given.
+<.> The second slot can be filled with a possible end date and time for the deadline of additional information. With the DateTimeValueType in mind you can declare the desired date in the standard DateTime format ("yyyy-mm-ddThh:mm:ss", the timezone in the end (i.e. Z or +01:00)). Values for seconds, and the timezone must be given.
 
 This slot is optional and can only included once.
 
@@ -203,8 +203,8 @@ This slot is optional and can only included once.
 include::../files/ExampleSearchNoticeRequest.xml[tags=deadline-receipt-requests]
 ....
 <.> The last of the four date slots. Here you can search for the deadline of receipt requests. The slot can consist of up to two slots, each of a DateTimeValueType.
-<.> The first slot can be filled with a potential start date and time for the deadline of receipt requests. With the DateTimeValueType in mind you can declare the desired date in the standard DateTime format.
-<.> The second slot can be filled with a possible end date and time for the deadline  of receipt requests. With the DateTimeValueType in mind you can declare the desired date in the standard DateTime format.
+<.> The first slot can be filled with a potential start date and time for the deadline of receipt requests. With the DateTimeValueType in mind you can declare the desired date in the standard DateTime format ("yyyy-mm-ddThh:mm:ss", the timezone in the end (i.e. Z or +01:00)). Values for seconds, and the timezone must be given.
+<.> The second slot can be filled with a possible end date and time for the deadline  of receipt requests. With the DateTimeValueType in mind you can declare the desired date in the standard DateTime format ("yyyy-mm-ddThh:mm:ss", the timezone in the end (i.e. Z or +01:00)). Values for seconds, and the timezone must be given.
 
 This slot is optional and can only included once.
 
@@ -240,7 +240,7 @@ This slot is optional and can only included once.
 ....
 include::../files/ExampleSearchNoticeRequest.xml[tags=reserved-participation]
 ....
-<.> The type of the slotValue is a CollectionValueType, so you can enter more than one element. The selected listID has to be filled into the type-attribute of the slot. The value of the slot is chosen from the list. Choose if the procedure is only accessible for certain types of companies.
+<.> The type of the slotValue is a CollectionValueType, so you can enter more than one element. The listID "http://publications.europa.eu/resource/authority/reserved-procurement" has to be filled into the type-attribute of the slot. The value of the slot is chosen from the list. Choose if the procedure is only accessible for certain types of companies.
 
 This slot is optional and can only included once.
 
@@ -249,7 +249,7 @@ This slot is optional and can only included once.
 ....
 include::../files/ExampleSearchNoticeRequest.xml[tags=suitable-for-smes]
 ....
-<.> As this slotValue is a boolean, please only insert true or false, if the procedure has to be suitable for small or medium sized economic operators.
+<.> As this slotValue is a boolean, please only insert true or false, if the procedure has to be suitable for small or medium-sized economic operators.
 
 This slot is optional and can only included once.
 
@@ -267,7 +267,7 @@ This slot is optional and can only included once.
 ....
 include::../files/ExampleSearchNoticeRequest.xml[tags=award-criterion-type]
 ....
-<.> The type of the slotValue is a CollectionValueType, so you can enter more than one element. The selected listID has to be filled into the type-attribute of the slot. The value of the slot is chosen from the list. Some of the values cannot be combined with each other, so be careful in selecting each.
+<.> The type of the slotValue is a CollectionValueType, so you can enter more than one element. The listID "http://publications.europa.eu/resource/authority/award-criterion-type" has to be filled into the type-attribute of the slot. The value of the slot is chosen from the list. Some values cannot be combined with each other, so be careful in selecting each.
 
 This slot is optional and can only included once.
 
@@ -280,9 +280,9 @@ include::../files/ExampleSearchNoticeRequest.xml[tags=information-about-buyer]
 <.> The number of the organisation, as defined in each country.
 <.> The address of the company - city.
 <.> The address of the company - postcode.
-<.> The id of each affected subdivision of the company, as selected from the code list. The list id has to be deposited in the type attribute of the slot. Multiple can be added.
-<.> The country code of each affected country, as selected from the code list. The list id has to be deposited in the type attribute of the slot. Multiple can be added.
-<.> The legal type of the buying company, as selected from the code list. The list id has to be deposited in the type attribute of the slot. Multiple can be added.
-<.> The main activity of the buying company, as selected from the code list. The list id has to be deposited in the type attribute of the slot. Multiple can be added.
+<.> The id of each affected subdivision of the company, as selected from the code list. The list Id "http://publications.europa.eu/resource/authority/nuts" has to be deposited in the type attribute of the slot. Multiple subdivision ids can be added.
+<.> The country code of each affected country, as selected from the code list. The listId "http://publications.europa.eu/resource/authority/country" has to be deposited in the type attribute of the slot. Multiple country codes can be added.
+<.> The legal type of the buying company, as selected from the code list. The listId "http://publications.europa.eu/resource/authority/buyer-legal-type" has to be deposited in the type attribute of the slot. Multiple legal types can be added.
+<.> The main activity of the buying company, as selected from the code list. The listId "http://publications.europa.eu/resource/authority/main-activity" has to be deposited in the type attribute of the slot. Multiple activities can be added.
 
 The whole slot is optional and can be included multiple times. If Buyer Information is included at least one of name, organisation number, city, postcode, organisation country subdivision, country code, legal type or main activity has to be included as well. These can only be included once.
