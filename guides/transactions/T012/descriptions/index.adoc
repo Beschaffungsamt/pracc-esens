@@ -11,7 +11,7 @@ Limited support for this, see {name-profile-org}.
 include::../files/ExampleSearchNoticeResponse.xml[tags=specification-identification]
 ....
 <.> Identifier for the set of rules and transactions for a search notice response.
-<.> The value for the specification identification is always "urn:www.cenbii.eu:transaction:biitrdm100:ver3.0:extended:urn:fdc:peppol.eu:2021:pracc:t012:ver1.0", just like in the given example.
+<.> The value for the specification identification is always "_urn:www.cenbii.eu:transaction:biitrdm100:ver3.0:extended:urn:fdc:peppol.eu:2021:pracc:t012:ver1.0_", just like in the given example.
 
 
 === Business Process Type Identifier
@@ -20,7 +20,7 @@ include::../files/ExampleSearchNoticeResponse.xml[tags=specification-identificat
 include::../files/ExampleSearchNoticeResponse.xml[tags=business-process-type-identifier]
 ....
 <.> Identifier for the business process context of the search notice response.
-<.> The value for the business process type identifier is always "urn:fdc:peppol.eu:2020:pracc:p006:01:1.0", just like in the given example.
+<.> The value for the business process type identifier is always "_urn:fdc:peppol.eu:2020:pracc:p006:01:1.0_", just like in the given example.
 
 === Issue Date Time
 [source,xml,indent=0]
@@ -28,7 +28,7 @@ include::../files/ExampleSearchNoticeResponse.xml[tags=business-process-type-ide
 include::../files/ExampleSearchNoticeResponse.xml[tags=issue-date-time]
 ....
 <.> Date and time when the request was being issued.
-<.> The SlotValue type has to be DateTimeValueType. Stick to the format "yyyy-mm-ddThh:mm:ss" and add the timezone in the end (i.e. Z or +01:00). Values for seconds, and the timezone must be given.
+<.> The SlotValue type has to be DateTimeValueType. Stick to the format "_yyyy-mm-ddThh:mm:ss_" and add the timezone in the end (i.e. Z or +01:00). Values for seconds, and the timezone must be given.
 
 === Sender electronic address
 [source,xml,indent=0]
@@ -55,5 +55,5 @@ include::../files/ExampleSearchNoticeResponse.xml[tags=registry-object-list]
 <.> Here you can find the uuids from your request as you defined them in the notice (id) and procedure (lid) identifier.
 <.> Electronic address used by the buyer, just like the ones from the receiver or sender.
 <.> This is the UBL code of the type of document you searched for. Possible values can be taken from the list, which has to be deposited in the type-attribute of the slot.
-<.> Reference to the eform xml with the requested information included.
+<.> Reference to the eform.xml with the requested information included.
 
