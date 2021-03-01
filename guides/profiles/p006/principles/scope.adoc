@@ -7,6 +7,9 @@ include::introduction.adoc[]
 
 include::notification.adoc[]
 
+include::keyexamples.adoc[]
+
 include::parties-roles.adoc[]
+
 
 :leveloffset: -1
