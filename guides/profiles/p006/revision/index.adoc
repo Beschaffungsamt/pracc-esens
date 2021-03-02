@@ -18,28 +18,22 @@
 | 2021-02-23
 | Felicia Tsakonas
 | adesso SE
-| added example xmls, description and first schematrons
+| added example xmls, description and schematrons
 
 | 0.3
-| 2021-02-23
-| Felicia Tsakonas
-| adesso SE
-| added example xmls, description and first schematrons
-
-| 0.4
 | 2021-02-25
 | Ansgar Mondorf
 | Universität Koblenz-Landau
 | Profile Description for P006
 
 
-| 0.5
+| 0.4
 | 2021-02-26
 | Ansgar Mondorf
 | Universität Koblenz-Landau
 | Description of Search Notice Request and Search Notice Response Transactions
 
-| 0.6
+| 0.5
 | 2021-01-03
 | Ansgar Mondorf
 | Universität Koblenz-Landau

@@ -283,6 +283,7 @@ This slot is optional and can only be included once.
 include::../files/ExampleSearchNoticeRequest.xml[tags=information-about-buyer]
 ....
 <.> This slot collects all the information about the buyer.
+<.> Name of the buying company.
 <.> The number of the organisation, as defined in each country.
 <.> The address of the company - city.
 <.> The address of the company - postcode.
